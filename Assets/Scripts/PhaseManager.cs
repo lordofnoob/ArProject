@@ -7,6 +7,7 @@ public enum Phase
     INIT,
     DEFENCE,
     ATTACK,
+    COMPATIBILITY,
     RESOLUTION
 }
 
@@ -83,6 +84,26 @@ public class PhaseManager : MonoBehaviour
             yield return 0;
         }
         
+        // Desafficher l'UI
+
+        currentPhaseCoroutine = StartCoroutine(CompatibilityPhase());
+    }
+
+    private IEnumerator CompatibilityPhase()
+    {
+        currentPhase = Phase.COMPATIBILITY;
+
+        // Afficher UI
+        // Check Compatibility
+        // Afficher UI (Bonus) 
+
+        bool isClicked = false;
+        while (!isClicked)
+        {
+            // Verifier si le bouton/ecran a été click
+            yield return 0;
+        }
+
         // Desafficher l'UI
 
         currentPhaseCoroutine = StartCoroutine(ResolutionPhase());
