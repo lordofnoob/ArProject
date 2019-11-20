@@ -56,9 +56,9 @@ public class PhaseManager : MonoBehaviour
         bool isValidate = false;
         while(!isValidate)
         {
-            // Check les cartes
+            // Check/Scan les cartes
             // Ajouter les units correspondante à la liste Defenders
-            // + Ajouter les units à la scène
+            // + Ajouter/Enlever les units à/de la scène
             yield return 0;
         }
 
@@ -79,14 +79,14 @@ public class PhaseManager : MonoBehaviour
         while (!isValidate)
         {
             // Check les cartes
-            // Ajouter les units correspondante à la liste Defenders
-            // + Ajouter les units à la scène
+            // Ajouter/Enlever les units correspondante à la liste Attackers
+            // +Ajouter/Enlever les units à/de la scène
             yield return 0;
         }
-        
-        // Desafficher l'UI
 
-        currentPhaseCoroutine = StartCoroutine(CompatibilityPhase());
+       // Desafficher l'UI
+
+       currentPhaseCoroutine = StartCoroutine(CompatibilityPhase());
     }
 
     private IEnumerator CompatibilityPhase()
