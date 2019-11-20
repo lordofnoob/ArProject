@@ -14,4 +14,9 @@ public class TileInfo : MonoBehaviour
 {
     public int distanceFromGoal;
     public TileType tileType;
+
+    private void Awake()
+    {
+        distanceFromGoal = -1;
+    }
 }
