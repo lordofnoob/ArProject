@@ -48,11 +48,6 @@ public class TileManager : MonoBehaviour
         }
     }
 
-    public void SetDynamicPathFinding(int goalTileID)
-    {
-
-    }
-
     public GameObject GetTile(int tileID)
     {
         return tileGrid[tileID];
@@ -88,7 +83,7 @@ public class TileManager : MonoBehaviour
         else
         {
             if (lineCount % 2 == 0)
-                return new Vector3((tileRow - rowCount/2) * Mathf.Sqrt(3) * tileSize, originTransform.position.y, (lineCount / 2 - tileLine - 1f/2f) * tileSize); //(tileRow - rowCount / 2 + 1) * Mathf.Sqrt(3) * tileSize / 2f
+                return new Vector3((tileRow - rowCount/2) * Mathf.Sqrt(3) * tileSize, originTransform.position.y, (lineCount / 2 - tileLine - 1f/2f) * tileSize);
             else
                 return new Vector3((tileRow - rowCount/2) * Mathf.Sqrt(3) * tileSize, originTransform.position.y, (lineCount / 2 - tileLine) * tileSize);
         }
@@ -219,5 +214,45 @@ public class TileManager : MonoBehaviour
         }
 
         return gameObjectList;
+    }
+
+    public void SetPathFinding(int goalTileID)
+    {
+        Queue<int> tileToExploreFrom = new Queue<int>();
+        int currentTile;
+        tileToExploreFrom.Enqueue(goalTileID);
+        
+        while(tileToExploreFrom.Count > 0)
+        {
+            currentTile = tileToExploreFrom.Dequeue();
+            List<int> currentTileNeighboors = GetTileNeighbours(currentTile);
+
+            foreach(int closeTileID in currentTileNeighboors)
+            {
+                TileInfo closeTileInfo = GetTile(closeTileID).GetComponent<TileInfo>();
+                if(!CheckWalkability(closeTileInfo) || closeTileInfo.distanceFromGoal !=-1)
+                {
+                    continue;
+                }
+
+                closeTileInfo.distanceFromGoal = GetTile(currentTile).GetComponent<TileInfo>().distanceFromGoal + 1;
+
+                tileToExploreFrom.Enqueue(closeTileID);
+            }
+        }
+    }
+
+    private bool CheckWalkability(TileInfo tileInfo)
+    {
+        switch(tileInfo.tileType)
+        {
+            case TileType.GROUND:
+            case TileType.ATTACKSPAWN:  
+                return true;
+            case TileType.DEFENCESPAWN:
+            case TileType.OBSTACLE:
+            default: 
+                return false;
+        }
     }
 }
