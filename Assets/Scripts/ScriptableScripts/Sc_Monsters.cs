@@ -25,6 +25,6 @@ public struct allCharacterisitcs
 public enum MonsterSpeed
 {
     Quick = 20, 
-    Normal =15,
-    Slow =10,
+    Normal = 15,
+    Slow = 10,
 }

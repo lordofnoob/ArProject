@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,9 +7,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager instance;
-    private PhaseManager phaseManager;
+    public static GameManager instance;
+    public System.Random random;
 
+    private PhaseManager phaseManager;
+    
     private void Awake()
     {
         if(instance)
@@ -19,6 +22,7 @@ public class GameManager : MonoBehaviour
         
         instance = this;
         phaseManager = new PhaseManager();
+        random = new System.Random();
     }
 
     private void Start()

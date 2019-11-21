@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
+    public static TileManager instance;
+
+    private void Awake()
+    {
+        if(instance)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     public int rowCount;
     public int lineCount;
     public float tileSize;
