@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum UnitState
 {
+    IDLE,
     STANDBY,
     MOVING,
     DEAD
@@ -19,14 +20,14 @@ public class Mb_Enemy : MonoBehaviour
     public Animator anim;
 
     private UnitState unitState;
-    private int currentTile;
-    private int unitDestination;
+    private int unitStartingMovementTile;
+    private int unitDestinationTile;
     private float movementProgress;
 
     private void Awake()
     {
         monsterUpdatedCharacteristics = monsterCharacteristics.monsterBaseCharacteristics;
-        unitDestination = -1;
+        unitDestinationTile = -1;
     }
 
     public void Action()
@@ -35,9 +36,12 @@ public class Mb_Enemy : MonoBehaviour
         {
             return;
         }
-        if(unitState == UnitState.STANDBY)
+        if (unitState == UnitState.STANDBY)
         {
-            unitDestination = TileManager.instance.GetTile(currentTile).GetComponent<TileInfo>().FindNextTile(); ;
+            unitDestinationTile = TileManager.instance.GetTileInfo(unitStartingMovementTile).FindNextTile();
+            unitState = UnitState.MOVING;
+            movementProgress = 0;
+            transform.localRotation = Quaternion.LookRotation(TileManager.instance.GetTilePosition(unitDestinationTile) - TileManager.instance.GetTilePosition(unitStartingMovementTile), TileManager.instance.transform.up);
         }
         if(unitState == UnitState.MOVING)
         {
@@ -47,7 +51,17 @@ public class Mb_Enemy : MonoBehaviour
 
     private void Move()
     {
-        //monsterUpdatedCharacteristics.speed;
+        movementProgress += (int)monsterUpdatedCharacteristics.speed / 100 * Time.fixedDeltaTime;
+
+        if(movementProgress >= 1)
+        {
+            transform.position = TileManager.instance.GetTilePosition(unitDestinationTile);
+            unitStartingMovementTile = unitDestinationTile;
+            unitState = UnitState.STANDBY;
+            return;
+        }
+
+        transform.position = TileManager.instance.GetTilePosition(unitStartingMovementTile) + (TileManager.instance.GetTilePosition(unitDestinationTile) - TileManager.instance.GetTilePosition(unitStartingMovementTile)) / movementProgress;
     }
 }
 
