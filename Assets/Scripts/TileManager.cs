@@ -28,7 +28,7 @@ public class TileManager : MonoBehaviour
     public bool isRawBased;
     public bool isStartingBig;
 
-    private GameObject[] tileGrid;
+    private TileInfo[] tileGrid;
 
     private int tileCount;
     private Transform originTransform;
@@ -36,7 +36,7 @@ public class TileManager : MonoBehaviour
     private void Start()
     {
         tileCount = rowCount * (lineCount / 2) + (lineCount % 2) * (rowCount / 2 + rowCount % 2);
-        tileGrid = new GameObject[tileCount];
+        tileGrid = new TileInfo[tileCount];
         
         if(originTransformDebug)
         {
@@ -55,19 +55,31 @@ public class TileManager : MonoBehaviour
     {
         for(int i = 0; i < tileCount; i++)
         {
-            tileGrid[i] = Instantiate(tilePrefab) as GameObject;
-            tileGrid[i].transform.parent = this.transform;
-            tileGrid[i].transform.localPosition = GetTilePosition(i);
-            tileGrid[i].transform.localRotation = originTransform.rotation;
+            GameObject newTile = Instantiate(tilePrefab) as GameObject;
+            tileGrid[i] = newTile.GetComponent<TileInfo>();
+            tileGrid[i].gameObject.transform.parent = this.transform;
+            tileGrid[i].gameObject.transform.localPosition = GetTilePosition(i);
+            tileGrid[i].gameObject.transform.localRotation = originTransform.rotation;
+            tileGrid[i].tileID = i;
         }
     }
 
     public GameObject GetTile(int tileID)
     {
-        return tileGrid[tileID];
+        return tileGrid[tileID].gameObject;
     }
 
     public GameObject GetTile(int row, int line)
+    {
+        return tileGrid[GetTileID(row, line)].gameObject;
+    }
+
+    public TileInfo GetTileInfo(int tileID)
+    {
+        return tileGrid[tileID];
+    }
+
+    public TileInfo GetTileInfo(int row, int line)
     {
         return tileGrid[GetTileID(row, line)];
     }
@@ -165,7 +177,8 @@ public class TileManager : MonoBehaviour
     }
 
     // A Tester
-    public List<List<GameObject>> GetTileInRange(int centerTileID, int range)
+
+    public List<List<int>> GetTileIDInRange(int centerTileID, int range)
     {
         List<List<int>> tilesInRange = new List<List<int>>();
         List<int> discoveredTilesID = new List<int>();
@@ -175,20 +188,20 @@ public class TileManager : MonoBehaviour
         tilesInRange.Add(GetTileNeighbours(centerTileID));
         discoveredTilesID.AddRange(GetTileNeighbours(centerTileID)); // A mettre dans une variable?
 
-        for(int i = 1; i < range; i++)
+        for (int i = 1; i < range; i++)
         {
             List<int> tilesInRangeI = new List<int>();
-            
-            foreach(int tileID in tilesInRange[tilesInRange.Count-1])
+
+            foreach (int tileID in tilesInRange[tilesInRange.Count - 1])
             {
                 List<int> currentTileNeighbours = GetTileNeighbours(tileID);
 
                 //Remove duplicate
-                for(i = currentTileNeighbours.Count - 1; i >= 0; i--)
+                for (i = currentTileNeighbours.Count - 1; i >= 0; i--)
                 {
-                    foreach(int discoveredTile in discoveredTilesID)
+                    foreach (int discoveredTile in discoveredTilesID)
                     {
-                        if(discoveredTile == currentTileNeighbours[i])
+                        if (discoveredTile == currentTileNeighbours[i])
                         {
                             currentTileNeighbours.RemoveAt(i);
                             break;
@@ -203,16 +216,38 @@ public class TileManager : MonoBehaviour
             tilesInRange.Add(tilesInRangeI);
         }
 
-        return CastRangeList(tilesInRange);
+        return tilesInRange;
     }
 
-    private List<List<GameObject>> CastRangeList(List<List<int>> tileListIDs)
+    public List<List<GameObject>> GetTileInRange(int centerTileID, int range)
+    {
+        return CastRangeListToGameObject(GetTileIDInRange(centerTileID, range));
+    }
+
+    public List<List<TileInfo>> GetTileInfoInRange(int centerTileID, int range)
+    {
+        return CastRangeListToTileInfo(GetTileIDInRange(centerTileID, range));
+    }
+
+    private List<List<GameObject>> CastRangeListToGameObject(List<List<int>> tileListIDs)
     {
         List<List<GameObject>> tileList = new List<List<GameObject>>();
 
         for(int i = 0; i < tileListIDs.Count; i++)
         {
             tileList.Add(IDListToGameObjectList(tileListIDs[i]));
+        }
+
+        return tileList;
+    }
+
+    private List<List<TileInfo>> CastRangeListToTileInfo(List<List<int>> tileListIDs)
+    {
+        List<List<TileInfo>> tileList = new List<List<TileInfo>>();
+
+        for (int i = 0; i < tileListIDs.Count; i++)
+        {
+            tileList.Add(IDListToTileInfoList(tileListIDs[i]));
         }
 
         return tileList;
@@ -228,6 +263,18 @@ public class TileManager : MonoBehaviour
         }
 
         return gameObjectList;
+    }
+
+    private List<TileInfo> IDListToTileInfoList(List<int> iDList)
+    {
+        List<TileInfo> tileInfoList = new List<TileInfo>();
+
+        foreach (int iD in iDList)
+        {
+            tileInfoList.Add(GetTileInfo(iD));
+        }
+
+        return tileInfoList;
     }
 
     public void SetPathFinding(int goalTileID)

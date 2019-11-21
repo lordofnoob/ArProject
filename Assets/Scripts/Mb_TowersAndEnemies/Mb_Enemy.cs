@@ -21,6 +21,7 @@ public class Mb_Enemy : MonoBehaviour
     private UnitState unitState;
     private int currentTile;
     private int unitDestination;
+    private float movementProgress;
 
     private void Awake()
     {
@@ -46,7 +47,7 @@ public class Mb_Enemy : MonoBehaviour
 
     private void Move()
     {
-
+        //monsterUpdatedCharacteristics.speed;
     }
 }
 
