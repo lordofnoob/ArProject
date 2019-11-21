@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum UnitState
+{
+    STANDBY,
+    MOVING,
+    DEAD
+}
+
 public class Mb_Enemy : MonoBehaviour
 {
     [Header("Characteritics")]
@@ -11,15 +18,35 @@ public class Mb_Enemy : MonoBehaviour
     [Header("GraphicPart")]
     public Animator anim;
 
+    private UnitState unitState;
+    private int currentTile;
+    private int unitDestination;
+
     private void Awake()
     {
         monsterUpdatedCharacteristics = monsterCharacteristics.monsterBaseCharacteristics;
+        unitDestination = -1;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Action()
     {
-        
+        if(unitState == UnitState.DEAD)
+        {
+            return;
+        }
+        if(unitState == UnitState.STANDBY)
+        {
+            unitDestination = TileManager.instance.GetTile(currentTile).GetComponent<TileInfo>().FindNextTile(); ;
+        }
+        if(unitState == UnitState.MOVING)
+        {
+            Move();
+        }
+    }
+
+    private void Move()
+    {
+
     }
 }
 
