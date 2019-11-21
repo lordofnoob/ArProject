@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public enum TileType
 {
@@ -37,6 +39,34 @@ public class TileInfo : MonoBehaviour
     {
         int randomInt = random.Next(closestToGoalNeighbourTiles.Count);
         return closestToGoalNeighbourTiles[randomInt];
+    }
+
+    public List<Mb_Enemy> GetClosestEnemies()
+    {
+        List<Mb_Enemy> closestEnemies = new List<Mb_Enemy>();
+
+        List<Mb_Enemy> enteringEnemies = new List<Mb_Enemy>();
+        List<Mb_Enemy> leavingEnemies = new List<Mb_Enemy>();
+
+        foreach(Mb_Enemy enemy in onTileElements)
+        {
+            if (enemy.GetFromTile() == tileID)
+            {
+                leavingEnemies.Add(enemy);
+            }
+            else if(enemy.GetToTile() == tileID)
+            {
+                enteringEnemies.Add(enemy);
+            }
+        }
+
+        leavingEnemies = leavingEnemies.OrderBy(enemy => enemy.GetMovementProgress()).ToList();
+        enteringEnemies = enteringEnemies.OrderBy(enemy => enemy.GetMovementProgress()).ToList();
+
+        closestEnemies.AddRange(leavingEnemies);
+        closestEnemies.AddRange(enteringEnemies);
+
+        return closestEnemies;
     }
 
     private void OnTriggerEnter(Collider other)
