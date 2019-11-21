@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+
 public class Mb_Tower : MonoBehaviour
 {
-    private Sc_Tower towerBaseCharacteristics;
+    [SerializeField] Sc_Tower towerBaseCharacteristics;
     private TowerCharacteritics towerCharacteristics;
     public ProjectileModifier projectileModifierList;
     public Transform shootProjectilePoint;
