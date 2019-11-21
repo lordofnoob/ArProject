@@ -11,11 +11,10 @@ public class TileManager : MonoBehaviour
         if(instance)
         {
             Destroy(this);
+            return;
         }
-        else
-        {
-            instance = this;
-        }
+        
+        instance = this;
     }
 
     public int rowCount;
@@ -48,19 +47,59 @@ public class TileManager : MonoBehaviour
             originTransform.rotation = Quaternion.identity;
         }
 
-        InstanciateGrid();
+        //InstanciateGrid();
     }
 
-    private void InstanciateGrid()
+    public void InstanciateGrid()
     {
         for(int i = 0; i < tileCount; i++)
         {
             GameObject newTile = Instantiate(tilePrefab) as GameObject;
             tileGrid[i] = newTile.GetComponent<TileInfo>();
-            tileGrid[i].gameObject.transform.parent = this.transform;
+            tileGrid[i].gameObject.transform.parent = instance.transform;
             tileGrid[i].gameObject.transform.localPosition = GetTilePosition(i);
             tileGrid[i].gameObject.transform.localRotation = originTransform.rotation;
             tileGrid[i].tileID = i;
+        }
+    }
+
+    public void SetPathFinding(int goalTileID)
+    {
+        Queue<int> tileToExploreFrom = new Queue<int>();
+        tileToExploreFrom.Enqueue(goalTileID);
+
+        TileManager.instance.GetTileInfo(goalTileID).AddPath(goalTileID);
+
+        int currentTile;
+
+        while (tileToExploreFrom.Count > 0)
+        {
+            currentTile = tileToExploreFrom.Dequeue();
+            List<int> currentTileNeighboors = GetTileNeighbours(currentTile);
+
+            foreach (int closeTileID in currentTileNeighboors)
+            {
+                TileInfo closeTileInfo = GetTileInfo(closeTileID);
+
+                if (!CheckWalkability(closeTileInfo))
+                {
+                    continue;
+                }
+                if (closeTileInfo.distanceFromGoal > 0)
+                {
+                    if (closeTileInfo.distanceFromGoal == GetTileInfo(currentTile).distanceFromGoal + 1)
+                    {
+                        closeTileInfo.AddPath(currentTile);
+                    }
+
+                    continue;
+                }
+
+                closeTileInfo.distanceFromGoal = GetTileInfo(currentTile).distanceFromGoal + 1;
+                closeTileInfo.AddPath(currentTile);
+
+                tileToExploreFrom.Enqueue(closeTileID);
+            }
         }
     }
 
@@ -277,31 +316,8 @@ public class TileManager : MonoBehaviour
         return tileInfoList;
     }
 
-    public void SetPathFinding(int goalTileID)
-    {
-        Queue<int> tileToExploreFrom = new Queue<int>();
-        int currentTile;
-        tileToExploreFrom.Enqueue(goalTileID);
-        
-        while(tileToExploreFrom.Count > 0)
-        {
-            currentTile = tileToExploreFrom.Dequeue();
-            List<int> currentTileNeighboors = GetTileNeighbours(currentTile);
+    
 
-            foreach(int closeTileID in currentTileNeighboors)
-            {
-                TileInfo closeTileInfo = GetTile(closeTileID).GetComponent<TileInfo>();
-                if(!CheckWalkability(closeTileInfo) || closeTileInfo.distanceFromGoal !=-1)
-                {
-                    continue;
-                }
-
-                closeTileInfo.distanceFromGoal = GetTile(currentTile).GetComponent<TileInfo>().distanceFromGoal + 1;
-
-                tileToExploreFrom.Enqueue(closeTileID);
-            }
-        }
-    }
 
     private bool CheckWalkability(TileInfo tileInfo)
     {
