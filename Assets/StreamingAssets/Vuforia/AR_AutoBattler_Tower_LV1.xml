@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Lvl1UltraTower" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1RapiFire" size="0.050000 0.075021" />
+    <ImageTarget name="lvl1RapidPiercing" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1RapidMulti" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1RapidIceTower" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1MultiIce" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1MultiHeavy" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1MultiFire" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1IcePiercing" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1IceFire" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1HeavyPiercingtower" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1HeavyIce" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1Heavyfire" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl1FirePiercingTower" size="0.050000 0.075021" />
+    <ImageTarget name="BaseTower" size="0.050000 0.075021" />
+  </Tracking>
+</QCARConfig>

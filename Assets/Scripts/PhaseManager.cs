@@ -13,6 +13,8 @@ public enum Phase
 
 public class PhaseManager : MonoBehaviour
 {
+    public static PhaseManager instance;
+
     public bool testMod;
 
     private Phase currentPhase;
@@ -21,6 +23,11 @@ public class PhaseManager : MonoBehaviour
     private List<Mb_Enemy> attackers;
     private List<Mb_Tower> defenders;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public PhaseManager()
     {
         currentPhase = Phase.INIT;
@@ -28,6 +35,7 @@ public class PhaseManager : MonoBehaviour
 
     public void Initiate()
     {
+        ScanManager.instance.ResetBool();
         currentPhaseCoroutine = StartCoroutine(InitPhase());
     }
 
@@ -36,16 +44,21 @@ public class PhaseManager : MonoBehaviour
         return currentPhase;
     }
 
+    public void SetCurrentPhase(Phase nextPhase)
+    {
+        ScanManager.instance.ChangePhase(nextPhase);
+        currentPhase = nextPhase;
+    }
+
     private IEnumerator InitPhase()
     {
-        currentPhase = Phase.INIT;
-
-        // Afficher de l'UI (Debuter Round?)
+        SetCurrentPhase(Phase.INIT);
 
         bool isClicked = false;
         while(!isClicked)
         {
             // Verifier si le bouton/ecran a été click 
+            isClicked = ScanManager.instance.initValidate;
             yield return 0;
         }
         
@@ -54,9 +67,7 @@ public class PhaseManager : MonoBehaviour
 
     private IEnumerator DefencePhase()
     {
-        currentPhase = Phase.DEFENCE;
-
-        // Afficher de L'UI
+        SetCurrentPhase(Phase.DEFENCE);
 
         defenders.Clear();
 
@@ -64,21 +75,18 @@ public class PhaseManager : MonoBehaviour
         while(!isValidate)
         {
             // Check/Scan les cartes
+            isValidate = ScanManager.instance.defendersValidate;
             // Ajouter les units correspondante à la liste Defenders
             // + Ajouter/Enlever les units à/de la scène
             yield return 0;
         }
-
-        // Desafficher L'UI
 
         currentPhaseCoroutine = StartCoroutine(AttackPhase());
     }
 
     private IEnumerator AttackPhase()
     {
-        currentPhase = Phase.ATTACK;
-
-        //Afficher de L'UI
+        SetCurrentPhase(Phase.ATTACK);
 
         attackers.Clear();
 
@@ -86,19 +94,18 @@ public class PhaseManager : MonoBehaviour
         while (!isValidate)
         {
             // Check les cartes
+            isValidate = ScanManager.instance.attackersValidate;
             // Ajouter/Enlever les units correspondante à la liste Attackers
             // +Ajouter/Enlever les units à/de la scène
             yield return 0;
         }
-
-       // Desafficher l'UI
 
        currentPhaseCoroutine = StartCoroutine(CompatibilityPhase());
     }
 
     private IEnumerator CompatibilityPhase()
     {
-        currentPhase = Phase.COMPATIBILITY;
+        SetCurrentPhase(Phase.COMPATIBILITY);
 
         // Afficher UI
         // Check Compatibility
@@ -118,7 +125,7 @@ public class PhaseManager : MonoBehaviour
 
     private IEnumerator ResolutionPhase()
     {
-        currentPhase = Phase.RESOLUTION;
+        SetCurrentPhase(Phase.RESOLUTION);
 
         // Afficher l'UI?
 
