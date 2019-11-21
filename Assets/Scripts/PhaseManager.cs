@@ -13,7 +13,18 @@ public enum Phase
 
 public class PhaseManager : MonoBehaviour
 {
-    public bool testMod;
+    public static PhaseManager instance;
+
+    private void Awake()
+    {
+        if(instance)
+        {
+            Destroy(this);
+            return;
+        }
+        
+        instance = this;
+    }
 
     private Phase currentPhase;
     private Coroutine currentPhaseCoroutine;
@@ -125,9 +136,9 @@ public class PhaseManager : MonoBehaviour
         bool isResolved = false;
         while(!isResolved)
         {
-            // Action des attackers
-            // Action des defenders
-            yield return 0;
+            ExecuteActions();
+            isResolved = CheckResolutionState();
+            yield return new WaitForFixedUpdate();
         }
 
         // Afficher le résultat
@@ -140,19 +151,38 @@ public class PhaseManager : MonoBehaviour
         }
 
         // Desafficher l'UI
-        if(!testMod)
-        {
-            currentPhaseCoroutine = StartCoroutine(DefencePhase());
-        }
-        else
-        {
-
-        }
-            
+        
+        currentPhaseCoroutine = StartCoroutine(DefencePhase());
     }
 
     private void ExecuteActions()
     {
-        //foreach(Mb_Enemy attacker in)
+        foreach(Mb_Enemy attacker in attackers)
+        {
+            attacker.Action();
+        }
+
+        foreach(Mb_Tower defender in defenders)
+        {
+            //defender.Action();
+        }
+    }
+
+    private bool CheckResolutionState()
+    {
+        //if(NexusIsDead)
+        //{
+        //    return true;
+        //}
+
+        foreach(Mb_Enemy enemy in attackers)
+        {
+            if(enemy.GetUnitState() != UnitState.DEAD)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
