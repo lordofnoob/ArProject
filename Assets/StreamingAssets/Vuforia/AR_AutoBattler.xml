@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Wolves" size="0.050000 0.075000" />
+    <ImageTarget name="Vampire" size="0.050000 0.075000" />
+    <ImageTarget name="SkeletonWarrior" size="0.050000 0.075000" />
+    <ImageTarget name="Peons" size="0.050000 0.075000" />
+    <ImageTarget name="Ogers" size="0.050000 0.075000" />
+    <ImageTarget name="Mummies" size="0.050000 0.075000" />
+    <ImageTarget name="Hydra" size="0.050000 0.075000" />
+    <ImageTarget name="GiantSpider" size="0.050000 0.075000" />
+    <ImageTarget name="EarthDemon" size="0.050000 0.075000" />
+    <ImageTarget name="DemonLord" size="0.050000 0.075000" />
+    <ImageTarget name="Cyclope" size="0.050000 0.075000" />
+    <ImageTarget name="Chimera" size="0.050000 0.075000" />
+    <ImageTarget name="Snakes" size="0.050000 0.074831" />
+    <ImageTarget name="ArgonianRaider" size="0.050000 0.075000" />
+    <ImageTarget name="Attaque2" size="0.085000 0.053949" />
+    <ImageTarget name="Defense" size="0.085000 0.053746" />
+    <ImageTarget name="Attaque" size="0.085000 0.053949" />
+  </Tracking>
+</QCARConfig>
