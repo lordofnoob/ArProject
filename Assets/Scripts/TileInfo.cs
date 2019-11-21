@@ -16,7 +16,7 @@ public class TileInfo : MonoBehaviour
     public int tileID;
     public int distanceFromGoal;
     public TileType tileType;
-    public List<GameObject> onTileElements;
+    public List<Mb_Enemy> onTileElements;
 
     
     private List<int> closestToGoalNeighbourTiles;
@@ -41,17 +41,19 @@ public class TileInfo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       if(other.gameObject.GetComponent<Mb_Enemy>())    // A modifier?
+       Mb_Enemy enteringEnemy = other.gameObject.GetComponent<Mb_Enemy>();
+       if (enteringEnemy)    // A modifier?
        {
-            onTileElements.Add(other.gameObject);
+            onTileElements.Add(enteringEnemy);
        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<Mb_Enemy>())    // A modifier?
+        Mb_Enemy leavingEnemy = other.gameObject.GetComponent<Mb_Enemy>();
+        if (leavingEnemy)    // A modifier?
         {
-            onTileElements.Remove(other.gameObject);
+            onTileElements.Remove(leavingEnemy);
         }
     }
 }
