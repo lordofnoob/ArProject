@@ -82,7 +82,12 @@ public class Mb_Tower : MonoBehaviour
 
     private void ShootProjectileOnTarget(Mb_Enemy target)
     {
-        Instantiate(ProjectilePrefab, shootProjectilePoint.position, Quaternion.identity);
+        Mb_Projectile newProjectile = UniversalPool.GetItem("Projectiles").GetComponent<Mb_Projectile>();
+        newProjectile.transform.position = shootProjectilePoint.position;
+        //newProjectile.SetModifier();
+        //UniversalPool.ReturnItem()
+        
+        //Instantiate(ProjectilePrefab, shootProjectilePoint.position, Quaternion.identity);
     }
 }
 

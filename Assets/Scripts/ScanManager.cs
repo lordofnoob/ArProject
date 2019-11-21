@@ -14,17 +14,6 @@ public class ScanManager : MonoBehaviour
         imageList.AddRange(TargetImageContainer.GetComponentsInChildren<ImageTargetBehaviour>());
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Scan()
     {
         Debug.Log("SCAN");
@@ -39,6 +28,14 @@ public class ScanManager : MonoBehaviour
                 clone.transform.localScale = imageTarget.transform.localScale;
                 Debug.Log("INSTANTIATE : "+clone.transform.localScale);
             }
+        }
+    }
+
+    public void ChangePhase(Phase phase)
+    {
+        switch (phase)
+        {
+
         }
     }
 }
