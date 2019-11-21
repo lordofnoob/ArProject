@@ -8,7 +8,7 @@ public class Mb_Tower : MonoBehaviour
     private TowerCharacteritics towerCharacteristics;
 
     private List<TileInfo> tileInRange = new List<TileInfo>();
-    public TileInfo towerTile;
+    public TileInfo towerTileInfo;
 
     private float timer = 0f;
 
@@ -25,15 +25,15 @@ public class Mb_Tower : MonoBehaviour
     {
         this.towerBaseCharacteristics = towerBaseCharacteristics;
         towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
-        this.towerTile = towerTile.GetComponent<TileInfo>();
+        towerTileInfo = towerTile.GetComponent<TileInfo>();
 
-        /*foreach(List<GameObject> list in TileManager.instance.GetTileInRange(towerTile, towerCharacteristics.range))
+        foreach(List<GameObject> list in TileManager.instance.GetTileInRange(towerTileInfo.tileID, ))
         {
             foreach(GameObject tile in list)
             {
                 tileInRange.Add(tile.GetComponent<TileInfo>());
             }
-        }*/
+        }
     }
 
     private List<Mb_Enemy> GetEnnemiesInRange()
@@ -41,7 +41,10 @@ public class Mb_Tower : MonoBehaviour
         List<Mb_Enemy> ennemiesInRange = new List<Mb_Enemy>();
         foreach(TileInfo tile in tileInRange)
         {
-            //if(tile.)
+            if(tile.onTileElements.Count > 0)
+            {
+                ennemiesInRange.AddRange(tile.onTileElements);
+            }
         }
         return ennemiesInRange;
     }
