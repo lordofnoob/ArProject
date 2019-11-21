@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class Mb_Tower : MonoBehaviour
 {
     private Sc_Tower towerBaseCharacteristics;
@@ -11,14 +11,28 @@ public class Mb_Tower : MonoBehaviour
     public TileInfo towerTileInfo;
 
     private float timer = 0f;
+    private List<Mb_Enemy> targets = new List<Mb_Enemy>();
 
-    // Update is called once per frame
-    void Update()
+    public void Action()
     {
         if(timer > towerCharacteristics.delayBetweenAttack)
         {
+            timer = 0;
 
+            if(targets.Count > 0)
+            {
+                if (targets.Count < towerCharacteristics.numberOfShots)
+                {
+                    SetTarget();
+                }
+
+                foreach (Mb_Enemy target in targets)
+                {
+                    //ShOOT TARGET
+                }
+            }
         }
+        timer += Time.deltaTime;
     }
 
     public void Init(Sc_Tower towerBaseCharacteristics, GameObject towerTile)
@@ -27,13 +41,11 @@ public class Mb_Tower : MonoBehaviour
         towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
         towerTileInfo = towerTile.GetComponent<TileInfo>();
 
-        foreach(List<GameObject> list in TileManager.instance.GetTileInRange(towerTileInfo.tileID, ))
+        foreach(List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileInfo.tileID, towerCharacteristics.range))
         {
-            foreach(GameObject tile in list)
-            {
-                tileInRange.Add(tile.GetComponent<TileInfo>());
-            }
+            tileInRange.AddRange(list);
         }
+        tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
     }
 
     private List<Mb_Enemy> GetEnnemiesInRange()
@@ -47,6 +59,22 @@ public class Mb_Tower : MonoBehaviour
             }
         }
         return ennemiesInRange;
+    }
+
+    private void SetTarget()
+    {
+        foreach(TileInfo tile in tileInRange)
+        {
+            foreach(Mb_Enemy ennemy in tile.GetClosestEnnemies())
+            {
+                targets.Add(ennemy);
+
+                if(targets.Count == towerCharacteristics.numberOfShots)
+                {
+                    return;
+                }
+            }
+        }
     }
 }
 
