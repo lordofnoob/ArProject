@@ -6,7 +6,10 @@ public class Mb_Tower : MonoBehaviour
 {
     private Sc_Tower towerBaseCharacteristics;
     private TowerCharacteritics towerCharacteristics;
-
+    public ProjectileModifier projectileModifierList;
+    public Transform shootProjectilePoint;
+    public GameObject ProjectilePrefab;
+         
     private List<TileInfo> tileInRange = new List<TileInfo>();
     public TileInfo towerTileInfo;
 
@@ -28,7 +31,7 @@ public class Mb_Tower : MonoBehaviour
 
                 foreach (Mb_Enemy target in targets)
                 {
-                    //ShOOT TARGET
+                    ShootProjectileOnTarget(target);
                 }
             }
         }
@@ -65,7 +68,7 @@ public class Mb_Tower : MonoBehaviour
     {
         foreach(TileInfo tile in tileInRange)
         {
-            foreach(Mb_Enemy ennemy in tile.GetClosestEnnemies())
+            foreach(Mb_Enemy ennemy in tile.GetClosestEnemies())
             {
                 targets.Add(ennemy);
 
@@ -76,10 +79,32 @@ public class Mb_Tower : MonoBehaviour
             }
         }
     }
+
+    private void ShootProjectileOnTarget(Mb_Enemy target)
+    {
+        Instantiate(ProjectilePrefab, shootProjectilePoint.position, Quaternion.identity);
+    }
 }
 
-public enum Modifier
+[System.Flags]
+public enum ProjectileModifier
 {
-    Fire, Ice, Piercing, HeavyCaliber
-}
+    Fire = (1 << 0),
+    Ice = (1 << 1),
+    Piercing = (1 << 2),
+    HeavyCaliber = (1 << 3),
 
+    FireIce = Fire | Ice,
+    FirePiercing = Fire | Piercing,
+    FireHeavyCaliber = Fire | HeavyCaliber,
+
+    IcePiercing = Ice | Piercing,
+    IceHeavyCaliber = Ice | HeavyCaliber,
+
+    PiercingHeavyCaliber = Piercing | HeavyCaliber,
+
+    FireIceHeavyCaliber = Fire | Ice | HeavyCaliber,
+    FireIceHeavyPiercing = Fire | Ice | Piercing,
+
+    IceHeavyCaliberPiercing = Ice | HeavyCaliber | Piercing
+}
