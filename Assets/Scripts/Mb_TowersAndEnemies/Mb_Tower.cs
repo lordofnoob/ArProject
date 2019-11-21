@@ -22,20 +22,20 @@ public class Mb_Tower : MonoBehaviour
         {
             timer = 0;
 
-            if(targets.Count > 0)
+            if (targets.Count < towerCharacteristics.numberOfShots)
             {
-                if (targets.Count < towerCharacteristics.numberOfShots)
-                {
-                    SetTarget();
-                }
+                SetNewTargets();
+            }
 
+            if (targets.Count > 0)
+            {
                 foreach (Mb_Enemy target in targets)
                 {
                     ShootProjectileOnTarget(target);
                 }
             }
         }
-        timer += Time.deltaTime;
+        timer += Time.fixedDeltaTime;
     }
 
     public void Init(Sc_Tower towerBaseCharacteristics, GameObject towerTile)
@@ -51,42 +51,47 @@ public class Mb_Tower : MonoBehaviour
         tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
     }
 
-    private List<Mb_Enemy> GetEnnemiesInRange()
-    {
-        List<Mb_Enemy> ennemiesInRange = new List<Mb_Enemy>();
-        foreach(TileInfo tile in tileInRange)
-        {
-            if(tile.onTileElements.Count > 0)
-            {
-                ennemiesInRange.AddRange(tile.onTileElements);
-            }
-        }
-        return ennemiesInRange;
-    }
+    //private List<Mb_Enemy> GetEnnemiesInRange()
+    //{
+    //    List<Mb_Enemy> ennemiesInRange = new List<Mb_Enemy>();
+    //    foreach(TileInfo tile in tileInRange)
+    //    {
+    //        if(tile.onTileElements.Count > 0)
+    //        {
+    //            ennemiesInRange.AddRange(tile.onTileElements);
+    //        }
+    //    }
+    //    return ennemiesInRange;
+    //}
 
-    private void SetTarget()
+    private void SetNewTargets()
     {
+        targets.Clear();
+
         foreach(TileInfo tile in tileInRange)
         {
             foreach(Mb_Enemy ennemy in tile.GetClosestEnemies())
             {
-                targets.Add(ennemy);
-
-                if(targets.Count == towerCharacteristics.numberOfShots)
+                if (targets.Count >= towerCharacteristics.numberOfShots) // On ne sait jamais
                 {
                     return;
                 }
+
+                if (targets.Contains(ennemy))
+                    continue;
+                
+                targets.Add(ennemy);
             }
         }
     }
 
     private void ShootProjectileOnTarget(Mb_Enemy target)
     {
+        float projectileLifeTime = 1;   // LifeTime Hardwrite pas terrible...
         Mb_Projectile newProjectile = UniversalPool.GetItem("Projectiles").GetComponent<Mb_Projectile>();
-        newProjectile.transform.position = shootProjectilePoint.position;
         //newProjectile.SetModifier();
-        //UniversalPool.ReturnItem()
-        
+        newProjectile.Initialize(shootProjectilePoint.position, target, towerCharacteristics.damages, projectileLifeTime); 
+
         //Instantiate(ProjectilePrefab, shootProjectilePoint.position, Quaternion.identity);
     }
 }

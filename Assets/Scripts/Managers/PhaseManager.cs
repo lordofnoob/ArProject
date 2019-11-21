@@ -170,11 +170,6 @@ public class PhaseManager : MonoBehaviour
 
     private bool CheckResolutionState()
     {
-        //if(NexusIsDead)
-        //{
-        //    return true;
-        //}
-
         foreach(Mb_Enemy enemy in attackers)
         {
             if(enemy.GetUnitState() != UnitState.DEAD)

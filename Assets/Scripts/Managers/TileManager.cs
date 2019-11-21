@@ -22,7 +22,7 @@ public class TileManager : MonoBehaviour
     public float tileSize;
 
     public GameObject tilePrefab;
-    public Transform originTransformDebug;
+    public Transform tileSetterTransform;
 
     public bool isRawBased;
     public bool isStartingBig;
@@ -37,15 +37,7 @@ public class TileManager : MonoBehaviour
         tileCount = rowCount * (lineCount / 2) + (lineCount % 2) * (rowCount / 2 + rowCount % 2);
         tileGrid = new TileInfo[tileCount];
         
-        if(originTransformDebug)
-        {
-            originTransform = originTransformDebug;
-        }
-        else
-        {
-            originTransform.position = Vector3.zero;
-            originTransform.rotation = Quaternion.identity;
-        }
+        originTransform = tileSetterTransform;
 
         //InstanciateGrid();
     }
@@ -58,9 +50,15 @@ public class TileManager : MonoBehaviour
             tileGrid[i] = newTile.GetComponent<TileInfo>();
             tileGrid[i].gameObject.transform.parent = instance.transform;
             tileGrid[i].gameObject.transform.localPosition = GetTilePosition(i);
-            tileGrid[i].gameObject.transform.localRotation = originTransform.rotation;
+            tileGrid[i].gameObject.transform.localRotation = originTransform.localRotation;
             tileGrid[i].tileID = i;
         }
+    }
+
+    public void SetTileGridTransform(Transform targetTransform)
+    {
+        transform.position = targetTransform.position;
+        transform.rotation = targetTransform.rotation;
     }
 
     public void SetPathFinding(int goalTileID)
@@ -69,12 +67,11 @@ public class TileManager : MonoBehaviour
         tileToExploreFrom.Enqueue(goalTileID);
 
         TileManager.instance.GetTileInfo(goalTileID).AddPath(goalTileID);
-
-        int currentTile;
+        TileManager.instance.GetTileInfo(goalTileID).distanceFromGoal = 0;
 
         while (tileToExploreFrom.Count > 0)
         {
-            currentTile = tileToExploreFrom.Dequeue();
+            int currentTile = tileToExploreFrom.Dequeue();
             List<int> currentTileNeighboors = GetTileNeighbours(currentTile);
 
             foreach (int closeTileID in currentTileNeighboors)
@@ -85,11 +82,11 @@ public class TileManager : MonoBehaviour
                 {
                     continue;
                 }
-                if (closeTileInfo.distanceFromGoal > 0)
+                if (closeTileInfo.distanceFromGoal >= 0)
                 {
-                    if (closeTileInfo.distanceFromGoal == GetTileInfo(currentTile).distanceFromGoal + 1)
+                    if (closeTileInfo.distanceFromGoal == GetTileInfo(currentTile).distanceFromGoal - 1)
                     {
-                        closeTileInfo.AddPath(currentTile);
+                        GetTileInfo(currentTile).AddPath(closeTileID);
                     }
 
                     continue;
