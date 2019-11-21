@@ -30,6 +30,21 @@ public class Mb_Enemy : MonoBehaviour
         unitDestinationTile = -1;
     }
 
+    public int GetFromTile()
+    {
+        return unitStartingMovementTile;
+    }
+
+    public int GetToTile()
+    {
+        return unitDestinationTile;
+    }
+
+    public float GetMovementProgress()
+    {
+        return movementProgress;
+    }
+
     public void Action()
     {
         if(unitState == UnitState.DEAD)
@@ -63,6 +78,8 @@ public class Mb_Enemy : MonoBehaviour
 
         transform.position = TileManager.instance.GetTilePosition(unitStartingMovementTile) + (TileManager.instance.GetTilePosition(unitDestinationTile) - TileManager.instance.GetTilePosition(unitStartingMovementTile)) / movementProgress;
     }
+
+    
 }
 
 

@@ -13,11 +13,13 @@ public enum Phase
 
 public class PhaseManager : MonoBehaviour
 {
+    public bool testMod;
+
     private Phase currentPhase;
     private Coroutine currentPhaseCoroutine;
 
-    private List<GameObject> attackers;
-    private List<GameObject> defenders;
+    private List<Mb_Enemy> attackers;
+    private List<Mb_Tower> defenders;
 
     public PhaseManager()
     {
@@ -27,6 +29,11 @@ public class PhaseManager : MonoBehaviour
     public void Initiate()
     {
         currentPhaseCoroutine = StartCoroutine(InitPhase());
+    }
+
+    public Phase GetCurrentPhase()
+    {
+        return currentPhase;
     }
 
     private IEnumerator InitPhase()
@@ -133,12 +140,19 @@ public class PhaseManager : MonoBehaviour
         }
 
         // Desafficher l'UI
+        if(!testMod)
+        {
+            currentPhaseCoroutine = StartCoroutine(DefencePhase());
+        }
+        else
+        {
 
-        currentPhaseCoroutine = StartCoroutine(DefencePhase());
+        }
+            
     }
 
-    public Phase GetCurrentPhase()
+    private void ExecuteActions()
     {
-        return currentPhase;
+        //foreach(Mb_Enemy attacker in)
     }
 }
