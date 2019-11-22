@@ -24,8 +24,8 @@ public class TileManager : MonoBehaviour
     public GameObject tilePrefab;
     public Transform tileSetterTransform;
 
-    public bool isRawBased;
-    public bool isStartingBig;
+    //public bool isRawBased;
+    //public bool isStartingBig;
 
     private TileInfo[] tileGrid;
 

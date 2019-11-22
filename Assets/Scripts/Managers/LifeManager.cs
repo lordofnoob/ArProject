@@ -34,6 +34,8 @@ public class LifeManager : MonoBehaviour
 
         playerRemainingLife -= damage;
         
+        // Changer l'affichage vie
+
         if(playerRemainingLife <= 0)
         {
             GameManager.instance.GameOver();
