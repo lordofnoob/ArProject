@@ -29,8 +29,8 @@ public class PhaseManager : MonoBehaviour
     private Phase currentPhase;
     private Coroutine currentPhaseCoroutine;
 
-    private List<Mb_Enemy> attackers;
-    private List<Mb_Tower> defenders;
+    public List<Mb_Enemy> attackers;
+    public List<Mb_Tower> defenders;
 
     public PhaseManager()
     {
@@ -39,7 +39,7 @@ public class PhaseManager : MonoBehaviour
 
     public void Initiate()
     {
-        ScanManager.instance.ResetBool();
+        ScanManager.instance.ResetScan();
         currentPhaseCoroutine = StartCoroutine(InitPhase());
     }
 

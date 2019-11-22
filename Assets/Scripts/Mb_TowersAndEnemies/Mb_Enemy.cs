@@ -8,7 +8,8 @@ public enum UnitState
     STANDBY,
     MOVING,
     ATTACKING,
-    DEAD
+    DEAD,
+    WAITINGFORDEATH
 }
 
 public class Mb_Enemy : MonoBehaviour
@@ -17,9 +18,6 @@ public class Mb_Enemy : MonoBehaviour
     public int spawnRow;
     public int spawnLine;
 
-    [Header("DebugInitialisation")]
-    public string itemName;
-
     [Header("Characteritics")]
     public Sc_Monsters monsterCharacteristics;
     public allCharacterisitcs monsterUpdatedCharacteristics;
@@ -27,7 +25,7 @@ public class Mb_Enemy : MonoBehaviour
     [Header("GraphicPart")]
     public Animator anim;
 
-    //Slow a ajouter!
+    public float defaultTimeBeforeDeath = 5;
 
     private float remainingHitPoints;
     private float slowRemainingDuration;
@@ -36,6 +34,8 @@ public class Mb_Enemy : MonoBehaviour
     private int unitStartingMovementTile;
     private int unitDestinationTile;
     private float movementProgress;
+
+    private float timeBeforeDeath;
 
     private void Awake()
     {
@@ -109,8 +109,9 @@ public class Mb_Enemy : MonoBehaviour
 
             if(remainingHitPoints <= 0)
             {
-                unitState = UnitState.DEAD;
-                // Animation Mort
+                Debug.Log("MORT!");
+                anim.SetTrigger("Died");
+                unitState = UnitState.WAITINGFORDEATH;
             }
         }
         
@@ -120,7 +121,7 @@ public class Mb_Enemy : MonoBehaviour
     {
         if(unitState == UnitState.DEAD)
         {
-            UniversalPool.ReturnItem(gameObject, itemName);
+            gameObject.SetActive(false);
             return;
         }
 
@@ -147,8 +148,17 @@ public class Mb_Enemy : MonoBehaviour
 
         if(unitState == UnitState.ATTACKING)
         {
-            //Debug.Log("Attacking!");
             Attack();
+        }
+
+        if(unitState == UnitState.WAITINGFORDEATH)
+        {
+            timeBeforeDeath = -Time.fixedDeltaTime;
+            if(timeBeforeDeath < 0)
+            {
+                unitState = UnitState.DEAD;
+                ResetTimeBeforeDeath();
+            }
         }
     }
 
@@ -158,6 +168,7 @@ public class Mb_Enemy : MonoBehaviour
         if(slowRemainingDuration > 0)
         {
             movementProgress += GetSlowedSpeed((float)monsterUpdatedCharacteristics.speed) / 100f * Time.fixedDeltaTime;
+            slowRemainingDuration -= Time.fixedDeltaTime;
         }
         else
         {
@@ -178,17 +189,20 @@ public class Mb_Enemy : MonoBehaviour
 
     private void Attack()
     {
-        // Animation
-        // Attendre pour une certaine durée
-        //LifeManager.instance.DamagePlayer(monsterUpdatedCharacteristics.damageToNexus);
-        //unitState = UnitState.DEAD;
-        // Animation de mort
+        anim.SetTrigger("ReachedNexus");
+        LifeManager.instance.DamagePlayer(monsterUpdatedCharacteristics.damageToNexus);
+        unitState = UnitState.WAITINGFORDEATH;
     }
 
     private float GetSlowedSpeed(float speed)
     {
         return speed * 4f / 5f;
 
+    }
+
+    private void ResetTimeBeforeDeath()
+    {
+        timeBeforeDeath = defaultTimeBeforeDeath;
     }
 }
 

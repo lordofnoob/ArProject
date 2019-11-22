@@ -55,10 +55,10 @@ public class TileManager : MonoBehaviour
         }
     }
 
-    public void SetTileGridTransform(Transform targetTransform)
+    public void SetTileGridTransform(Vector3 targetTransform)
     {
-        transform.position = targetTransform.position;
-        transform.rotation = targetTransform.rotation;
+        transform.position = targetTransform;
+        //transform.rotation = targetTransform.rotation;
     }
 
     public void SetPathFinding(int goalTileID)
