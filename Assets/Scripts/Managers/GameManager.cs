@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         random = new System.Random();
     }
 
+    private void Start()
+    {
+        StartGameLoop();
+    }
+
     public void GameOver()
     {
         // Afficher Ecran de Game Over
