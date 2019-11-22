@@ -9,7 +9,7 @@ public class ScanManager : MonoBehaviour
     public static ScanManager instance;
 
     public GameObject TargetImageContainer;
-    public GameObject GameObjectInstanceContainer;
+    public GameObject PoolGameObjectContainer;
     private List<ImageTargetBehaviour> imageList = new List<ImageTargetBehaviour>();
 
     public Image BoardScanCanvas, CardsScanCanvas, ConfirmValitation;
@@ -47,10 +47,13 @@ public class ScanManager : MonoBehaviour
                     //if(imageTarget.transform.childCount > 0 && imageTarget.transform.GetChild(0).gameObject.activeInHierarchy)
                     {
                         GameObject child = imageTarget.transform.GetChild(0).gameObject;
-                        GameObject clone = Instantiate(child, imageTarget.transform.position, Quaternion.identity);
-                        clone.transform.SetParent(GameObjectInstanceContainer.transform);
+                        string objectToPolName = imageTarget.name;                        
+                        GameObject clone = UniversalPool.GetItem(objectToPolName);
+                        //Instantiate(child, imageTarget.transform.position, Quaternion.identity);
+                        clone.transform.position = imageTarget.transform.position;
+                        clone.transform.SetParent(PoolGameObjectContainer.transform);
                         clone.transform.localScale = imageTarget.transform.localScale;
-                        Debug.Log("INSTANTIATE : " + clone.transform.localScale);
+                        //Debug.Log("INSTANTIATE : " + clone.transform.localScale);
                     }
                 }
                 break;
