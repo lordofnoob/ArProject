@@ -55,6 +55,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 7148590898809425765}
+  defaultTimeBeforeDeath: 5
 --- !u!1 &3234109971699514713
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,6 +111,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 7421745685747136456}
+  defaultTimeBeforeDeath: 5
 --- !u!1 &6201765254975157628
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +167,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 6774353687224827442}
+  defaultTimeBeforeDeath: 5
 --- !u!1 &8888715932641886555
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +223,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 1310723107641975843}
+  defaultTimeBeforeDeath: 5
 --- !u!1 &8932106926465353301
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +247,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8932106926465353301}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -253,7 +257,7 @@ Transform:
   - {fileID: 7429815396633377421}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!1001 &1310723107634602637
 PrefabInstance:
   m_ObjectHideFlags: 0

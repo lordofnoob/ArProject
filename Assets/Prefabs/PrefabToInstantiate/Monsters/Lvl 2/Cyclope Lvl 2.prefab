@@ -23,6 +23,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 176836444790122834}
+  defaultTimeBeforeDeath: 5
 --- !u!1 &8911351244008896251
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,14 +47,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8911351244008896251}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8442665630357877669}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!1001 &6796971426380873993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,11 +66,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cyclope
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851550347890240713, guid: 7b7096a8151face418ed81c78369b3db,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3132796874718245548, guid: 7b7096a8151face418ed81c78369b3db,
         type: 3}
@@ -126,6 +122,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6640432647052095933, guid: 7b7096a8151face418ed81c78369b3db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.424
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640432647055375913, guid: 7b7096a8151face418ed81c78369b3db,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ddff5f93123e69543a08b054db8f03bf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b7096a8151face418ed81c78369b3db, type: 3}
 --- !u!1 &2091810796622458304 stripped

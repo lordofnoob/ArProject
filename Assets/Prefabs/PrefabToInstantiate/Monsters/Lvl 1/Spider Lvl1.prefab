@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764633089149440873}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31,7 +31,7 @@ Transform:
   - {fileID: 2414391821432253600}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!114 &4688530185293901128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +55,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 1922479115797748046}
+  defaultTimeBeforeDeath: 5
 --- !u!114 &5181501088668776454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +79,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 8711970365813607262}
+  defaultTimeBeforeDeath: 5
 --- !u!1001 &4567417148607618712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89,11 +91,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spider (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003904737880406088, guid: e52654e0f015b8a4d933d5e19d11b29e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2225654678536532536, guid: e52654e0f015b8a4d933d5e19d11b29e,
         type: 3}
@@ -181,11 +178,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spider (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003904737880406088, guid: e52654e0f015b8a4d933d5e19d11b29e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2225654678536532536, guid: e52654e0f015b8a4d933d5e19d11b29e,
         type: 3}
