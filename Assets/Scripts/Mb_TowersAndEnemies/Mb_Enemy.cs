@@ -146,6 +146,7 @@ public class Mb_Enemy : MonoBehaviour
 
         if(unitState == UnitState.MOVING)
         {
+            anim.SetTrigger("StartRunnig");
             Move();
         }
 
