@@ -13,6 +13,12 @@ public class ScanManager : MonoBehaviour
     public GameObject PoolGameObjectContainer;
     private List<ImageTargetBehaviour> imageList = new List<ImageTargetBehaviour>();
 
+    public GameObject temporaryTopPose, temporaryBotPose;
+    private GameObject topPos, botPos;
+    public Text debugText, debuggerDebugText;
+
+    public WorldCenterTrackableBehaviour centerOfMap;
+
     public List<Mb_Enemy> allEnnemiesScanned = new List<Mb_Enemy>();
     public List<Mb_Tower> allTowersScanned = new List<Mb_Tower>();
 
@@ -27,28 +33,30 @@ public class ScanManager : MonoBehaviour
     {
         instance = this;
 
-        ResetDisplay();
+        VuforiaARController.RegisterARController();
+        
         ResetScan();
         imageList.AddRange(TargetImageContainer.GetComponentsInChildren<ImageTargetBehaviour>());
+        
+        BoardScanCanvas.GetComponentInChildren<Button>().interactable = true;
+        CardsScanCanvas.GetComponentInChildren<Button>().interactable = true;
+        ConfirmValitation.GetComponentInChildren<Button>().interactable = true;
     }
 
     private void Update()
     {
-        if (TopLeftCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED && DownRightCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
-        {
-            BoardScanCanvas.GetComponentInChildren<Button>().interactable = true;
-        }
+        debuggerDebugText.text = Camera.main.transform.position.ToString();
     }
 
     public void ResetScan() // A modifier?
-    {
+    {/*
         attackersValidate = false;
         defendersValidate = false;
         initValidate = false;
         BoardScanCanvas.GetComponentInChildren<Button>().interactable = false;
 
         allEnnemiesScanned.Clear();
-        allTowersScanned.Clear();
+        allTowersScanned.Clear();*/
     }
 
     public void Scan()
@@ -56,7 +64,21 @@ public class ScanManager : MonoBehaviour
         switch (PhaseManager.instance.GetCurrentPhase())
         {
             case Phase.INIT:
-                TileManager.instance.SetTileGridTransform((TopLeftCornerImageTarget.transform.position - DownRightCornerImageTarget.transform.position)/2 + DownRightCornerImageTarget.transform.position);
+                if (TopLeftCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+                {
+                    debuggerDebugText.text = TopLeftCornerImageTarget.transform.position.ToString();
+                    botPos = Instantiate(temporaryBotPose, DownRightCornerImageTarget.transform.position, Quaternion.identity);
+
+                }
+                if (DownRightCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+                {
+                    debugText.text = DownRightCornerImageTarget.transform.position.ToString();
+                    topPos = Instantiate(temporaryTopPose, DownRightCornerImageTarget.transform.position, Quaternion.identity);
+                }
+
+                if (topPos!=null && botPos!=null)
+                    TileManager.instance.SetTileGridTransform((topPos.transform.position - botPos.transform.position) /2 + botPos.transform.position);
+                initValidate = true;
                 break;
             case Phase.ATTACK:
             case Phase.DEFENCE:

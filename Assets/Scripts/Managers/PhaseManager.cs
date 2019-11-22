@@ -24,6 +24,7 @@ public class PhaseManager : MonoBehaviour
         }
 
         instance = this;
+        currentPhase = Phase.INIT;
     }
 
     private Phase currentPhase;
@@ -32,15 +33,11 @@ public class PhaseManager : MonoBehaviour
     public List<Mb_Enemy> attackers;
     public List<Mb_Tower> defenders;
 
-    public PhaseManager()
-    {
-        currentPhase = Phase.INIT;
-    }
-
     public void Initiate()
     {
         ScanManager.instance.ResetScan();
-        currentPhaseCoroutine = StartCoroutine(InitPhase());
+        //currentPhaseCoroutine = 
+        StartCoroutine("InitPhase");
     }
 
     public Phase GetCurrentPhase()
@@ -54,7 +51,7 @@ public class PhaseManager : MonoBehaviour
         currentPhase = nextPhase;
     }
 
-    private IEnumerator InitPhase()
+    public IEnumerator InitPhase()
     {
         SetCurrentPhase(Phase.INIT);
 
@@ -66,7 +63,8 @@ public class PhaseManager : MonoBehaviour
             yield return 0;
         }
 
-        currentPhaseCoroutine = StartCoroutine(DefencePhase());
+        //currentPhaseCoroutine =
+        StartCoroutine(DefencePhase());
     }
 
     private IEnumerator DefencePhase()
@@ -85,7 +83,8 @@ public class PhaseManager : MonoBehaviour
             yield return 0;
         }
 
-        currentPhaseCoroutine = StartCoroutine(AttackPhase());
+        //currentPhaseCoroutine = StartCoroutine(AttackPhase());
+        StartCoroutine(AttackPhase());
     }
 
     private IEnumerator AttackPhase()
@@ -104,7 +103,8 @@ public class PhaseManager : MonoBehaviour
             yield return 0;
         }
 
-        currentPhaseCoroutine = StartCoroutine(CompatibilityPhase());
+        //currentPhaseCoroutine =
+        StartCoroutine(CompatibilityPhase());
     }
 
     private IEnumerator CompatibilityPhase()
@@ -124,7 +124,8 @@ public class PhaseManager : MonoBehaviour
 
         // Desafficher l'UI
 
-        currentPhaseCoroutine = StartCoroutine(ResolutionPhase());
+        //currentPhaseCoroutine = 
+            StartCoroutine(ResolutionPhase());
     }
 
     private IEnumerator ResolutionPhase()
@@ -152,7 +153,8 @@ public class PhaseManager : MonoBehaviour
 
         // Desafficher l'UI
 
-        currentPhaseCoroutine = StartCoroutine(DefencePhase());
+        //currentPhaseCoroutine =
+        StartCoroutine(DefencePhase());
     }
 
     private void ExecuteActions()

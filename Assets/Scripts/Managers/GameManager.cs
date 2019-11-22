@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
         } 
         
         instance = this;
-        phaseManager = new PhaseManager();
         random = new System.Random();
     }
 
@@ -44,6 +43,6 @@ public class GameManager : MonoBehaviour
 
     private void StartGameLoop()
     {
-        phaseManager.Initiate();
+        PhaseManager.instance.Initiate();
     }
 }

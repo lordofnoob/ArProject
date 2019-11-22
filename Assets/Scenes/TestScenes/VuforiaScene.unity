@@ -1050,7 +1050,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetImageContainer: {fileID: 1656160760}
-  GameObjectInstanceContainer: {fileID: 0}
+  PoolGameObjectContainer: {fileID: 0}
+  topLeftPos: {fileID: 0}
+  downRightPos: {fileID: 0}
+  debugText: {fileID: 0}
+  allEnnemiesScanned: []
+  allTowersScanned: []
+  TopLeftCornerImageTarget: {fileID: 0}
+  DownRightCornerImageTarget: {fileID: 0}
   BoardScanCanvas: {fileID: 945403213}
   CardsScanCanvas: {fileID: 254775737}
   ConfirmValitation: {fileID: 546792453}
@@ -3149,6 +3156,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4346281283730483374, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4346281283730483375, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3259,17 +3271,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 725235304}
-    - target: {fileID: 4346281282990384848, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 725235304}
     - target: {fileID: 4346281282603184831, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 725235304}
-    - target: {fileID: 4346281284386064270, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
+    - target: {fileID: 4346281282990384848, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 725235304}
+    - target: {fileID: 4346281283181351363, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3279,7 +3291,7 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 725235304}
-    - target: {fileID: 4346281283181351363, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
+    - target: {fileID: 4346281284386064270, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
