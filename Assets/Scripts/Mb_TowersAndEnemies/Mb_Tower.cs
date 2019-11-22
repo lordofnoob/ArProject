@@ -6,11 +6,13 @@ using System.Linq;
 public class Mb_Tower : MonoBehaviour
 {
     [SerializeField] Sc_Tower towerBaseCharacteristics;
-    private TowerCharacteritics towerCharacteristics;
+    public TowerCharacteritics towerCharacteristics;
     public ProjectileModifier projectileModifierList;
     public Transform shootProjectilePoint;
     public GameObject ProjectilePrefab;
-         
+
+    public float projectileLifeTime = 2;   // LifeTime Hardwrite pas terrible...
+
     private List<TileInfo> tileInRange = new List<TileInfo>();
     public int towerTileID;
     public string itemName;
@@ -20,8 +22,6 @@ public class Mb_Tower : MonoBehaviour
 
     public void Action()
     {
-        timer = towerCharacteristics.delayBetweenAttack + 1;
-
         if (timer > towerCharacteristics.delayBetweenAttack)
         {
             timer = 0;
@@ -82,9 +82,12 @@ public class Mb_Tower : MonoBehaviour
 
                 if (targets.Contains(ennemy))
                     continue;
-                
-                targets.Add(ennemy);
-                Debug.Log("Target acquired! " + ennemy);
+
+                if(ennemy.GetUnitState() != UnitState.DEAD && ennemy.GetUnitState() != UnitState.WAITINGFORDEATH)
+                {
+                    targets.Add(ennemy);
+                    Debug.Log("Target acquired! " + ennemy);
+                }
             }
         }
     }
@@ -94,7 +97,11 @@ public class Mb_Tower : MonoBehaviour
         foreach (TileInfo tile in tileInRange)
         {
             if (tile.GetClosestEnemies().Contains(ennemy))
-                return true;
+            {
+                if (ennemy.GetUnitState() != UnitState.DEAD && ennemy.GetUnitState() != UnitState.WAITINGFORDEATH)
+                    return true;
+            }
+                
         }
         return false;
     }
@@ -102,8 +109,8 @@ public class Mb_Tower : MonoBehaviour
     private void ShootProjectileOnTarget(Mb_Enemy target)
     {
         Debug.Log("PewPierPew!");
-        float projectileLifeTime = 1;   // LifeTime Hardwrite pas terrible...
-        Mb_Projectile newProjectile = UniversalPool.GetItem("Projectiles").GetComponent<Mb_Projectile>();
+        
+        Mb_Projectile newProjectile = UniversalPool.GetItem("Projectile").GetComponent<Mb_Projectile>();
         newProjectile.SetModifier(projectileModifierList);
         newProjectile.Initialize(shootProjectilePoint.position, projectileLifeTime, target, towerCharacteristics.damages, towerCharacteristics.piercingAmount, towerCharacteristics.fireDamages, towerCharacteristics.slowDuration); 
 

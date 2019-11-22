@@ -45,7 +45,7 @@ public class TestGameManager : MonoBehaviour
 
         for (int i = 0; i < defenders.Count; i++)
         {
-            defenders[i].Init(5);
+            defenders[i].Init(15);
         }
 
         currentCoroutine = StartCoroutine(Resolution());
