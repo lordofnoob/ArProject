@@ -76,6 +76,8 @@ public class TileInfo : MonoBehaviour
        Mb_Enemy enteringEnemy = other.gameObject.GetComponent<Mb_Enemy>();
        if (enteringEnemy)    // A modifier?
        {
+            if (enteringEnemy.spawnTileID < 0)
+                enteringEnemy.spawnTileID = tileID;
             Debug.Log("Entering " + tileID);
             onTileElements.Add(enteringEnemy);
        }

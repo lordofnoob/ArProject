@@ -40,7 +40,7 @@ public class ScanManager : MonoBehaviour
         }
     }
 
-    public void ResetScan()
+    public void ResetScan() // A modifier?
     {
         attackersValidate = false;
         defendersValidate = false;
@@ -59,47 +59,68 @@ public class ScanManager : MonoBehaviour
                 TileManager.instance.SetTileGridTransform((TopLeftCornerImageTarget.transform.position - DownRightCornerImageTarget.transform.position)/2 + DownRightCornerImageTarget.transform.position);
                 break;
             case Phase.ATTACK:
+                ScanForUnits();
+                break;
             case Phase.DEFENCE:
-                foreach (ImageTargetBehaviour imageTarget in imageList)
-                {
-                    if (imageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
-                    //if(imageTarget.transform.childCount > 0 && imageTarget.transform.GetChild(0).gameObject.activeInHierarchy)
-                    {
-                        GameObject child = imageTarget.transform.GetChild(0).gameObject;
-
-                        string itemName = "";
-
-                        if (imageTarget.GetComponentInChildren<Mb_Enemy>())
-                        {
-                            itemName = imageTarget.GetComponentInChildren<Mb_Enemy>().itemName;
-                        }
-                        else if (imageTarget.GetComponentInChildren<Mb_Tower>())
-                        {
-                            itemName = imageTarget.GetComponentInChildren<Mb_Tower>().itemName;
-                        }
-
-                        GameObject clone = UniversalPool.GetItem(itemName);
-                        //Instantiate(child, imageTarget.transform.position, Quaternion.identity);
-                        clone.transform.position = imageTarget.transform.position;
-                        clone.transform.SetParent(PoolGameObjectContainer.transform);
-                        clone.transform.localScale = imageTarget.transform.localScale;
-                        //Debug.Log("INSTANTIATE : " + clone.transform.localScale);
-
-                        if (clone.GetComponentInChildren<Mb_Enemy>())
-                        {
-                            allEnnemiesScanned.Add(clone.GetComponentInChildren<Mb_Enemy>());
-                        }
-                        else if(clone.GetComponentInChildren<Mb_Tower>())
-                        {
-                            allTowersScanned.Add(clone.GetComponentInChildren<Mb_Tower>());
-                        }
-                    }
-                }
+                ScanForUnits();
                 break;
             default:
                 break;
         }
         Debug.Log("SCAN");
+    }
+
+    private void ScanForUnits()
+    {
+        Phase currentPhase = PhaseManager.instance.GetCurrentPhase();
+
+        foreach (ImageTargetBehaviour imageTarget in imageList)
+        {
+            if (imageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+            //if(imageTarget.transform.childCount > 0 && imageTarget.transform.GetChild(0).gameObject.activeInHierarchy)
+            {
+                GameObject child = imageTarget.transform.GetChild(0).gameObject;
+
+                string itemName = "";
+
+                if (imageTarget.GetComponentInChildren<Mb_Enemy>())
+                {
+                    itemName = imageTarget.GetComponentInChildren<Mb_Enemy>().itemName;
+                }
+                else if (imageTarget.GetComponentInChildren<Mb_Tower>())
+                {
+                    itemName = imageTarget.GetComponentInChildren<Mb_Tower>().itemName;
+                }
+
+                GameObject clone = UniversalPool.GetItem(itemName);
+                //Instantiate(child, imageTarget.transform.position, Quaternion.identity);
+                clone.transform.position = imageTarget.transform.position;
+                clone.transform.SetParent(PoolGameObjectContainer.transform); //Je comprend pas
+                clone.transform.localScale = imageTarget.transform.localScale;
+                //Debug.Log("INSTANTIATE : " + clone.transform.localScale);
+
+                if (currentPhase == Phase.ATTACK && clone.GetComponentInChildren<Mb_Enemy>())
+                {
+                    PhaseManager.instance.attackers.Add(clone.GetComponentInChildren<Mb_Enemy>());
+                }
+                else if (currentPhase == Phase.DEFENCE && clone.GetComponentInChildren<Mb_Tower>())
+                {
+                    PhaseManager.instance.defenders.Add(clone.GetComponentInChildren<Mb_Tower>());
+                }
+            }
+        }
+    }
+
+    private void worldPositionToTile()
+    {
+        Phase currentPhase = PhaseManager.instance.GetCurrentPhase();
+        if(currentPhase == Phase.ATTACK)
+        {
+            foreach(Mb_Enemy ennemy in allEnnemiesScanned)
+            {
+                
+            }
+        }
     }
 
     public void ChangePhase(Phase phase)

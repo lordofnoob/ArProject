@@ -313,9 +313,6 @@ public class TileManager : MonoBehaviour
         return tileInfoList;
     }
 
-    
-
-
     private bool CheckWalkability(TileInfo tileInfo)
     {
         switch(tileInfo.tileType)

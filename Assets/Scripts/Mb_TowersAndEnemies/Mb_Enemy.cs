@@ -17,6 +17,7 @@ public class Mb_Enemy : MonoBehaviour
     [Header("DebugInitialisation")]
     public int spawnRow;
     public int spawnLine;
+    public int spawnTileID;
 
     //[Header("DebugInitialisation")]
     public string itemName;
@@ -54,7 +55,14 @@ public class Mb_Enemy : MonoBehaviour
     public void Init(int tileID)
     {
         gameObject.transform.parent = TileManager.instance.transform;
-        gameObject.transform.localPosition = TileManager.instance.GetTilePosition(TileManager.instance.GetTileID(spawnRow, spawnLine));
+        gameObject.transform.localPosition = TileManager.instance.GetTilePosition(tileID);
+        remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
+    }
+
+    public void Init()
+    {
+        gameObject.transform.parent = TileManager.instance.transform;
+        gameObject.transform.localPosition = TileManager.instance.GetTilePosition(spawnTileID);
         remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
     }
 

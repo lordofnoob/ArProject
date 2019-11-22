@@ -23,8 +23,7 @@ public class TestGameManager : MonoBehaviour
     public List<Mb_Enemy> attackers;
     public List<Mb_Tower> defenders;
     public Coroutine currentCoroutine;
-    public System.Random random;
-    
+    public System.Random random; 
 
     private void Start()
     {

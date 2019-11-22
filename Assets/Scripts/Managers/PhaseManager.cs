@@ -183,8 +183,7 @@ public class PhaseManager : MonoBehaviour
 
     void GetAllFamilies()
     {
-        //EnemiesSetup
-        #region
+        #region EnemiesSetup
         FamilyMonsterCount familyCounting;
         familyCounting.demonCount = 0;
         familyCounting.gloutonCount = 0;
@@ -343,8 +342,7 @@ public class PhaseManager : MonoBehaviour
         #endregion
         #endregion
 
-        //TowerSetup
-        #region
+        #region TowerSetup
         TowerTypeCount towerCounting;
         towerCounting.fireCount = 0;
         towerCounting.iceCount = 0;
