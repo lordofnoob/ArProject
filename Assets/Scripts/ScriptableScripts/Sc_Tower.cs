@@ -17,7 +17,8 @@ public enum TowerType
 [System.Serializable]
 public struct TowerCharacteritics
 {
-    public float damages, numberOfShots, delayBetweenAttack, piercingAmount;
+    public float damages, fireDamages, numberOfShots, delayBetweenAttack, piercingAmount;
+    public float slowDuration;
     public int range;
     public TowerType[] allTowerFamily;
 }

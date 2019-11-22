@@ -2,12 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Flags]
+public enum ProjectileModifier
+{
+    Fire = (1 << 0),
+    Ice = (1 << 1),
+    Piercing = (1 << 2),
+    HeavyCaliber = (1 << 3),
+
+    FireIce = Fire | Ice,
+    FirePiercing = Fire | Piercing,
+    FireHeavyCaliber = Fire | HeavyCaliber,
+
+    IcePiercing = Ice | Piercing,
+    IceHeavyCaliber = Ice | HeavyCaliber,
+
+    PiercingHeavyCaliber = Piercing | HeavyCaliber,
+
+    FireIceHeavyCaliber = Fire | Ice | HeavyCaliber,
+    FireIceHeavyPiercing = Fire | Ice | Piercing,
+
+    IceHeavyCaliberPiercing = Ice | HeavyCaliber | Piercing
+}
+
 public class Mb_Projectile : MonoBehaviour
 {
     public ParticleSystem Fire, Ice, Heavy, Piercing;
 
     private Mb_Enemy target;
+
     private float damage;
+    private float armorPiercing;
+    private float fireDamage;
+    private float slowDuration;
     private float lifeTime = 1;
 
     private void FixedUpdate()
@@ -19,7 +46,7 @@ public class Mb_Projectile : MonoBehaviour
             if (lifeTime <= 0)
             {
                 transform.position = target.transform.position;
-                target.DamageUnit(damage);
+                target.DamageUnit(damage, armorPiercing, fireDamage, slowDuration);
                 UniversalPool.ReturnItem(gameObject, "Projectiles");
             }
             else
@@ -34,20 +61,27 @@ public class Mb_Projectile : MonoBehaviour
         }
     }
 
-    public void SetModifier(bool fire, bool ice, bool heavy, bool piercing)
+    public void SetModifier(ProjectileModifier projectileModifier)
     {
-        Fire.gameObject.SetActive(fire);
-        Ice.gameObject.SetActive(ice);
-        Heavy.gameObject.SetActive(heavy);
-        Piercing.gameObject.SetActive(piercing);
+        //Fire.gameObject.SetActive(fire);
+        //Ice.gameObject.SetActive(ice);
+        //Heavy.gameObject.SetActive(heavy);
+        //Piercing.gameObject.SetActive(piercing);
     }
 
-    public void Initialize(Vector3 startPosition, Mb_Enemy newTarget, float newDamage, float newLifeTime )
+    public void Initialize(Vector3 startPosition, float newLifeTime, Mb_Enemy newTarget, float newDamage,  float newArmorPiercing, float newFireDamage, float newSlowDuration)
     {
-        target = newTarget;
         transform.position = startPosition;
         transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position, TileManager.instance.transform.up);
-        damage = newDamage;
+
         lifeTime = newLifeTime;
+
+        target = newTarget;
+        
+        damage = newDamage;
+        armorPiercing = newArmorPiercing;
+        fireDamage = newFireDamage;
+        slowDuration = newSlowDuration;
+        
     }
 }

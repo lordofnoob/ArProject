@@ -17,6 +17,9 @@ public class Mb_Enemy : MonoBehaviour
     public int spawnRow;
     public int spawnLine;
 
+    [Header("DebugInitialisation")]
+    public string itemName;
+
     [Header("Characteritics")]
     public Sc_Monsters monsterCharacteristics;
     public allCharacterisitcs monsterUpdatedCharacteristics;
@@ -27,6 +30,7 @@ public class Mb_Enemy : MonoBehaviour
     //Slow a ajouter!
 
     private float remainingHitPoints;
+    private float slowRemainingDuration;
 
     private UnitState unitState;
     private int unitStartingMovementTile;
@@ -88,7 +92,7 @@ public class Mb_Enemy : MonoBehaviour
     
 
     //Slow a ajouter!
-    public void DamageUnit(float damage)
+    public void DamageUnit(float damage, float armorPercing, float trueDamage, float slowDuration)
     {
         if(unitState == UnitState.DEAD)
         {
@@ -96,8 +100,13 @@ public class Mb_Enemy : MonoBehaviour
         }
         else
         {
-            // Application de la defence!
-            remainingHitPoints -= damage;
+            remainingHitPoints -= damage * (1 - monsterUpdatedCharacteristics.defense + armorPercing) + trueDamage;
+
+            if(slowDuration> slowRemainingDuration)
+            {
+                slowRemainingDuration = slowDuration;
+            }
+
             if(remainingHitPoints <= 0)
             {
                 unitState = UnitState.DEAD;
@@ -111,6 +120,7 @@ public class Mb_Enemy : MonoBehaviour
     {
         if(unitState == UnitState.DEAD)
         {
+            UniversalPool.ReturnItem(gameObject, itemName);
             return;
         }
 
@@ -145,7 +155,15 @@ public class Mb_Enemy : MonoBehaviour
     //Slow a ajouter!
     private void Move()
     {
-        movementProgress += (float)monsterUpdatedCharacteristics.speed / 100f * Time.fixedDeltaTime;
+        if(slowRemainingDuration > 0)
+        {
+            movementProgress += GetSlowedSpeed((float)monsterUpdatedCharacteristics.speed) / 100f * Time.fixedDeltaTime;
+        }
+        else
+        {
+            movementProgress += (float)monsterUpdatedCharacteristics.speed / 100f * Time.fixedDeltaTime;
+        }
+        
 
         if(movementProgress >= 1)
         {
@@ -165,6 +183,12 @@ public class Mb_Enemy : MonoBehaviour
         //LifeManager.instance.DamagePlayer(monsterUpdatedCharacteristics.damageToNexus);
         //unitState = UnitState.DEAD;
         // Animation de mort
+    }
+
+    private float GetSlowedSpeed(float speed)
+    {
+        return speed * 4f / 5f;
+
     }
 }
 
