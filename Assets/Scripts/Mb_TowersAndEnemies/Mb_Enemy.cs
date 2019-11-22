@@ -18,7 +18,7 @@ public class Mb_Enemy : MonoBehaviour
     public int spawnLine;
 
     [Header("Characteritics")]
-    //public Sc_Monsters monsterCharacteristics;
+    public Sc_Monsters monsterCharacteristics;
     public allCharacterisitcs monsterUpdatedCharacteristics;
 
     [Header("GraphicPart")]
@@ -35,7 +35,7 @@ public class Mb_Enemy : MonoBehaviour
 
     private void Awake()
     {
-        //monsterUpdatedCharacteristics = monsterCharacteristics.monsterBaseCharacteristics;
+        monsterUpdatedCharacteristics = monsterCharacteristics.monsterBaseCharacteristics;
         unitDestinationTile = -1;
         unitState = UnitState.STANDBY;
 
