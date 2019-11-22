@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2349958514763924942
+--- !u!1 &949767458025100558
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5257347603676482365}
+  - component: {fileID: 7297840631001652221}
   m_Layer: 0
-  m_Name: Demon Lvl1
+  m_Name: Demon Lvl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5257347603676482365
+--- !u!4 &7297840631001652221
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2349958514763924942}
+  m_GameObject: {fileID: 949767458025100558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7562604, y: 0.22600892, z: 0.27879113}
+  m_LocalPosition: {x: -0.50000036, y: 0.20339185, z: 0.09232743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1790339076572196329}
+  - {fileID: 3849017811845348649}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4389950682256607300
+--- !u!114 &1251655775819192452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5440803670883628903}
+  m_GameObject: {fileID: 7364340547186567079}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRow: 0
   spawnLine: 0
-  monsterCharacteristics: {fileID: 11400000, guid: ff809a979345e434d997afab54c56391,
+  monsterCharacteristics: {fileID: 11400000, guid: 459cf89b84a520941beb3e5bf119f41b,
     type: 2}
   monsterUpdatedCharacteristics:
     speed: 0
@@ -53,15 +53,15 @@ MonoBehaviour:
     defense: 0
     damageToNexus: 0
     allEnemyFamilies: 
-  anim: {fileID: 1422614851039477570}
---- !u!95 &1422614851039477570
+  anim: {fileID: 4471192632118243202}
+--- !u!95 &4471192632118243202
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6362790303895646518}
+  m_GameObject: {fileID: 8502750711494779382}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f260fcbfd40957c448d4cac7726f12b7, type: 3}
   m_Controller: {fileID: 9100000, guid: 8ebe5236e7cfa4742992a8edb048bf5e, type: 2}
@@ -73,12 +73,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1001 &7707336525545280597
+--- !u!1001 &5136090483010978965
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5257347603676482365}
+    m_TransformParent: {fileID: 7297840631001652221}
     m_Modifications:
     - target: {fileID: 2410670038545457970, guid: 9bcc860b680be4340875ebbdbe18301a,
         type: 3}
@@ -147,21 +147,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bcc860b680be4340875ebbdbe18301a, type: 3}
---- !u!1 &5440803670883628903 stripped
+--- !u!1 &7364340547186567079 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2410670038545457970, guid: 9bcc860b680be4340875ebbdbe18301a,
     type: 3}
-  m_PrefabInstance: {fileID: 7707336525545280597}
+  m_PrefabInstance: {fileID: 5136090483010978965}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1790339076572196329 stripped
+--- !u!4 &3849017811845348649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8227366628070996412, guid: 9bcc860b680be4340875ebbdbe18301a,
     type: 3}
-  m_PrefabInstance: {fileID: 7707336525545280597}
+  m_PrefabInstance: {fileID: 5136090483010978965}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6362790303895646518 stripped
+--- !u!1 &8502750711494779382 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3654910438866085219, guid: 9bcc860b680be4340875ebbdbe18301a,
     type: 3}
-  m_PrefabInstance: {fileID: 7707336525545280597}
+  m_PrefabInstance: {fileID: 5136090483010978965}
   m_PrefabAsset: {fileID: 0}
