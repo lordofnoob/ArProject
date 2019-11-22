@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Vuforia;
 using Image = UnityEngine.UI.Image;
 
@@ -11,6 +12,8 @@ public class ScanManager : MonoBehaviour
     public GameObject TargetImageContainer;
     public GameObject PoolGameObjectContainer;
     private List<ImageTargetBehaviour> imageList = new List<ImageTargetBehaviour>();
+
+    public ImageTargetBehaviour TopLeftCornerImageTarget, DownRightCornerImageTarget;
 
     public Image BoardScanCanvas, CardsScanCanvas, ConfirmValitation;
 
@@ -26,11 +29,20 @@ public class ScanManager : MonoBehaviour
         imageList.AddRange(TargetImageContainer.GetComponentsInChildren<ImageTargetBehaviour>());
     }
 
+    private void Update()
+    {
+        if (TopLeftCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED && DownRightCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+        {
+            BoardScanCanvas.GetComponentInChildren<Button>().interactable = true;
+        }
+    }
+
     public void ResetBool()
     {
         attackersValidate = false;
         defendersValidate = false;
         initValidate = false;
+        BoardScanCanvas.GetComponentInChildren<Button>().interactable = false;
     }
 
     public void Scan()
