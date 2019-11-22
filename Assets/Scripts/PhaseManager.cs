@@ -34,11 +34,6 @@ public class PhaseManager : MonoBehaviour
     private List<Mb_Enemy> attackers;
     private List<Mb_Tower> defenders;
 
-    private void Awake()
-    {
-        instance = this;
-    }
-
     public PhaseManager()
     {
         currentPhase = Phase.INIT;
