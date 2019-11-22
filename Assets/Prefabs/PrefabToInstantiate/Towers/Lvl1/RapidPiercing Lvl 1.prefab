@@ -28,7 +28,6 @@ Transform:
   m_LocalPosition: {x: -49.6, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4844851922521206395}
   - {fileID: 1681627870772255149}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,7 +50,7 @@ MonoBehaviour:
   shootProjectilePoint: {fileID: 4844851922521206395}
   ProjectilePrefab: {fileID: 6790330038427272897, guid: fead69d18f51443408824e7bb7bc3845,
     type: 3}
-  towerTileInfo: {fileID: 0}
+  towerTileID: 0
 --- !u!95 &3750670904622565161
 Animator:
   serializedVersion: 3
@@ -98,8 +97,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 119, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1643101546602660776}
-  m_RootOrder: 0
+  m_Father: {fileID: 1681627870772255149}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8831415952235059800
 GameObject:
@@ -277,7 +276,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3bcf4aadc3bf3c34b982d4273cac9aaa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3bcf4aadc3bf3c34b982d4273cac9aaa,
         type: 3}
