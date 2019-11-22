@@ -14,7 +14,7 @@ public class Mb_Tower : MonoBehaviour
     public float projectileLifeTime = 2;   // LifeTime Hardwrite pas terrible...
 
     private List<TileInfo> tileInRange = new List<TileInfo>();
-    public int towerTileID;
+    public int towerTileID = -1;
     public string itemName;
 
     private float timer = 0f;
@@ -57,6 +57,21 @@ public class Mb_Tower : MonoBehaviour
         towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
         
         foreach(List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
+        {
+            tileInRange.AddRange(list);
+        }
+        tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
+    }
+
+    public void Init()
+    {
+        SetPosition(towerTileID);
+
+        towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
+
+        //TileManager.instance.GetTileInfo(towerTileID).tileType = TileType.DEFENCESPAWN;
+
+        foreach (List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
         {
             tileInRange.AddRange(list);
         }

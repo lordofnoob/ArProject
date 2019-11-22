@@ -59,15 +59,33 @@ public class ScanManager : MonoBehaviour
                 TileManager.instance.SetTileGridTransform((TopLeftCornerImageTarget.transform.position - DownRightCornerImageTarget.transform.position)/2 + DownRightCornerImageTarget.transform.position);
                 break;
             case Phase.ATTACK:
-                ScanForUnits();
-                break;
             case Phase.DEFENCE:
                 ScanForUnits();
+                Init();
                 break;
             default:
                 break;
         }
         Debug.Log("SCAN");
+    }
+
+    private void Init()
+    {
+        Phase currentPhase = PhaseManager.instance.GetCurrentPhase();
+        if (currentPhase == Phase.ATTACK)
+        {
+            foreach (Mb_Enemy ennemy in allEnnemiesScanned)
+            {
+                ennemy.Init();
+            }
+        }
+        else if(currentPhase == Phase.DEFENCE)
+        {
+            foreach (Mb_Tower tower in allTowersScanned)
+            {
+                tower.Init();
+            }
+        }
     }
 
     private void ScanForUnits()

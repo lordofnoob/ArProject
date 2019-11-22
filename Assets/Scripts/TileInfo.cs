@@ -81,6 +81,15 @@ public class TileInfo : MonoBehaviour
             Debug.Log("Entering " + tileID);
             onTileElements.Add(enteringEnemy);
        }
+       else 
+       {
+            Mb_Tower spawningTower = other.gameObject.GetComponent<Mb_Tower>();
+            if (spawningTower)
+            {
+                if (spawningTower.towerTileID < 0)
+                    spawningTower.towerTileID = tileID;
+            }
+       }
     }
 
     private void OnTriggerExit(Collider other)
