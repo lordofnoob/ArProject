@@ -6,7 +6,7 @@ using System.Linq;
 public class Mb_Tower : MonoBehaviour
 {
     [SerializeField] Sc_Tower towerBaseCharacteristics;
-    private TowerCharacteritics towerCharacteristics;
+    public TowerCharacteritics towerCharacteristics;
     public ProjectileModifier projectileModifierList;
     public Transform shootProjectilePoint;
     public GameObject ProjectilePrefab;

@@ -7,6 +7,7 @@ using UnityEngine;
 public class Sc_Monsters : ScriptableObject
 {
     public allCharacterisitcs monsterBaseCharacteristics;
+
 }
 
 public enum FamilyType
@@ -17,14 +18,9 @@ public enum FamilyType
 [System.Serializable]
 public struct allCharacterisitcs
 {
-    public MonsterSpeed speed;
-    public float hitPoint, defense, damageToNexus;
+    public float speed, hitPoint, defense, damageToNexus;
     public FamilyType[] allEnemyFamilies;
+
 }
 
-public enum MonsterSpeed
-{
-    Quick = 20, 
-    Normal = 15,
-    Slow = 10,
-}
+
