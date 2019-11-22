@@ -17,7 +17,7 @@ public class Mb_Enemy : MonoBehaviour
     public int spawnRow;
     public int spawnLine;
 
-    [Header("DebugInitialisation")]
+    //[Header("DebugInitialisation")]
     public string itemName;
 
     [Header("Characteritics")]
