@@ -20,7 +20,6 @@ public class TileInfo : MonoBehaviour
     public TileType tileType;
     public List<Mb_Enemy> onTileElements;
 
-    
     private List<int> closestToGoalNeighbourTiles;
     private System.Random random;
 
@@ -77,6 +76,7 @@ public class TileInfo : MonoBehaviour
        Mb_Enemy enteringEnemy = other.gameObject.GetComponent<Mb_Enemy>();
        if (enteringEnemy)    // A modifier?
        {
+            Debug.Log("Entering " + tileID);
             onTileElements.Add(enteringEnemy);
        }
     }
@@ -86,6 +86,7 @@ public class TileInfo : MonoBehaviour
         Mb_Enemy leavingEnemy = other.gameObject.GetComponent<Mb_Enemy>();
         if (leavingEnemy)    // A modifier?
         {
+            Debug.Log("Leaving " + tileID);
             onTileElements.Remove(leavingEnemy);
         }
     }
