@@ -39,15 +39,16 @@ public class Mb_Enemy : MonoBehaviour
         unitDestinationTile = -1;
         unitState = UnitState.STANDBY;
 
-        remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
+        //remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
     }
 
     //////////////////////////////////////////////////////////      Initialisation      /////////////////////////////////////////////////////////
 
-    public void InitializePosition()
+    public void Init(int tileID)
     {
         gameObject.transform.parent = TileManager.instance.transform;
         gameObject.transform.localPosition = TileManager.instance.GetTilePosition(TileManager.instance.GetTileID(spawnRow, spawnLine));
+        remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
     }
 
     public void SetUnitPosition(int spawnTileID)

@@ -12,14 +12,16 @@ public class Mb_Tower : MonoBehaviour
     public GameObject ProjectilePrefab;
          
     private List<TileInfo> tileInRange = new List<TileInfo>();
-    public TileInfo towerTileInfo;
+    public int towerTileID;
 
     private float timer = 0f;
     private List<Mb_Enemy> targets = new List<Mb_Enemy>();
 
     public void Action()
     {
-        if(timer > towerCharacteristics.delayBetweenAttack)
+        timer = towerCharacteristics.delayBetweenAttack + 1;
+
+        if (timer > towerCharacteristics.delayBetweenAttack)
         {
             timer = 0;
 
@@ -28,47 +30,46 @@ public class Mb_Tower : MonoBehaviour
                 SetNewTargets();
             }
 
-            if (targets.Count > 0)
+            for (int i = 0; i < targets.Count; i++)
             {
-                foreach (Mb_Enemy target in targets)
+                Mb_Enemy target = targets[i];
+                if(isInRange(target))
                 {
                     ShootProjectileOnTarget(target);
+                }
+                else
+                {
+                    Debug.Log("Target out of range! " + target);
+                    targets.RemoveAt(i--);
+                    SetNewTargets();
                 }
             }
         }
         timer += Time.fixedDeltaTime;
     }
 
-    public void Init(Sc_Tower towerBaseCharacteristics, GameObject towerTile)
+    public void Init(int spawnTile)
     {
-        this.towerBaseCharacteristics = towerBaseCharacteristics;
         towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
-        towerTileInfo = towerTile.GetComponent<TileInfo>();
+        towerTileID = spawnTile;
 
-        foreach(List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileInfo.tileID, towerCharacteristics.range))
+        SetPosition(towerTileID);
+
+        foreach(List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
         {
             tileInRange.AddRange(list);
         }
         tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
     }
 
-    //private List<Mb_Enemy> GetEnnemiesInRange()
-    //{
-    //    List<Mb_Enemy> ennemiesInRange = new List<Mb_Enemy>();
-    //    foreach(TileInfo tile in tileInRange)
-    //    {
-    //        if(tile.onTileElements.Count > 0)
-    //        {
-    //            ennemiesInRange.AddRange(tile.onTileElements);
-    //        }
-    //    }
-    //    return ennemiesInRange;
-    //}
+    private void SetPosition(int tileID)
+    {
+        gameObject.transform.parent = TileManager.instance.transform;
+        transform.localPosition = TileManager.instance.GetTilePosition(tileID);
+    }
 
     private void SetNewTargets()
     {
-        targets.Clear();
-
         foreach(TileInfo tile in tileInRange)
         {
             foreach(Mb_Enemy ennemy in tile.GetClosestEnemies())
@@ -82,16 +83,28 @@ public class Mb_Tower : MonoBehaviour
                     continue;
                 
                 targets.Add(ennemy);
+                Debug.Log("Target acquired! " + ennemy);
             }
         }
     }
 
+    public bool isInRange(Mb_Enemy ennemy)
+    {
+        foreach (TileInfo tile in tileInRange)
+        {
+            if (tile.GetClosestEnemies().Contains(ennemy))
+                return true;
+        }
+        return false;
+    }
+
     private void ShootProjectileOnTarget(Mb_Enemy target)
     {
-        float projectileLifeTime = 1;   // LifeTime Hardwrite pas terrible...
-        Mb_Projectile newProjectile = UniversalPool.GetItem("Projectiles").GetComponent<Mb_Projectile>();
-        //newProjectile.SetModifier();
-        newProjectile.Initialize(shootProjectilePoint.position, target, towerCharacteristics.damages, projectileLifeTime); 
+        Debug.Log("PewPierPew!");
+        //float projectileLifeTime = 1;   // LifeTime Hardwrite pas terrible...
+        //Mb_Projectile newProjectile = UniversalPool.GetItem("Projectiles").GetComponent<Mb_Projectile>();
+        ////newProjectile.SetModifier();
+        //newProjectile.Initialize(shootProjectilePoint.position, target, towerCharacteristics.damages, projectileLifeTime); 
 
         //Instantiate(ProjectilePrefab, shootProjectilePoint.position, Quaternion.identity);
     }
