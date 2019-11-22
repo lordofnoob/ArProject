@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRow: 0
+  spawnLine: 0
   monsterCharacteristics: {fileID: 11400000, guid: 9b4ec98b9b21dac4882e2d3a504da884,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -63,6 +65,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'EarthDemon '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796907526560031682, guid: 0db75b9f29158c8428fbc5b84611a976,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2134268300364306415, guid: 0db75b9f29158c8428fbc5b84611a976,
         type: 3}

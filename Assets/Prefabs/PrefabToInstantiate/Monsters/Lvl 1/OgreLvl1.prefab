@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5033219027330523350
 Transform:
   m_ObjectHideFlags: 0
@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRow: 0
+  spawnLine: 0
   monsterCharacteristics: {fileID: 11400000, guid: 6e4af9cb18a8c754896713cc18121ddd,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -63,6 +65,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OgrePrefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569323763072519215, guid: 13cbcbfc97af81349956b752bd72d54a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6919758720757881286, guid: 13cbcbfc97af81349956b752bd72d54a,
         type: 3}

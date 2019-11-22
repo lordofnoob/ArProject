@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRow: 0
+  spawnLine: 0
   monsterCharacteristics: {fileID: 11400000, guid: 139f061b12ca24e4fb726a588ae42ce4,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -33,6 +35,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRow: 0
+  spawnLine: 0
   monsterCharacteristics: {fileID: 11400000, guid: 139f061b12ca24e4fb726a588ae42ce4,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -54,6 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRow: 0
+  spawnLine: 0
   monsterCharacteristics: {fileID: 11400000, guid: 139f061b12ca24e4fb726a588ae42ce4,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -78,7 +84,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5417849874649539909
 Transform:
   m_ObjectHideFlags: 0
@@ -109,6 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRow: 0
+  spawnLine: 0
   monsterCharacteristics: {fileID: 11400000, guid: 139f061b12ca24e4fb726a588ae42ce4,
     type: 2}
   monsterUpdatedCharacteristics:
