@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Vuforia;
 using Image = UnityEngine.UI.Image;
 
@@ -12,6 +13,11 @@ public class ScanManager : MonoBehaviour
     public GameObject PoolGameObjectContainer;
     private List<ImageTargetBehaviour> imageList = new List<ImageTargetBehaviour>();
 
+    public List<Mb_Enemy> allEnnemiesScanned = new List<Mb_Enemy>();
+    public List<Mb_Tower> allTowersScanned = new List<Mb_Tower>();
+
+    public ImageTargetBehaviour TopLeftCornerImageTarget, DownRightCornerImageTarget;
+
     public Image BoardScanCanvas, CardsScanCanvas, ConfirmValitation;
 
     [HideInInspector]public bool attackersValidate, defendersValidate, initValidate;
@@ -22,15 +28,27 @@ public class ScanManager : MonoBehaviour
         instance = this;
 
         ResetDisplay();
-        ResetBool();
+        ResetScan();
         imageList.AddRange(TargetImageContainer.GetComponentsInChildren<ImageTargetBehaviour>());
     }
 
-    public void ResetBool()
+    private void Update()
+    {
+        if (TopLeftCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED && DownRightCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+        {
+            BoardScanCanvas.GetComponentInChildren<Button>().interactable = true;
+        }
+    }
+
+    public void ResetScan()
     {
         attackersValidate = false;
         defendersValidate = false;
         initValidate = false;
+        BoardScanCanvas.GetComponentInChildren<Button>().interactable = false;
+
+        allEnnemiesScanned.Clear();
+        allTowersScanned.Clear();
     }
 
     public void Scan()
@@ -38,6 +56,7 @@ public class ScanManager : MonoBehaviour
         switch (PhaseManager.instance.GetCurrentPhase())
         {
             case Phase.INIT:
+                TileManager.instance.SetTileGridTransform((TopLeftCornerImageTarget.transform.position - DownRightCornerImageTarget.transform.position)/2 + DownRightCornerImageTarget.transform.position);
                 break;
             case Phase.ATTACK:
             case Phase.DEFENCE:
@@ -54,6 +73,15 @@ public class ScanManager : MonoBehaviour
                         clone.transform.SetParent(PoolGameObjectContainer.transform);
                         clone.transform.localScale = imageTarget.transform.localScale;
                         //Debug.Log("INSTANTIATE : " + clone.transform.localScale);
+
+                        if (clone.GetComponentInChildren<Mb_Enemy>())
+                        {
+                            allEnnemiesScanned.Add(clone.GetComponentInChildren<Mb_Enemy>());
+                        }
+                        else if(clone.GetComponentInChildren<Mb_Tower>())
+                        {
+                            allTowersScanned.Add(clone.GetComponentInChildren<Mb_Tower>());
+                        }
                     }
                 }
                 break;
@@ -107,10 +135,12 @@ public class ScanManager : MonoBehaviour
                 break;
 
             case Phase.ATTACK:
+                PhaseManager.instance.attackers = allEnnemiesScanned;
                 attackersValidate = true;
                 break;
 
             case Phase.DEFENCE:
+                PhaseManager.instance.defenders = allTowersScanned;
                 defendersValidate = true;
                 break;
 
@@ -131,6 +161,7 @@ public class ScanManager : MonoBehaviour
 
             case Phase.ATTACK:
             case Phase.DEFENCE:
+                ResetScan();
                 CardsScanCanvas.gameObject.SetActive(true);
                 break;
 
