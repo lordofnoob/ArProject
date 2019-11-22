@@ -23,6 +23,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 6578558756088286558}
+  defaultTimeBeforeDeath: 5
 --- !u!114 &191752813782029480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,6 +47,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 8142724176732628013}
+  defaultTimeBeforeDeath: 5
 --- !u!114 &4444414609025032630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +71,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 7978734198436465}
+  defaultTimeBeforeDeath: 5
 --- !u!114 &92195625148369545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +95,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 1576858490881492693}
+  defaultTimeBeforeDeath: 5
 --- !u!1 &6742990838453381221
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +119,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6742990838453381221}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -125,7 +129,7 @@ Transform:
   - {fileID: 5289266425478128974}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!1001 &186274641577367846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137,11 +141,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mummy (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217457169972037036, guid: b808432518ac9df43ba2d26c5e067c80,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 386012294024706019, guid: b808432518ac9df43ba2d26c5e067c80,
         type: 3}
@@ -198,6 +197,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1595129816313933599, guid: b808432518ac9df43ba2d26c5e067c80,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5bb588c7ff50e024481f494f85fd24e6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b808432518ac9df43ba2d26c5e067c80, type: 3}
 --- !u!1 &6115078600149589130 stripped
@@ -229,11 +233,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mummy (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217457169972037036, guid: b808432518ac9df43ba2d26c5e067c80,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 386012294024706019, guid: b808432518ac9df43ba2d26c5e067c80,
         type: 3}
@@ -290,6 +289,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1595129816313933599, guid: b808432518ac9df43ba2d26c5e067c80,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5bb588c7ff50e024481f494f85fd24e6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b808432518ac9df43ba2d26c5e067c80, type: 3}
 --- !u!1 &4693709013624891438 stripped
@@ -321,11 +325,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mummy (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217457169972037036, guid: b808432518ac9df43ba2d26c5e067c80,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 386012294024706019, guid: b808432518ac9df43ba2d26c5e067c80,
         type: 3}
@@ -382,6 +381,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1595129816313933599, guid: b808432518ac9df43ba2d26c5e067c80,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5bb588c7ff50e024481f494f85fd24e6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b808432518ac9df43ba2d26c5e067c80, type: 3}
 --- !u!1 &1906293344609441537 stripped
@@ -413,11 +417,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mummy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217457169972037036, guid: b808432518ac9df43ba2d26c5e067c80,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 386012294024706019, guid: b808432518ac9df43ba2d26c5e067c80,
         type: 3}
@@ -474,6 +473,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1595129816313933599, guid: b808432518ac9df43ba2d26c5e067c80,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5bb588c7ff50e024481f494f85fd24e6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b808432518ac9df43ba2d26c5e067c80, type: 3}
 --- !u!1 &3476774068675198578 stripped

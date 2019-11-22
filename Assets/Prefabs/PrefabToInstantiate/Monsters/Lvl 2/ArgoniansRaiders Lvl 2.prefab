@@ -23,6 +23,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 846057745352439996}
+  defaultTimeBeforeDeath: 5
 --- !u!114 &3278955850385166025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,6 +47,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 3683411214529349206}
+  defaultTimeBeforeDeath: 5
 --- !u!114 &5747863638528744559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +71,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 5739097044761278656}
+  defaultTimeBeforeDeath: 5
 --- !u!1 &6985884450365460496
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +95,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6985884450365460496}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -101,7 +104,7 @@ Transform:
   - {fileID: 1137305784962648}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!1001 &2365510706513558869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,11 +116,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArgonianRaiderPrefab (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8400426634365388373, guid: 719aa1719405b6f45934d9ae6cd88918,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264132993554428785, guid: 719aa1719405b6f45934d9ae6cd88918,
         type: 3}
@@ -174,6 +172,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8031788605437507139, guid: 719aa1719405b6f45934d9ae6cd88918,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 584d1d2c26917084196be0ed42834dfe, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719aa1719405b6f45934d9ae6cd88918, type: 3}
 --- !u!1 &6073021567045729024 stripped
@@ -205,11 +208,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArgonianRaiderPrefab (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8400426634365388373, guid: 719aa1719405b6f45934d9ae6cd88918,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264132993554428785, guid: 719aa1719405b6f45934d9ae6cd88918,
         type: 3}
@@ -266,6 +264,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8031788605437507139, guid: 719aa1719405b6f45934d9ae6cd88918,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 584d1d2c26917084196be0ed42834dfe, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719aa1719405b6f45934d9ae6cd88918, type: 3}
 --- !u!1 &2953499688055129494 stripped
@@ -297,11 +300,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArgonianRaiderPrefab (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8400426634365388373, guid: 719aa1719405b6f45934d9ae6cd88918,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264132993554428785, guid: 719aa1719405b6f45934d9ae6cd88918,
         type: 3}
@@ -358,6 +356,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8031788605437507139, guid: 719aa1719405b6f45934d9ae6cd88918,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 584d1d2c26917084196be0ed42834dfe, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719aa1719405b6f45934d9ae6cd88918, type: 3}
 --- !u!1 &1179705212290841468 stripped

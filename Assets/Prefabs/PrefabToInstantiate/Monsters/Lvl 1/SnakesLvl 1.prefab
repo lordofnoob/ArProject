@@ -55,6 +55,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 5217712948698391040}
+  defaultTimeBeforeDeath: 5
 --- !u!1 &7868154182543514985
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,6 +111,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 313777776440014865}
+  defaultTimeBeforeDeath: 5
 --- !u!1 &7899150390367427175
 GameObject:
   m_ObjectHideFlags: 0
