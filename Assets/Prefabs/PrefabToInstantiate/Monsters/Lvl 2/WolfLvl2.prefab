@@ -92,8 +92,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8322945352165461298}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2740734, y: -0.021113738, z: 0.081663966}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4228424026291286784}
@@ -102,7 +102,7 @@ Transform:
   - {fileID: 6368474269481827623}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!114 &5676772406157784993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,16 +133,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5417849874649539909}
     m_Modifications:
-    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
-        type: 3}
-      propertyPath: m_Name
-      value: WolfPrefab (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1482411803262614803, guid: e49d075b13eb2c0469670ea10fc35dbd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -198,6 +188,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
+        type: 3}
+      propertyPath: m_Name
+      value: WolfPrefab (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124677712268364221, guid: e49d075b13eb2c0469670ea10fc35dbd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e49d075b13eb2c0469670ea10fc35dbd, type: 3}
 --- !u!1 &3037952607849531032 stripped
@@ -225,16 +225,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5417849874649539909}
     m_Modifications:
-    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
-        type: 3}
-      propertyPath: m_Name
-      value: WolfPrefab (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1482411803262614803, guid: e49d075b13eb2c0469670ea10fc35dbd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -290,6 +280,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
+        type: 3}
+      propertyPath: m_Name
+      value: WolfPrefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124677712268364221, guid: e49d075b13eb2c0469670ea10fc35dbd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e49d075b13eb2c0469670ea10fc35dbd, type: 3}
 --- !u!1 &2240234735388442032 stripped
@@ -317,16 +317,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5417849874649539909}
     m_Modifications:
-    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
-        type: 3}
-      propertyPath: m_Name
-      value: WolfPrefab (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1482411803262614803, guid: e49d075b13eb2c0469670ea10fc35dbd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -335,7 +325,7 @@ PrefabInstance:
     - target: {fileID: 1482411803262614803, guid: e49d075b13eb2c0469670ea10fc35dbd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.021113738
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1482411803262614803, guid: e49d075b13eb2c0469670ea10fc35dbd,
         type: 3}
@@ -382,6 +372,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
+        type: 3}
+      propertyPath: m_Name
+      value: WolfPrefab (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124677712268364221, guid: e49d075b13eb2c0469670ea10fc35dbd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e49d075b13eb2c0469670ea10fc35dbd, type: 3}
 --- !u!1 &9068513776469144471 stripped
@@ -409,16 +409,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5417849874649539909}
     m_Modifications:
-    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
-        type: 3}
-      propertyPath: m_Name
-      value: WolfPrefab (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1482411803262614803, guid: e49d075b13eb2c0469670ea10fc35dbd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -427,7 +417,7 @@ PrefabInstance:
     - target: {fileID: 1482411803262614803, guid: e49d075b13eb2c0469670ea10fc35dbd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.021113738
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1482411803262614803, guid: e49d075b13eb2c0469670ea10fc35dbd,
         type: 3}
@@ -472,6 +462,16 @@ PrefabInstance:
     - target: {fileID: 1482411803262614803, guid: e49d075b13eb2c0469670ea10fc35dbd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3542676005511525283, guid: e49d075b13eb2c0469670ea10fc35dbd,
+        type: 3}
+      propertyPath: m_Name
+      value: WolfPrefab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124677712268364221, guid: e49d075b13eb2c0469670ea10fc35dbd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
