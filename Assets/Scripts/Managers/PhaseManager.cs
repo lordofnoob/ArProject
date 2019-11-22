@@ -110,7 +110,7 @@ public class PhaseManager : MonoBehaviour
     private IEnumerator CompatibilityPhase()
     {
         SetCurrentPhase(Phase.COMPATIBILITY);
-
+        GetAllFamilies();
         // Afficher UI
         // Check Compatibility
         // Afficher UI (Bonus) 

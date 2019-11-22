@@ -18,6 +18,9 @@ public class Mb_Enemy : MonoBehaviour
     public int spawnRow;
     public int spawnLine;
 
+    //[Header("DebugInitialisation")]
+    public string itemName;
+
     [Header("Characteritics")]
     public Sc_Monsters monsterCharacteristics;
     public allCharacterisitcs monsterUpdatedCharacteristics;
@@ -143,6 +146,7 @@ public class Mb_Enemy : MonoBehaviour
 
         if(unitState == UnitState.MOVING)
         {
+            anim.SetTrigger("StartRunnig");
             Move();
         }
 

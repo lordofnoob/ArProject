@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="WolvesLvl2" size="0.050000 0.075021" />
-    <ImageTarget name="VampireLvl2" size="0.050000 0.075021" />
-    <ImageTarget name="SpiderLvl2" size="0.050000 0.075021" />
-    <ImageTarget name="SnakeLvl2" size="0.050000 0.075021" />
-    <ImageTarget name="SkeletonLvl2" size="0.050000 0.075021" />
-    <ImageTarget name="OgreLVl2" size="0.050000 0.075021" />
-    <ImageTarget name="MummyLvl2" size="0.050000 0.075021" />
-    <ImageTarget name="HydraLvl2" size="0.050000 0.075021" />
-    <ImageTarget name="EarthDemonLvl2" size="0.050000 0.075021" />
-    <ImageTarget name="DemonLvl2" size="0.050000 0.075021" />
-    <ImageTarget name="CyclopeLvl2" size="0.050000 0.075021" />
-    <ImageTarget name="ChimeraLvl2" size="0.050000 0.075021" />
     <ImageTarget name="ArgonianWarriorLvl2" size="0.050000 0.075021" />
+    <ImageTarget name="ChimeraLvl2" size="0.050000 0.075021" />
+    <ImageTarget name="CyclopeLvl2" size="0.050000 0.075021" />
+    <ImageTarget name="DemonLvl2" size="0.050000 0.075021" />
+    <ImageTarget name="EarthDemonLvl2" size="0.050000 0.075021" />
+    <ImageTarget name="HydraLvl2" size="0.050000 0.075021" />
+    <ImageTarget name="MummyLvl2" size="0.050000 0.075021" />
+    <ImageTarget name="OgreLVl2" size="0.050000 0.075021" />
+    <ImageTarget name="SkeletonLvl2" size="0.050000 0.075021" />
+    <ImageTarget name="SnakeLvl2" size="0.050000 0.075021" />
+    <ImageTarget name="SpiderLvl2" size="0.050000 0.075021" />
+    <ImageTarget name="VampireLvl2" size="0.050000 0.075021" />
+    <ImageTarget name="WolvesLvl2" size="0.050000 0.075021" />
     <ImageTarget name="HydraLV1" size="0.050000 0.075021" />
     <ImageTarget name="OgersLV1" size="0.050000 0.075021" />
     <ImageTarget name="MummiesLV1" size="0.050000 0.075021" />

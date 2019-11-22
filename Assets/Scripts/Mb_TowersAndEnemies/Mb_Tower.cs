@@ -15,6 +15,7 @@ public class Mb_Tower : MonoBehaviour
 
     private List<TileInfo> tileInRange = new List<TileInfo>();
     public int towerTileID;
+    public string itemName;
 
     private float timer = 0f;
     private List<Mb_Enemy> targets = new List<Mb_Enemy>();

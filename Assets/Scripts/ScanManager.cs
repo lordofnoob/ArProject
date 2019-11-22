@@ -66,8 +66,19 @@ public class ScanManager : MonoBehaviour
                     //if(imageTarget.transform.childCount > 0 && imageTarget.transform.GetChild(0).gameObject.activeInHierarchy)
                     {
                         GameObject child = imageTarget.transform.GetChild(0).gameObject;
-                        string objectToPolName = imageTarget.name;                        
-                        GameObject clone = UniversalPool.GetItem(objectToPolName);
+
+                        string itemName = "";
+
+                        if (imageTarget.GetComponentInChildren<Mb_Enemy>())
+                        {
+                            itemName = imageTarget.GetComponentInChildren<Mb_Enemy>().itemName;
+                        }
+                        else if (imageTarget.GetComponentInChildren<Mb_Tower>())
+                        {
+                            itemName = imageTarget.GetComponentInChildren<Mb_Tower>().itemName;
+                        }
+
+                        GameObject clone = UniversalPool.GetItem(itemName);
                         //Instantiate(child, imageTarget.transform.position, Quaternion.identity);
                         clone.transform.position = imageTarget.transform.position;
                         clone.transform.SetParent(PoolGameObjectContainer.transform);
