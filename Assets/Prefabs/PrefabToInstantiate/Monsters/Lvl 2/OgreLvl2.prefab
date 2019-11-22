@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterCharacteristics: {fileID: 11400000, guid: 6e4af9cb18a8c754896713cc18121ddd,
+  spawnRow: 0
+  spawnLine: 0
+  monsterCharacteristics: {fileID: 11400000, guid: 91582deae787cb0418357af9e5239cec,
     type: 2}
   monsterUpdatedCharacteristics:
     speed: 0
@@ -36,7 +38,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2720423121633601991
 Transform:
   m_ObjectHideFlags: 0
@@ -65,7 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterCharacteristics: {fileID: 11400000, guid: 6e4af9cb18a8c754896713cc18121ddd,
+  spawnRow: 0
+  spawnLine: 0
+  monsterCharacteristics: {fileID: 11400000, guid: 91582deae787cb0418357af9e5239cec,
     type: 2}
   monsterUpdatedCharacteristics:
     speed: 0

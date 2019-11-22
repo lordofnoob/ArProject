@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRow: 0
+  spawnLine: 0
   monsterCharacteristics: {fileID: 11400000, guid: f3724d092655059459d9589d155228ea,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -33,6 +35,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRow: 0
+  spawnLine: 0
   monsterCharacteristics: {fileID: 11400000, guid: f3724d092655059459d9589d155228ea,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -54,6 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRow: 0
+  spawnLine: 0
   monsterCharacteristics: {fileID: 11400000, guid: f3724d092655059459d9589d155228ea,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -78,7 +84,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &693816782947277431
 Transform:
   m_ObjectHideFlags: 0
@@ -107,6 +113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArgonianRaiderPrefab (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400426634365388373, guid: 719aa1719405b6f45934d9ae6cd88918,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264132993554428785, guid: 719aa1719405b6f45934d9ae6cd88918,
         type: 3}
@@ -195,6 +206,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArgonianRaiderPrefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8400426634365388373, guid: 719aa1719405b6f45934d9ae6cd88918,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7264132993554428785, guid: 719aa1719405b6f45934d9ae6cd88918,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -281,6 +297,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArgonianRaiderPrefab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400426634365388373, guid: 719aa1719405b6f45934d9ae6cd88918,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264132993554428785, guid: 719aa1719405b6f45934d9ae6cd88918,
         type: 3}

@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5662352081413827791
 Transform:
   m_ObjectHideFlags: 0
@@ -42,6 +42,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Vampire '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920751229827342355, guid: 9cbd583a913602d4598ba80c764a16ef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1376806893759681678, guid: 9cbd583a913602d4598ba80c764a16ef,
         type: 3}
@@ -102,7 +107,7 @@ PrefabInstance:
         type: 3}
       propertyPath: monsterCharacteristics
       value: 
-      objectReference: {fileID: 11400000, guid: 7e726547c8cb33e4d9cb21414380912a,
+      objectReference: {fileID: 11400000, guid: 299b283907478734190d4dd32f43d44a,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cbd583a913602d4598ba80c764a16ef, type: 3}

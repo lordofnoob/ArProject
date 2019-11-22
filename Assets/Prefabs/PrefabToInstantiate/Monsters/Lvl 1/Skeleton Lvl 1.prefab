@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4370384926823863109
 Transform:
   m_ObjectHideFlags: 0
@@ -93,6 +93,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4123197457210960662, guid: 7d9775c481768344080d323191e607e2,
+        type: 3}
+      propertyPath: monsterCharacteristics
+      value: 
+      objectReference: {fileID: 11400000, guid: f05e96f73ac029d40bdea03422278dcb,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d9775c481768344080d323191e607e2, type: 3}
 --- !u!4 &157459351000669215 stripped
@@ -162,6 +168,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4123197457210960662, guid: 7d9775c481768344080d323191e607e2,
+        type: 3}
+      propertyPath: monsterCharacteristics
+      value: 
+      objectReference: {fileID: 11400000, guid: f05e96f73ac029d40bdea03422278dcb,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d9775c481768344080d323191e607e2, type: 3}
 --- !u!4 &6006598297395923605 stripped
