@@ -15,8 +15,6 @@ public class PhaseManager : MonoBehaviour
 {
     public static PhaseManager instance;
 
-    public bool testMod;
-
     private void Awake()
     {
         if(instance)
