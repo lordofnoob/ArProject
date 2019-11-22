@@ -14,7 +14,7 @@ public class ScanManager : MonoBehaviour
 
     public Image BoardScanCanvas, CardsScanCanvas, ConfirmValitation;
 
-    public bool attackersValidate, defendersValidate, initValidate;
+    [HideInInspector]public bool attackersValidate, defendersValidate, initValidate;
 
 
     private void Awake()
@@ -35,19 +35,29 @@ public class ScanManager : MonoBehaviour
 
     public void Scan()
     {
-        Debug.Log("SCAN");
-        foreach(ImageTargetBehaviour imageTarget in imageList)
+        switch (PhaseManager.instance.GetCurrentPhase())
         {
-            if (imageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
-            //if(imageTarget.transform.childCount > 0 && imageTarget.transform.GetChild(0).gameObject.activeInHierarchy)
-            {
-                GameObject child = imageTarget.transform.GetChild(0).gameObject;
-                GameObject clone = Instantiate(child, imageTarget.transform.position, Quaternion.identity);
-                clone.transform.SetParent(GameObjectInstanceContainer.transform);
-                clone.transform.localScale = imageTarget.transform.localScale;
-                Debug.Log("INSTANTIATE : "+clone.transform.localScale);
-            }
+            case Phase.INIT:
+                break;
+            case Phase.ATTACK:
+            case Phase.DEFENCE:
+                foreach (ImageTargetBehaviour imageTarget in imageList)
+                {
+                    if (imageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+                    //if(imageTarget.transform.childCount > 0 && imageTarget.transform.GetChild(0).gameObject.activeInHierarchy)
+                    {
+                        GameObject child = imageTarget.transform.GetChild(0).gameObject;
+                        GameObject clone = Instantiate(child, imageTarget.transform.position, Quaternion.identity);
+                        clone.transform.SetParent(GameObjectInstanceContainer.transform);
+                        clone.transform.localScale = imageTarget.transform.localScale;
+                        Debug.Log("INSTANTIATE : " + clone.transform.localScale);
+                    }
+                }
+                break;
+            default:
+                break;
         }
+        Debug.Log("SCAN");
     }
 
     public void ChangePhase(Phase phase)
