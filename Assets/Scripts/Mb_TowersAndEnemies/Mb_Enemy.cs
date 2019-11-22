@@ -18,9 +18,6 @@ public class Mb_Enemy : MonoBehaviour
     public int spawnRow;
     public int spawnLine;
 
-    [Header("DebugInitialisation")]
-    public string itemName;
-
     [Header("Characteritics")]
     public Sc_Monsters monsterCharacteristics;
     public allCharacterisitcs monsterUpdatedCharacteristics;
@@ -29,7 +26,6 @@ public class Mb_Enemy : MonoBehaviour
     public Animator anim;
 
     public float defaultTimeBeforeDeath = 5;
-    //Slow a ajouter!
 
     private float remainingHitPoints;
     private float slowRemainingDuration;
@@ -113,8 +109,9 @@ public class Mb_Enemy : MonoBehaviour
 
             if(remainingHitPoints <= 0)
             {
-                unitState = UnitState.DEAD;
-                // Animation Mort
+                Debug.Log("MORT!");
+                anim.SetTrigger("Died");
+                unitState = UnitState.WAITINGFORDEATH;
             }
         }
         
@@ -124,7 +121,7 @@ public class Mb_Enemy : MonoBehaviour
     {
         if(unitState == UnitState.DEAD)
         {
-            UniversalPool.ReturnItem(gameObject, itemName);
+            gameObject.SetActive(false);
             return;
         }
 
