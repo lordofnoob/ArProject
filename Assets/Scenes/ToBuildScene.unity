@@ -20178,6 +20178,31 @@ PrefabInstance:
       propertyPath: m_MatchWidthOrHeight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4346281283730483369, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 680
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346281283730483369, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346281283730483369, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346281283181351362, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -415
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346281282990384855, guid: 22f45e8eea8d79f4ea14a8feb24f364f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -419
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22f45e8eea8d79f4ea14a8feb24f364f, type: 3}
 --- !u!1 &1863263199
