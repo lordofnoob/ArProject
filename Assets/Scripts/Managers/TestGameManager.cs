@@ -35,9 +35,7 @@ public class TestGameManager : MonoBehaviour
     {
         yield return new WaitForFixedUpdate();
         TileManager.instance.InstanciateGrid();
-        Debug.Log("Grid Instanciate");
         TileManager.instance.SetPathFinding(nexusTileID);
-        Debug.Log("PathFinding Setup Done!");
 
         for (int i = 0; i < attackers.Count; i++)
         {

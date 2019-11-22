@@ -13,7 +13,7 @@ public enum UnitState
 
 public class Mb_Enemy : MonoBehaviour
 {
-    [Header("Initialisation")]
+    [Header("DebugInitialisation")]
     public int spawnRow;
     public int spawnLine;
 
@@ -23,6 +23,10 @@ public class Mb_Enemy : MonoBehaviour
 
     [Header("GraphicPart")]
     public Animator anim;
+
+    //Slow a ajouter!
+
+    private float remainingHitPoints;
 
     private UnitState unitState;
     private int unitStartingMovementTile;
@@ -34,7 +38,11 @@ public class Mb_Enemy : MonoBehaviour
         //monsterUpdatedCharacteristics = monsterCharacteristics.monsterBaseCharacteristics;
         unitDestinationTile = -1;
         unitState = UnitState.STANDBY;
+
+        remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
     }
+
+    //////////////////////////////////////////////////////////      Initialisation      /////////////////////////////////////////////////////////
 
     public void InitializePosition()
     {
@@ -42,6 +50,19 @@ public class Mb_Enemy : MonoBehaviour
         gameObject.transform.localPosition = TileManager.instance.GetTilePosition(TileManager.instance.GetTileID(spawnRow, spawnLine));
     }
 
+    public void SetUnitPosition(int spawnTileID)
+    {
+        gameObject.transform.parent = TileManager.instance.transform;
+        gameObject.transform.localPosition = TileManager.instance.GetTilePosition(spawnTileID);
+    }
+
+    public void UpdateCharacteristic()
+    {
+        // Bonus?
+    }
+
+    //////////////////////////////////////////////////////////      Getter      /////////////////////////////////////////////////////////
+    
     public UnitState GetUnitState()
     {
         return unitState;
@@ -62,18 +83,41 @@ public class Mb_Enemy : MonoBehaviour
         return movementProgress;
     }
 
+    ////////////////////////////////////////////////////////////    Behaviour Methods        /////////////////////////////////////////////////////////
+    
+
+    //Slow a ajouter!
+    public void DamageUnit(float damage)
+    {
+        if(unitState == UnitState.DEAD)
+        {
+            //Debug.Log("Pay some respect dude!");
+        }
+        else
+        {
+            // Application de la defence!
+            remainingHitPoints -= damage;
+            if(remainingHitPoints <= 0)
+            {
+                unitState = UnitState.DEAD;
+                // Animation Mort
+            }
+        }
+        
+    }
+
     public void Action()
     {
         if(unitState == UnitState.DEAD)
         {
             return;
         }
+
         if (unitState == UnitState.STANDBY)
         {
             unitDestinationTile = TileManager.instance.GetTileInfo(unitStartingMovementTile).FindNextTile();
-            Debug.Log(unitDestinationTile);
-            Debug.Log(TileManager.instance.GetTileInfo(unitDestinationTile).distanceFromGoal);
-            if(unitDestinationTile == 0)
+
+            if(TileManager.instance.GetTileInfo(unitDestinationTile).distanceFromGoal == 0)
             {
                 unitState = UnitState.ATTACKING;
             }
@@ -84,16 +128,20 @@ public class Mb_Enemy : MonoBehaviour
                 transform.localRotation = Quaternion.LookRotation(TileManager.instance.GetTilePosition(unitDestinationTile) - TileManager.instance.GetTilePosition(unitStartingMovementTile), TileManager.instance.transform.up);
             }
         }
+
         if(unitState == UnitState.MOVING)
         {
             Move();
         }
+
         if(unitState == UnitState.ATTACKING)
         {
-            Debug.Log("Attacking!");
+            //Debug.Log("Attacking!");
+            Attack();
         }
     }
 
+    //Slow a ajouter!
     private void Move()
     {
         movementProgress += (float)monsterUpdatedCharacteristics.speed / 100f * Time.fixedDeltaTime;
@@ -109,7 +157,14 @@ public class Mb_Enemy : MonoBehaviour
         transform.localPosition = TileManager.instance.GetTilePosition(unitStartingMovementTile) + ( TileManager.instance.GetTilePosition(unitDestinationTile) - TileManager.instance.GetTilePosition(unitStartingMovementTile) ) * movementProgress;
     }
 
-    
+    private void Attack()
+    {
+        // Animation
+        // Attendre pour une certaine durée
+        //LifeManager.instance.DamagePlayer(monsterUpdatedCharacteristics.damageToNexus);
+        //unitState = UnitState.DEAD;
+        // Animation de mort
+    }
 }
 
 

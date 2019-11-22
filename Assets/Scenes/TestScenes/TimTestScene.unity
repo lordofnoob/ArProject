@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 407073995}
   m_Layer: 0
-  m_Name: OriginTransform
+  m_Name: TileSetterTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   tileSize: 0.5
   tilePrefab: {fileID: 8546604947860380900, guid: a2eb4e1166967514f8a60d39b3fa5ea7,
     type: 3}
-  originTransformDebug: {fileID: 407073995}
+  tileSetterTransform: {fileID: 407073995}
   isRawBased: 0
   isStartingBig: 0
 --- !u!4 &1200922974
@@ -200,7 +200,7 @@ Transform:
   m_Children:
   - {fileID: 407073995}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1673153977
 GameObject:
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c9a95865b93004083723408b241ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nexusTileID: 50
+  nexusTileID: 6
   attackers:
   - {fileID: 1673153982}
 --- !u!4 &1890630979
@@ -443,7 +443,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2076800069
 GameObject:

@@ -25,14 +25,16 @@ public class GameManager : MonoBehaviour
         random = new System.Random();
     }
 
-    private void Start()
+    public void GameOver()
     {
-        
+        // Afficher Ecran de Game Over
+        // Afficher recap?
+        // Proposer de relancer une partie
     }
 
     private void SetGameSettings()
     {
-
+        // Util?
     }
 
     private void StartGameLoop()
