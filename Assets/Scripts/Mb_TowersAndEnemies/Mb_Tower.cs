@@ -50,11 +50,11 @@ public class Mb_Tower : MonoBehaviour
 
     public void Init(int spawnTile)
     {
-        towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
         towerTileID = spawnTile;
-
         SetPosition(towerTileID);
 
+        towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
+        
         foreach(List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
         {
             tileInRange.AddRange(list);
@@ -101,34 +101,13 @@ public class Mb_Tower : MonoBehaviour
     private void ShootProjectileOnTarget(Mb_Enemy target)
     {
         Debug.Log("PewPierPew!");
-        //float projectileLifeTime = 1;   // LifeTime Hardwrite pas terrible...
-        //Mb_Projectile newProjectile = UniversalPool.GetItem("Projectiles").GetComponent<Mb_Projectile>();
-        ////newProjectile.SetModifier();
-        //newProjectile.Initialize(shootProjectilePoint.position, target, towerCharacteristics.damages, projectileLifeTime); 
+        float projectileLifeTime = 1;   // LifeTime Hardwrite pas terrible...
+        Mb_Projectile newProjectile = UniversalPool.GetItem("Projectiles").GetComponent<Mb_Projectile>();
+        newProjectile.SetModifier(projectileModifierList);
+        newProjectile.Initialize(shootProjectilePoint.position, projectileLifeTime, target, towerCharacteristics.damages, towerCharacteristics.piercingAmount, towerCharacteristics.fireDamages, towerCharacteristics.slowDuration); 
 
         //Instantiate(ProjectilePrefab, shootProjectilePoint.position, Quaternion.identity);
     }
 }
 
-[System.Flags]
-public enum ProjectileModifier
-{
-    Fire = (1 << 0),
-    Ice = (1 << 1),
-    Piercing = (1 << 2),
-    HeavyCaliber = (1 << 3),
 
-    FireIce = Fire | Ice,
-    FirePiercing = Fire | Piercing,
-    FireHeavyCaliber = Fire | HeavyCaliber,
-
-    IcePiercing = Ice | Piercing,
-    IceHeavyCaliber = Ice | HeavyCaliber,
-
-    PiercingHeavyCaliber = Piercing | HeavyCaliber,
-
-    FireIceHeavyCaliber = Fire | Ice | HeavyCaliber,
-    FireIceHeavyPiercing = Fire | Ice | Piercing,
-
-    IceHeavyCaliberPiercing = Ice | HeavyCaliber | Piercing
-}
