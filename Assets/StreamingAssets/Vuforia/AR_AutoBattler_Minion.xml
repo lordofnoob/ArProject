@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="SkeletonLvl2" size="0.050000 0.075021" />
     <ImageTarget name="SpidersLvl2" size="0.050000 0.075021" />
     <ImageTarget name="MummiesLvl2" size="0.050000 0.075021" />
     <ImageTarget name="DemonLordLvl2" size="0.050000 0.075021" />
     <ImageTarget name="SnakesLvl2" size="0.050000 0.075021" />
     <ImageTarget name="ArgonianRaiderLvl2" size="0.050000 0.075021" />
     <ImageTarget name="OgersLV2" size="0.050000 0.075021" />
-    <ImageTarget name="SkeletonWarriorLVl2" size="0.050000 0.075021" />
     <ImageTarget name="EarthDemonLvl2" size="0.050000 0.075021" />
     <ImageTarget name="WolvesLvl2" size="0.050000 0.075021" />
     <ImageTarget name="VampireLvl2" size="0.050000 0.075021" />
