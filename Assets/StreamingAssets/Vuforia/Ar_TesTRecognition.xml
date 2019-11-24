@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="testMiddle3" size="0.060000 0.051768" />
+    <ImageTarget name="testMiddle2" size="0.060000 0.051768" />
+    <ImageTarget name="testMiddle" size="6.500000 5.847897" />
     <ImageTarget name="NexusTile" size="0.070000 0.068429" />
     <ImageTarget name="RecognitionToken2" size="0.060000 0.060000" />
     <ImageTarget name="RecognationToken1" size="0.060000 0.060000" />
