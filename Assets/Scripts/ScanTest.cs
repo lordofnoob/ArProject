@@ -29,4 +29,36 @@ public class ScanTest : MonoBehaviour
 
         Debug.Log("SCAN");
     }
+
+    public void SnapOnTile(Mb_Enemy objectToSnap)
+    {
+        objectToSnap.SetUnitPosition(GetCorrespondingTile(objectToSnap.transform.position)); 
+    }
+
+    public void SnapOnTile(Mb_Tower objectToSnap)
+    {
+        objectToSnap.SetUnitPosition(GetCorrespondingTile(objectToSnap.transform.position));
+    }
+
+    public int GetCorrespondingTile(Vector3 currentElementPosition)
+    {
+        int layerMask = LayerMask.NameToLayer("Tile");
+        RaycastHit raycastHit;
+        if (Physics.Raycast(Camera.current.transform.position, currentElementPosition - Camera.current.transform.position, out raycastHit, (currentElementPosition - Camera.current.transform.position).magnitude, layerMask))
+        {
+            TileInfo hitTile = raycastHit.collider.gameObject.GetComponent<TileInfo>();
+            if (hitTile)
+            {
+                return hitTile.tileID;
+            }
+            else
+            {
+                Debug.Log("Not a tile!");
+                return -2;
+            }
+                
+        }
+        Debug.Log("No collision");
+        return -1;
+    }
 }
