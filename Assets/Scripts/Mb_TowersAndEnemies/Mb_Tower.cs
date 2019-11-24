@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Mb_Tower : MonoBehaviour
 {
-    [SerializeField] Sc_Tower towerBaseCharacteristics;
+    public Sc_Tower towerBaseCharacteristics;
     public TowerCharacteritics towerCharacteristics;
     public ProjectileModifier projectileModifierList;
     public Transform shootProjectilePoint;
@@ -63,11 +63,16 @@ public class Mb_Tower : MonoBehaviour
         tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
     }
 
+    private void Awake()
+    {
+        towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
+    }
+
     public void Init()
     {
         SetPosition(towerTileID);
 
-        towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
+       
 
         //TileManager.instance.GetTileInfo(towerTileID).tileType = TileType.DEFENCESPAWN;
 
