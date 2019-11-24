@@ -26,8 +26,8 @@ public class TileInfo : MonoBehaviour
     private void Awake()
     {
         distanceFromGoal = -1;
-        //random = GameManager.instance.random;
-        random = TestGameManager.instance.random;
+        random = GameManager.instance.random;
+     
         onTileElements = new List<Mb_Enemy>();
         closestToGoalNeighbourTiles = new List<int>();
     }

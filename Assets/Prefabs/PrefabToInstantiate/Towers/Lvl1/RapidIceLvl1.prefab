@@ -76,10 +76,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBaseCharacteristics: {fileID: 11400000, guid: fec24ec98c39a6b4caec59be29434b51,
     type: 2}
+  towerCharacteristics:
+    damages: 0
+    fireDamages: 0
+    numberOfShots: 0
+    delayBetweenAttack: 0
+    piercingAmount: 0
+    slowDuration: 0
+    range: 0
+    allTowerFamily: 
   projectileModifierList: 0
   shootProjectilePoint: {fileID: 5563405584210775465}
   ProjectilePrefab: {fileID: 0}
+  projectileLifeTime: 2
   towerTileID: 0
+  itemName: 
 --- !u!1 &4099089875729920035
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,11 +223,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45
       objectReference: {fileID: 0}
-    - target: {fileID: 1641558554076950820, guid: f0d14ab1a511ee140b7e50c8178baa1e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 92a50ef7ca0d5d344a53be7b3ae60b39, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0d14ab1a511ee140b7e50c8178baa1e, type: 3}
 --- !u!4 &5532664817572743756 stripped
@@ -295,17 +301,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3bcf4aadc3bf3c34b982d4273cac9aaa,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.025
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3bcf4aadc3bf3c34b982d4273cac9aaa,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.025
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3bcf4aadc3bf3c34b982d4273cac9aaa,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.025
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 6120317249791967259, guid: 3bcf4aadc3bf3c34b982d4273cac9aaa,
         type: 3}

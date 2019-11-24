@@ -77,7 +77,7 @@ public class ScanManager : MonoBehaviour
                 }
 
                 if (topPos!=null && botPos!=null)
-                    TileManager.instance.SetTileGridTransform((topPos.transform.position - botPos.transform.position) /2 + botPos.transform.position);
+                    //TileManager.instance.SetTileGridTransform((topPos.transform.position - botPos.transform.position) /2 + botPos.transform.position);
                 initValidate = true;
                 break;
             case Phase.ATTACK:

@@ -6,35 +6,21 @@ using Vuforia;
 using Image = UnityEngine.UI.Image;
 public class ScanTest : MonoBehaviour
 {
-    public ImageTargetBehaviour TopLeftCornerImageTarget, DownRightCornerImageTarget;
+    public ImageTargetBehaviour middleImage;
     private GameObject topPos, botPos;
     public GameObject topPoseObject, botPoseObject;
     public Text debugText, debuggerDebugText;
 
-    private void Update()
-    {
-        if (TopLeftCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
-        {
-            debuggerDebugText.text = TopLeftCornerImageTarget.transform.position.ToString();
-        }
-        if (DownRightCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
-        {
-            debugText.text = DownRightCornerImageTarget.transform.position.ToString();
-        }
-    }
+ 
 
     public void Scan()
     {
-        if (TopLeftCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+        if (middleImage.CurrentStatus == TrackableBehaviour.Status.TRACKED)
         {
-            debuggerDebugText.text = TopLeftCornerImageTarget.transform.position.ToString();
-            botPos = Instantiate(topPoseObject, TopLeftCornerImageTarget.transform.position, Quaternion.identity);
-
-        }
-        if (DownRightCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
-        {
-            debugText.text = DownRightCornerImageTarget.transform.position.ToString();
-            topPos = Instantiate(botPoseObject, DownRightCornerImageTarget.transform.position, Quaternion.identity);
+            debuggerDebugText.text = middleImage.transform.position.ToString();
+           // botPos = Instantiate(topPoseObject, middleImage.transform.position, Quaternion.identity);
+            TileManager.instance.InstanciateGrid();
+            TileManager.instance.SetTileGridTransform(middleImage.transform);
         }
 
         if (topPos != null && botPos != null)

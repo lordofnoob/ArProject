@@ -60,10 +60,10 @@ public class TileManager : MonoBehaviour
         Debug.Log("Created");
     }
 
-    public void SetTileGridTransform(Vector3 targetTransform)
+    public void SetTileGridTransform(Transform targetTransform)
     {
-        transform.position = targetTransform;
-        //transform.rotation = targetTransform.rotation;
+        transform.position = targetTransform.position;
+        transform.rotation = targetTransform.rotation;
     }
 
     public void SetPathFinding(int goalTileID)

@@ -108,11 +108,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBaseCharacteristics: {fileID: 11400000, guid: 8f29c5c0e0a93f44aa92e4be841f3955,
     type: 2}
+  towerCharacteristics:
+    damages: 0
+    fireDamages: 0
+    numberOfShots: 0
+    delayBetweenAttack: 0
+    piercingAmount: 0
+    slowDuration: 0
+    range: 0
+    allTowerFamily: 
   projectileModifierList: 0
   shootProjectilePoint: {fileID: 5438207562026725065}
   ProjectilePrefab: {fileID: 6790330038427272897, guid: fead69d18f51443408824e7bb7bc3845,
     type: 3}
+  projectileLifeTime: 2
   towerTileID: 0
+  itemName: 
 --- !u!95 &5420781802085124328
 Animator:
   serializedVersion: 3
@@ -202,17 +213,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3bcf4aadc3bf3c34b982d4273cac9aaa,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.025
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3bcf4aadc3bf3c34b982d4273cac9aaa,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.025
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3bcf4aadc3bf3c34b982d4273cac9aaa,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.025
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 6120317249791967259, guid: 3bcf4aadc3bf3c34b982d4273cac9aaa,
         type: 3}
