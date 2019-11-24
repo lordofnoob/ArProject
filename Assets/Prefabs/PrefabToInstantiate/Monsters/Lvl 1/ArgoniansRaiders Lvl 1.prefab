@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRow: 0
   spawnLine: 0
+  spawnTileID: 0
+  itemName: Minion_Lvl1_ArgonianRaiders
   monsterCharacteristics: {fileID: 11400000, guid: 46a1083e4a94fb24a9a0396e2e1ff429,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -70,6 +72,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRow: 0
   spawnLine: 0
+  spawnTileID: 0
+  itemName: Minion_Lvl1_ArgonianRaiders
   monsterCharacteristics: {fileID: 11400000, guid: 46a1083e4a94fb24a9a0396e2e1ff429,
     type: 2}
   monsterUpdatedCharacteristics:

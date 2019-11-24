@@ -11,7 +11,13 @@ public class ScanTest : MonoBehaviour
     public GameObject topPoseObject, botPoseObject;
     public Text debugText, debuggerDebugText;
 
- 
+    private List<ImageTargetBehaviour> imageList = new List<ImageTargetBehaviour>();
+    public GameObject TargetImageContainer;
+
+    private void Awake()
+    {
+        imageList.AddRange(TargetImageContainer.GetComponentsInChildren<ImageTargetBehaviour>());
+    }
 
     public void Scan()
     {
@@ -30,9 +36,10 @@ public class ScanTest : MonoBehaviour
         Debug.Log("SCAN");
     }
 
-    public void SnapOnTile(Mb_Enemy objectToSnap)
+    public void SnapOnTile(ImageTargetBehaviour objectToSnap)
     {
-        objectToSnap.SetUnitPosition(GetCorrespondingTile(objectToSnap.transform.position)); 
+        GameObject clone = Instantiate(objectToSnap.transform.GetChild(0).gameObject, transform);
+        clone.GetComponentInChildren<Mb_Enemy>().SetUnitPosition(GetCorrespondingTile(objectToSnap.transform.position)); 
     }
 
     public void SnapOnTile(Mb_Tower objectToSnap)
@@ -40,15 +47,44 @@ public class ScanTest : MonoBehaviour
         objectToSnap.SetUnitPosition(GetCorrespondingTile(objectToSnap.transform.position));
     }
 
+    public void ScanForUnits()
+    {
+        foreach (ImageTargetBehaviour imageTarget in imageList)
+        { /*
+            GameObject child = imageTarget.transform.GetChild(0).gameObject;
+
+            string itemName = "";
+
+            if (imageTarget.GetComponentInChildren<Mb_Enemy>())
+            {
+                itemName = imageTarget.GetComponentInChildren<Mb_Enemy>().itemName;
+            }
+            else if (imageTarget.GetComponentInChildren<Mb_Tower>())
+            {
+                itemName = imageTarget.GetComponentInChildren<Mb_Tower>().itemName;
+            }
+
+            GameObject clone = UniversalPool.GetItem(itemName);
+            */
+            if (imageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+            {
+                SnapOnTile(imageTarget);
+            }
+        }
+    }
+
     public int GetCorrespondingTile(Vector3 currentElementPosition)
     {
-        int layerMask = LayerMask.NameToLayer("Tile");
+        Debug.Log(currentElementPosition);   
         RaycastHit raycastHit;
-        if (Physics.Raycast(Camera.current.transform.position, currentElementPosition - Camera.current.transform.position, out raycastHit, (currentElementPosition - Camera.current.transform.position).magnitude, layerMask))
+        Debug.DrawRay(new Vector3(0, 0, 0), currentElementPosition);
+        if (Physics.Raycast(new Vector3(0,0,0), currentElementPosition, out raycastHit, Mathf.Infinity, LayerMask.GetMask("Tile")))
         {
-            TileInfo hitTile = raycastHit.collider.gameObject.GetComponent<TileInfo>();
+          
+            TileInfo hitTile = raycastHit.collider.gameObject.GetComponentInParent<TileInfo>();
             if (hitTile)
             {
+                Debug.Log(hitTile.tileID);
                 return hitTile.tileID;
             }
             else
@@ -56,7 +92,7 @@ public class ScanTest : MonoBehaviour
                 Debug.Log("Not a tile!");
                 return -2;
             }
-                
+
         }
         Debug.Log("No collision");
         return -1;

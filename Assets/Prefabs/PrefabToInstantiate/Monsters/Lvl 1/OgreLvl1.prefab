@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRow: 0
   spawnLine: 0
+  spawnTileID: 0
+  itemName: Minion_Lvl1_Ogre
   monsterCharacteristics: {fileID: 11400000, guid: 6e4af9cb18a8c754896713cc18121ddd,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -130,12 +132,27 @@ PrefabInstance:
     - target: {fileID: 3603233192436717842, guid: 13cbcbfc97af81349956b752bd72d54a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.234
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3603233192436717842, guid: 13cbcbfc97af81349956b752bd72d54a,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603233192436717842, guid: 13cbcbfc97af81349956b752bd72d54a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603233192436717842, guid: 13cbcbfc97af81349956b752bd72d54a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603233192436717842, guid: 13cbcbfc97af81349956b752bd72d54a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13cbcbfc97af81349956b752bd72d54a, type: 3}
