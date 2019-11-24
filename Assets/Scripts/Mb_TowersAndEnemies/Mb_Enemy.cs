@@ -61,9 +61,12 @@ public class Mb_Enemy : MonoBehaviour
 
     public void Init()
     {
-        gameObject.transform.parent = TileManager.instance.transform;
-        gameObject.transform.localPosition = TileManager.instance.GetTilePosition(spawnTileID);
-        remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
+        if(spawnTileID >= 0)
+        {
+            gameObject.transform.parent = TileManager.instance.transform;
+            gameObject.transform.localPosition = TileManager.instance.GetTilePosition(spawnTileID);
+            remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
+        }
     }
 
     public void SetUnitPosition(int spawnTileID)
@@ -154,7 +157,7 @@ public class Mb_Enemy : MonoBehaviour
 
         if(unitState == UnitState.MOVING)
         {
-            anim.SetTrigger("StartRunnig");
+            anim.SetTrigger("StartRunning");
             Move();
         }
 
