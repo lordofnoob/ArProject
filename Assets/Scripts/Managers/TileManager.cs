@@ -47,7 +47,7 @@ public class TileManager : MonoBehaviour
 
     public void InstanciateGrid()
     {
-        Debug.Log("Creating");
+
         for(int i = 0; i < tileCount; i++)
         {
             GameObject newTile = Instantiate(tilePrefab) as GameObject;
@@ -57,7 +57,7 @@ public class TileManager : MonoBehaviour
             tileGrid[i].gameObject.transform.localRotation = originTransform.localRotation;
             tileGrid[i].tileID = i;
         }
-        Debug.Log("Created");
+        
     }
 
     public void SetTileGridTransform(Transform targetTransform)

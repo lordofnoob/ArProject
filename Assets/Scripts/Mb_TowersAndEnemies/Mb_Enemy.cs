@@ -43,11 +43,16 @@ public class Mb_Enemy : MonoBehaviour
 
     private void Awake()
     {
+     
+    }
+
+    private void OnEnable()
+    {
         monsterUpdatedCharacteristics = monsterCharacteristics.monsterBaseCharacteristics;
         unitDestinationTile = -1;
         unitState = UnitState.STANDBY;
 
-        //remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
+        remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
     }
 
     //////////////////////////////////////////////////////////      Initialisation      /////////////////////////////////////////////////////////
