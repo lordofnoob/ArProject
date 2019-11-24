@@ -52,7 +52,7 @@ public class Mb_Tower : MonoBehaviour
     public void Init(int spawnTile)
     {
         towerTileID = spawnTile;
-        SetPosition(towerTileID);
+        SetUnitPosition(towerTileID);
 
         towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
         
@@ -63,6 +63,12 @@ public class Mb_Tower : MonoBehaviour
         tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
     }
 
+    public void SetUnitPosition(int spawnTileID)
+    {
+        gameObject.transform.parent = TileManager.instance.transform;
+        gameObject.transform.localPosition = TileManager.instance.GetTilePosition(spawnTileID);
+    }
+
     private void Awake()
     {
         towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
@@ -70,7 +76,7 @@ public class Mb_Tower : MonoBehaviour
 
     public void Init()
     {
-        SetPosition(towerTileID);
+        SetUnitPosition(towerTileID);
 
        
 
@@ -83,11 +89,11 @@ public class Mb_Tower : MonoBehaviour
         tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
     }
 
-    private void SetPosition(int tileID)
-    {
-        gameObject.transform.parent = TileManager.instance.transform;
-        transform.localPosition = TileManager.instance.GetTilePosition(tileID);
-    }
+    //private void SetPosition(int tileID)
+    //{
+    //    gameObject.transform.parent = TileManager.instance.transform;
+    //    transform.localPosition = TileManager.instance.GetTilePosition(tileID);
+    //}
 
     private void SetNewTargets()
     {
