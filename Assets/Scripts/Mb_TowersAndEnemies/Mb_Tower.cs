@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Mb_Tower : MonoBehaviour
 {
-    [SerializeField] Sc_Tower towerBaseCharacteristics;
+    public Sc_Tower towerBaseCharacteristics;
     public TowerCharacteritics towerCharacteristics;
     public ProjectileModifier projectileModifierList;
     public Transform shootProjectilePoint;
@@ -52,9 +52,8 @@ public class Mb_Tower : MonoBehaviour
     public void Init(int spawnTile)
     {
         towerTileID = spawnTile;
-        SetPosition(towerTileID);
+        SetUnitPosition(towerTileID);
 
-        towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
         
         foreach(List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
         {
@@ -63,11 +62,22 @@ public class Mb_Tower : MonoBehaviour
         tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
     }
 
+    public void SetUnitPosition(int spawnTileID)
+    {
+        gameObject.transform.parent = TileManager.instance.transform;
+        gameObject.transform.localPosition = TileManager.instance.GetTilePosition(spawnTileID);
+    }
+
+    private void Awake()
+    {
+        towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
+    }
+
     public void Init()
     {
-        SetPosition(towerTileID);
+        SetUnitPosition(towerTileID);
 
-        towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
+       
 
         //TileManager.instance.GetTileInfo(towerTileID).tileType = TileType.DEFENCESPAWN;
 
@@ -78,11 +88,11 @@ public class Mb_Tower : MonoBehaviour
         tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
     }
 
-    private void SetPosition(int tileID)
-    {
-        gameObject.transform.parent = TileManager.instance.transform;
-        transform.localPosition = TileManager.instance.GetTilePosition(tileID);
-    }
+    //private void SetPosition(int tileID)
+    //{
+    //    gameObject.transform.parent = TileManager.instance.transform;
+    //    transform.localPosition = TileManager.instance.GetTilePosition(tileID);
+    //}
 
     private void SetNewTargets()
     {

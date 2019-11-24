@@ -201,7 +201,7 @@ public class PhaseManager : MonoBehaviour
 
             for (int y =0; y < allDiferentMonsters.Count; y++)
             {
-                if (attackers[i] == allDiferentMonsters[y])
+                if (attackers[i].monsterCharacteristics == allDiferentMonsters[y].monsterCharacteristics)
                     alreadyThere = true;
             }
 
@@ -360,7 +360,7 @@ public class PhaseManager : MonoBehaviour
 
             for (int y = 0; y < towerTypeList.Count; y++)
             {
-                if (defenders[i] == towerTypeList[y])
+                if (defenders[i].towerBaseCharacteristics == towerTypeList[y].towerBaseCharacteristics)
                     alreadyThere = true;
             }
 
