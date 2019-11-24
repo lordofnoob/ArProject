@@ -54,7 +54,6 @@ public class Mb_Tower : MonoBehaviour
         towerTileID = spawnTile;
         SetPosition(towerTileID);
 
-        towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
         
         foreach(List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
         {
