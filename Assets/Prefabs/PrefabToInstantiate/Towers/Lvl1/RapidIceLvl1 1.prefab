@@ -76,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 7062741862215110782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.7, y: 0, z: 59.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 8146624987105794868}
   m_Father: {fileID: 0}
@@ -96,11 +96,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBaseCharacteristics: {fileID: 11400000, guid: fec24ec98c39a6b4caec59be29434b51,
     type: 2}
+  towerCharacteristics:
+    damages: 0
+    fireDamages: 0
+    numberOfShots: 0
+    delayBetweenAttack: 0
+    piercingAmount: 0
+    slowDuration: 0
+    range: 0
+    allTowerFamily: 
   projectileModifierList: 0
   shootProjectilePoint: {fileID: 3501778790243848971}
   ProjectilePrefab: {fileID: 6790330038427272897, guid: fead69d18f51443408824e7bb7bc3845,
     type: 3}
   towerTileID: 0
+  itemName: 
 --- !u!1 &8496930892874426791
 GameObject:
   m_ObjectHideFlags: 0
