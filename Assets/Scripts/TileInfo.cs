@@ -19,6 +19,7 @@ public class TileInfo : MonoBehaviour
     public int distanceFromGoal;
     public TileType tileType;
     public List<Mb_Enemy> onTileElements;
+    public Transform[] allSpawnPoint;
 
     private List<int> closestToGoalNeighbourTiles;
     private System.Random random;
