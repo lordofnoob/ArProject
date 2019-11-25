@@ -86,11 +86,11 @@ public class ScanManager : MonoBehaviour
     {
         foreach (Mb_Enemy ennemy in allEnnemiesScanned)
         {
-            ennemy.Init();
+            ennemy.InitDebug();
         }
         foreach (Mb_Tower tower in allTowersScanned)
         {
-            tower.Init();
+            tower.InitDebug();
         }
     }
 
@@ -103,25 +103,7 @@ public class ScanManager : MonoBehaviour
             if (imageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
             //if(imageTarget.transform.childCount > 0 && imageTarget.transform.GetChild(0).gameObject.activeInHierarchy)
             {
-                GameObject child = imageTarget.transform.GetChild(0).gameObject;
-
-                string itemName = "";
-
-                if (imageTarget.GetComponentInChildren<Mb_Enemy>())
-                {
-                    itemName = imageTarget.GetComponentInChildren<Mb_Enemy>().itemName;
-                }
-                else if (imageTarget.GetComponentInChildren<Mb_Tower>())
-                {
-                    itemName = imageTarget.GetComponentInChildren<Mb_Tower>().itemName;
-                }
-
-                GameObject clone = UniversalPool.GetItem(itemName);
-                //Instantiate(child, imageTarget.transform.position, Quaternion.identity);
-                clone.transform.position = imageTarget.transform.position;
-                clone.transform.SetParent(PoolGameObjectContainer.transform); //Je comprend pas
-                clone.transform.localScale = imageTarget.transform.localScale;
-                //Debug.Log("INSTANTIATE : " + clone.transform.localScale);
+                GameObject clone = SnapOnTile(imageTarget);
 
                 if (currentPhase == Phase.ATTACK && clone.GetComponentInChildren<Mb_Enemy>())
                 {
@@ -131,18 +113,6 @@ public class ScanManager : MonoBehaviour
                 {
                     allTowersScanned.Add(clone.GetComponentInChildren<Mb_Tower>());
                 }
-            }
-        }
-    }
-
-    private void worldPositionToTile()
-    {
-        Phase currentPhase = PhaseManager.instance.GetCurrentPhase();
-        if(currentPhase == Phase.ATTACK)
-        {
-            foreach(Mb_Enemy ennemy in allEnnemiesScanned)
-            {
-                
             }
         }
     }
@@ -224,6 +194,69 @@ public class ScanManager : MonoBehaviour
 
             default:
                 break;
+        }
+    }
+
+    public GameObject SnapOnTile(ImageTargetBehaviour imageTarget)
+    {
+        string itemName = "";
+
+        if (imageTarget.GetComponentInChildren<Mb_Enemy>())                         //Amelioration Faire une classe Unit
+        {
+            itemName = imageTarget.GetComponentInChildren<Mb_Enemy>().itemName;
+        }
+        else if (imageTarget.GetComponentInChildren<Mb_Tower>())
+        {
+            itemName = imageTarget.GetComponentInChildren<Mb_Tower>().itemName;
+        }
+
+        GameObject clone = UniversalPool.GetItem(itemName);
+        TileManager.instance.SetUnitPosition(clone, GetCorrespondingTile(imageTarget.transform.position));
+
+        return clone;
+    }
+
+    public int GetCorrespondingTile(Vector3 currentElementPosition)
+    {
+        //Debug.Log(currentElementPosition);   
+        RaycastHit raycastHit;
+        //Debug.DrawRay(new Vector3(0, 0, 0), currentElementPosition);
+        if (Physics.Raycast(new Vector3(0, 0, 0), currentElementPosition, out raycastHit, Mathf.Infinity, LayerMask.GetMask("Tile")))
+        {
+            TileInfo hitTile = raycastHit.collider.gameObject.GetComponentInParent<TileInfo>();
+            if (hitTile)
+            {
+                Debug.Log(hitTile.tileID);
+                return hitTile.tileID;
+            }
+            else
+            {
+                Debug.Log("Not a tile!");
+                return -2;
+            }
+        }
+        Debug.Log("No collision");
+        return -1;
+    }
+
+    private void SnapOnBoard(ImageTargetBehaviour imageTarget)
+    {
+        RaycastHit raycastHit;
+        if (Physics.Raycast(new Vector3(0, 0, 0), imageTarget.transform.position, out raycastHit, Mathf.Infinity, LayerMask.GetMask("Board")))
+        {
+            Mb_Enemy ennemy = imageTarget.GetComponentInChildren<Mb_Enemy>();
+            Mb_Tower tower = imageTarget.GetComponentInChildren<Mb_Tower>();
+
+            if (ennemy)
+            {
+                ennemy.transform.position = raycastHit.point;
+                ennemy.transform.rotation = Quaternion.LookRotation(raycastHit.normal);
+            }
+            else if (tower)
+            {
+                tower.transform.position = raycastHit.point;
+                tower.transform.rotation = Quaternion.LookRotation(raycastHit.normal);
+            }
         }
     }
 }
