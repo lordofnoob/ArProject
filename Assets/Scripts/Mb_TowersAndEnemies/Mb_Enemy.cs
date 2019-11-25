@@ -8,6 +8,7 @@ public enum UnitState
     STANDBY,
     MOVING,
     ATTACKING,
+    WAITINGFORDEATH,
     DEAD
 }
 
@@ -30,6 +31,8 @@ public class Mb_Enemy : MonoBehaviour
 
     //Slow a ajouter!
 
+    public float defaultTimeBeforeDeath;
+
     private float remainingHitPoints;
     private float slowRemainingDuration;
 
@@ -37,6 +40,8 @@ public class Mb_Enemy : MonoBehaviour
     private int unitStartingMovementTile;
     private int unitDestinationTile;
     private float movementProgress;
+
+    private float timeBeforeDeath = 5f;
 
     private void Awake()
     {
@@ -47,7 +52,7 @@ public class Mb_Enemy : MonoBehaviour
     {
         monsterUpdatedCharacteristics = monsterCharacteristics.monsterBaseCharacteristics;
 
-        timeBeforeDeath = 5;
+        
         //unitState = UnitState.STANDBY;
         //remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
     }
