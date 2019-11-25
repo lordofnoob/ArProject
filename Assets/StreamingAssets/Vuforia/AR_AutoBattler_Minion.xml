@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="OgresLvl1" size="0.045000 0.067519" />
     <ImageTarget name="SkeletonLvl2" size="0.050000 0.075021" />
     <ImageTarget name="SpidersLvl2" size="0.050000 0.075021" />
     <ImageTarget name="MummiesLvl2" size="0.050000 0.075021" />
@@ -15,7 +16,6 @@
     <ImageTarget name="CyclopeLvl2" size="0.050000 0.075021" />
     <ImageTarget name="ChimeraLvl2" size="0.050000 0.075021" />
     <ImageTarget name="HydraLV1" size="0.050000 0.075021" />
-    <ImageTarget name="OgersLV1" size="0.050000 0.075021" />
     <ImageTarget name="MummiesLV1" size="0.050000 0.075021" />
     <ImageTarget name="PeonsLV1" size="0.050000 0.075021" />
     <ImageTarget name="SkeletonWarriorLV1" size="0.050000 0.075021" />

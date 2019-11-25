@@ -22,7 +22,7 @@ public class ScanManager : MonoBehaviour
     public List<Mb_Enemy> allEnnemiesScanned = new List<Mb_Enemy>();
     public List<Mb_Tower> allTowersScanned = new List<Mb_Tower>();
 
-    public ImageTargetBehaviour TopLeftCornerImageTarget, DownRightCornerImageTarget;
+    public ImageTargetBehaviour MiddleBoardToken;
 
     public Image BoardScanCanvas, CardsScanCanvas, ConfirmValitation;
 
@@ -45,18 +45,22 @@ public class ScanManager : MonoBehaviour
 
     private void Update()
     {
-        debuggerDebugText.text = Camera.main.transform.position.ToString();
+        //debuggerDebugText.text = Camera.main.transform.position.ToString();
+        if (MiddleBoardToken.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+            BoardScanCanvas.GetComponentInChildren<Button>().interactable = true;
+        else
+            BoardScanCanvas.GetComponentInChildren<Button>().interactable = false;
     }
 
     public void ResetScan() // A modifier?
-    {/*
+    {
         attackersValidate = false;
         defendersValidate = false;
         initValidate = false;
         BoardScanCanvas.GetComponentInChildren<Button>().interactable = false;
 
         allEnnemiesScanned.Clear();
-        allTowersScanned.Clear();*/
+        allTowersScanned.Clear();
     }
 
     public void Scan()
@@ -64,26 +68,13 @@ public class ScanManager : MonoBehaviour
         switch (PhaseManager.instance.GetCurrentPhase())
         {
             case Phase.INIT:
-                if (TopLeftCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
-                {
-                    debuggerDebugText.text = TopLeftCornerImageTarget.transform.position.ToString();
-                    botPos = Instantiate(temporaryBotPose, DownRightCornerImageTarget.transform.position, Quaternion.identity);
-
-                }
-                if (DownRightCornerImageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
-                {
-                    debugText.text = DownRightCornerImageTarget.transform.position.ToString();
-                    topPos = Instantiate(temporaryTopPose, DownRightCornerImageTarget.transform.position, Quaternion.identity);
-                }
-
-                if (topPos!=null && botPos!=null)
-                    //TileManager.instance.SetTileGridTransform((topPos.transform.position - botPos.transform.position) /2 + botPos.transform.position);
+                TileManager.instance.InstanciateGrid();
+                TileManager.instance.SetTileGridTransform(MiddleBoardToken.transform);
                 initValidate = true;
                 break;
             case Phase.ATTACK:
             case Phase.DEFENCE:
                 ScanForUnits();
-                Init();
                 break;
             default:
                 break;
@@ -93,20 +84,13 @@ public class ScanManager : MonoBehaviour
 
     private void Init()
     {
-        Phase currentPhase = PhaseManager.instance.GetCurrentPhase();
-        if (currentPhase == Phase.ATTACK)
+        foreach (Mb_Enemy ennemy in allEnnemiesScanned)
         {
-            foreach (Mb_Enemy ennemy in allEnnemiesScanned)
-            {
-                ennemy.Init();
-            }
+            ennemy.Init();
         }
-        else if(currentPhase == Phase.DEFENCE)
+        foreach (Mb_Tower tower in allTowersScanned)
         {
-            foreach (Mb_Tower tower in allTowersScanned)
-            {
-                tower.Init();
-            }
+            tower.Init();
         }
     }
 
@@ -141,11 +125,11 @@ public class ScanManager : MonoBehaviour
 
                 if (currentPhase == Phase.ATTACK && clone.GetComponentInChildren<Mb_Enemy>())
                 {
-                    PhaseManager.instance.attackers.Add(clone.GetComponentInChildren<Mb_Enemy>());
+                    allEnnemiesScanned.Add(clone.GetComponentInChildren<Mb_Enemy>());
                 }
                 else if (currentPhase == Phase.DEFENCE && clone.GetComponentInChildren<Mb_Tower>())
                 {
-                    PhaseManager.instance.defenders.Add(clone.GetComponentInChildren<Mb_Tower>());
+                    allTowersScanned.Add(clone.GetComponentInChildren<Mb_Tower>());
                 }
             }
         }
@@ -209,6 +193,7 @@ public class ScanManager : MonoBehaviour
             case Phase.ATTACK:
                 PhaseManager.instance.attackers = allEnnemiesScanned;
                 attackersValidate = true;
+                Init();
                 break;
 
             case Phase.DEFENCE:

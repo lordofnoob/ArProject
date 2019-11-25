@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="WolfLvl2" size="0.045000 0.067519" />
+    <ImageTarget name="VampireLvl2" size="0.045000 0.067519" />
+    <ImageTarget name="SpidersLvl2" size="0.045000 0.067519" />
+    <ImageTarget name="snakesLvl2" size="0.045000 0.067519" />
+    <ImageTarget name="SkeletonLvl2" size="0.045000 0.067519" />
+    <ImageTarget name="OgresLvl2" size="0.045000 0.067519" />
+    <ImageTarget name="mumieslvl2" size="0.045000 0.067519" />
+    <ImageTarget name="HydraLvl2" size="0.045000 0.067519" />
+    <ImageTarget name="EarthDemonLvl2" size="0.045000 0.067519" />
+    <ImageTarget name="DemonLordLvl2" size="0.045000 0.067519" />
+    <ImageTarget name="CyclopeLvl2" size="0.045000 0.067519" />
+    <ImageTarget name="ChimeraLvl2" size="0.045000 0.067519" />
+    <ImageTarget name="ArgonianRaiderLvl2" size="0.045000 0.067519" />
+  </Tracking>
+</QCARConfig>

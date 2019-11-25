@@ -24,7 +24,6 @@ public class PhaseManager : MonoBehaviour
         }
 
         instance = this;
-        currentPhase = Phase.INIT;
     }
 
     private Phase currentPhase;
@@ -37,7 +36,7 @@ public class PhaseManager : MonoBehaviour
     {
         ScanManager.instance.ResetScan();
         //currentPhaseCoroutine = 
-        StartCoroutine("InitPhase");
+        StartCoroutine(InitPhase());
     }
 
     public Phase GetCurrentPhase()
@@ -277,7 +276,7 @@ public class PhaseManager : MonoBehaviour
         #region
         if (familyCounting.lightweightCount >=3)
         {
-            if (familyCounting.lightweightCount >= 5)
+            /*if (familyCounting.lightweightCount >= 5)
             {
                 for (int i = 0; i < attackers.Count; i++)
                 {
@@ -292,7 +291,7 @@ public class PhaseManager : MonoBehaviour
                         if (attackers[i].monsterCharacteristics.monsterBaseCharacteristics.allEnemyFamilies[y] == FamilyType.LightWeight)
                             attackers[i].monsterUpdatedCharacteristics.speed *= 1.2f;
                     }
-                }
+                }*/
         }
         #endregion
 

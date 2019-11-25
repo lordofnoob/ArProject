@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="Lvl2UltraTower" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2RapidPiercing" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2RapidMulti" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2RapidIceTower" size="0.050000 0.075021" />
-    <ImageTarget name="lvl2RapidFire" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2MultiIce" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2MultiHeavy" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2MultiFire" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2IcePiercing" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2IceFire" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2HeavyPiercing" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2HeavyIce" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2HeavyFire" size="0.050000 0.075021" />
-    <ImageTarget name="Lvl2FirePiercingTower" size="0.050000 0.075021" />
+    <ImageTarget name="Lvl2UltraTower" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2RapidPiercing" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2RapidMulti" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2RapidIceTower" size="0.045000 0.067519" />
+    <ImageTarget name="lvl2RapidFire" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2MultiIce" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2MultiHeavy" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2MultiFire" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2IcePiercing" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2IceFire" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2HeavyPiercing" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2HeavyIce" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2Heavyfire" size="0.045000 0.067519" />
+    <ImageTarget name="Lvl2FirePiercingTower" size="0.045000 0.067519" />
   </Tracking>
 </QCARConfig>

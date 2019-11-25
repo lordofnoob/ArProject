@@ -135,7 +135,7 @@ public class TestGameManager : MonoBehaviour
         #region
         if (familyCounting.lightweightCount >= 3)
         {
-            if (familyCounting.lightweightCount >= 5)
+            /*if (familyCounting.lightweightCount >= 5)
             {
                 for (int i = 0; i < attackers.Count; i++)
                 {
@@ -150,7 +150,7 @@ public class TestGameManager : MonoBehaviour
                         if (attackers[i].monsterCharacteristics.monsterBaseCharacteristics.allEnemyFamilies[y] == FamilyType.LightWeight)
                             attackers[i].monsterUpdatedCharacteristics.speed *= 1.2f;
                     }
-                }
+                }*/
         }
         #endregion
 
