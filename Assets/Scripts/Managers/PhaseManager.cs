@@ -17,7 +17,7 @@ public class PhaseManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance)
+        if(instance)
         {
             Destroy(this);
             return;
@@ -56,7 +56,7 @@ public class PhaseManager : MonoBehaviour
         SetCurrentPhase(Phase.INIT);
 
         bool isClicked = false;
-        while (!isClicked)
+        while(!isClicked)
         {
             // Verifier si le bouton/ecran a été click 
             isClicked = ScanManager.instance.initValidate;
@@ -74,7 +74,7 @@ public class PhaseManager : MonoBehaviour
         defenders.Clear();
 
         bool isValidate = false;
-        while (!isValidate)
+        while(!isValidate)
         {
             // Check/Scan les cartes
             isValidate = ScanManager.instance.defendersValidate;
@@ -135,7 +135,7 @@ public class PhaseManager : MonoBehaviour
         // Afficher l'UI?
 
         bool isResolved = false;
-        while (!isResolved)
+        while(!isResolved)
         {
             ExecuteActions();
             isResolved = CheckResolutionState();
@@ -145,7 +145,7 @@ public class PhaseManager : MonoBehaviour
         // Afficher le résultat
 
         bool isClicked = false;
-        while (!isClicked)
+        while(!isClicked)
         {
             // Attendre que le joueur veuille start le prochain round (click bouton/ecran)
             yield return 0;
@@ -159,12 +159,12 @@ public class PhaseManager : MonoBehaviour
 
     private void ExecuteActions()
     {
-        foreach (Mb_Enemy attacker in attackers)
+        foreach(Mb_Enemy attacker in attackers)
         {
             attacker.Action();
         }
 
-        foreach (Mb_Tower defender in defenders)
+        foreach(Mb_Tower defender in defenders)
         {
             //defender.Action();
         }
@@ -172,9 +172,9 @@ public class PhaseManager : MonoBehaviour
 
     private bool CheckResolutionState()
     {
-        foreach (Mb_Enemy enemy in attackers)
+        foreach(Mb_Enemy enemy in attackers)
         {
-            if (enemy.GetUnitState() != UnitState.DEAD)
+            if(enemy.GetUnitState() != UnitState.DEAD)
             {
                 return false;
             }

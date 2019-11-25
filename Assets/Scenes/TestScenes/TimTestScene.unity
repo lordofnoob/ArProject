@@ -120,6 +120,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &24486595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,6 +465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1049f0b0bb5bb4b944b186847f2cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of 354cc42... Merge remote-tracking branch 'origin/master'
 --- !u!1001 &1184221036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -479,7 +482,7 @@ PrefabInstance:
     - target: {fileID: 5462145959825495832, guid: b453f1ec69da21749909fa84fd06c50c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.61
+      value: 3.56
       objectReference: {fileID: 0}
     - target: {fileID: 5462145959825495832, guid: b453f1ec69da21749909fa84fd06c50c,
         type: 3}
@@ -489,7 +492,7 @@ PrefabInstance:
     - target: {fileID: 5462145959825495832, guid: b453f1ec69da21749909fa84fd06c50c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.43
+      value: 4.62
       objectReference: {fileID: 0}
     - target: {fileID: 5462145959825495832, guid: b453f1ec69da21749909fa84fd06c50c,
         type: 3}
@@ -534,17 +537,17 @@ PrefabInstance:
     - target: {fileID: 5462145959825495832, guid: b453f1ec69da21749909fa84fd06c50c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 5462145959825495832, guid: b453f1ec69da21749909fa84fd06c50c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 5462145959825495832, guid: b453f1ec69da21749909fa84fd06c50c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: -1024623272484533847, guid: b453f1ec69da21749909fa84fd06c50c,
         type: 3}
@@ -570,6 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1049f0b0bb5bb4b944b186847f2cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!1001 &1271073156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -720,6 +724,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bace142b37b1b4469aa6454962dc5fb, type: 3}
+=======
+>>>>>>> parent of 354cc42... Merge remote-tracking branch 'origin/master'
 --- !u!1 &1673153977
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1673153978
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -827,9 +833,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRow: 0
   spawnLine: 0
+<<<<<<< HEAD
   spawnTileID: 0
   itemName: 
   monsterCharacteristics: {fileID: 0}
+=======
+>>>>>>> parent of 354cc42... Merge remote-tracking branch 'origin/master'
   monsterUpdatedCharacteristics:
     speed: 20
     hitPoint: 10
@@ -837,6 +846,7 @@ MonoBehaviour:
     damageToNexus: 0
     allEnemyFamilies: 
   anim: {fileID: 0}
+<<<<<<< HEAD
   defaultTimeBeforeDeath: 5
 --- !u!114 &1867501135 stripped
 MonoBehaviour:
@@ -850,6 +860,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1049f0b0bb5bb4b944b186847f2cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of 354cc42... Merge remote-tracking branch 'origin/master'
 --- !u!1 &1880654499
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nexusTileID: 70
   attackers:
-  - {fileID: 780759559}
+  - {fileID: 1673153982}
   defenders:
   - {fileID: 1195068180}
   - {fileID: 393742469}
