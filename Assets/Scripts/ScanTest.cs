@@ -19,6 +19,17 @@ public class ScanTest : MonoBehaviour
         imageList.AddRange(TargetImageContainer.GetComponentsInChildren<ImageTargetBehaviour>());
     }
 
+    private void Update()
+    {
+        foreach (ImageTargetBehaviour imageTarget in imageList)
+        {
+            if (imageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+            {
+                SnapOnBoard(imageTarget);
+            }
+        }
+    }
+
     public void Scan()
     {
         if (middleImage.CurrentStatus == TrackableBehaviour.Status.TRACKED)
@@ -56,9 +67,9 @@ public class ScanTest : MonoBehaviour
 
     public int GetCorrespondingTile(Vector3 currentElementPosition)
     {
-        Debug.Log(currentElementPosition);   
+        //Debug.Log(currentElementPosition);   
         RaycastHit raycastHit;
-        Debug.DrawRay(new Vector3(0, 0, 0), currentElementPosition);
+        //Debug.DrawRay(new Vector3(0, 0, 0), currentElementPosition);
         if (Physics.Raycast(new Vector3(0,0,0), currentElementPosition, out raycastHit, Mathf.Infinity, LayerMask.GetMask("Tile")))
         {
           
@@ -77,5 +88,26 @@ public class ScanTest : MonoBehaviour
         }
         Debug.Log("No collision");
         return -1;
+    }
+    
+    private void SnapOnBoard(ImageTargetBehaviour imageTarget)
+    {
+        RaycastHit raycastHit;
+        if (Physics.Raycast(new Vector3(0, 0, 0), imageTarget.transform.position, out raycastHit, Mathf.Infinity, LayerMask.GetMask("Board")))
+        {
+            Mb_Enemy ennemy = imageTarget.GetComponentInChildren<Mb_Enemy>();
+            Mb_Tower tower = imageTarget.GetComponentInChildren<Mb_Tower>();
+
+            if (ennemy)
+            {
+                ennemy.transform.position = raycastHit.point;
+                ennemy.transform.rotation = Quaternion.LookRotation(raycastHit.normal);
+            }
+            else if(tower)
+            {
+                tower.transform.position = raycastHit.point;
+                tower.transform.rotation = Quaternion.LookRotation(raycastHit.normal);
+            }
+        }
     }
 }

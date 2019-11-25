@@ -10061,11 +10061,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileGrid
       objectReference: {fileID: 0}
-    - target: {fileID: 5041738094871615998, guid: a5db8fbe86b099342a8b832d86d1c886,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5041738094871615996, guid: a5db8fbe86b099342a8b832d86d1c886,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10120,21 +10115,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041738094871615999, guid: a5db8fbe86b099342a8b832d86d1c886,
-        type: 3}
-      propertyPath: tileSize
-      value: 0.023
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041738094871615999, guid: a5db8fbe86b099342a8b832d86d1c886,
-        type: 3}
-      propertyPath: rowCount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041738094871615999, guid: a5db8fbe86b099342a8b832d86d1c886,
-        type: 3}
-      propertyPath: lineCount
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5db8fbe86b099342a8b832d86d1c886, type: 3}

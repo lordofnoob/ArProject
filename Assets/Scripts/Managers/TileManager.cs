@@ -41,13 +41,10 @@ public class TileManager : MonoBehaviour
         tileGrid = new TileInfo[tileCount];
         
         originTransform = tileSetterTransform;
-
-        
     }
 
     public void InstanciateGrid()
     {
-
         for(int i = 0; i < tileCount; i++)
         {
             GameObject newTile = Instantiate(tilePrefab) as GameObject;
@@ -57,7 +54,6 @@ public class TileManager : MonoBehaviour
             tileGrid[i].gameObject.transform.localRotation = originTransform.localRotation;
             tileGrid[i].tileID = i;
         }
-        
     }
 
     public void SetTileGridTransform(Transform targetTransform)
@@ -111,6 +107,7 @@ public class TileManager : MonoBehaviour
         unit.transform.localPosition = GetTilePosition(spawnTileID);
         unit.transform.localRotation = Quaternion.Euler(0, -180, 0);
         unit.transform.localScale *= unitScaleRatio;
+
     }
 
     public GameObject GetTile(int tileID)
