@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2313681926399383474}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
   m_Children:
   - {fileID: 4915297673464631352}
   m_Father: {fileID: 0}
@@ -38,6 +38,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5246669317934731789}
     m_Modifications:
+    - target: {fileID: 6920751229827342355, guid: 9cbd583a913602d4598ba80c764a16ef,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Vampire '
+      objectReference: {fileID: 0}
     - target: {fileID: 1376806893759681678, guid: 9cbd583a913602d4598ba80c764a16ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,17 +98,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6920751229827342355, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: m_Name
-      value: 'Vampire '
-      objectReference: {fileID: 0}
     - target: {fileID: 4605499354886411587, guid: 9cbd583a913602d4598ba80c764a16ef,
         type: 3}
       propertyPath: monsterCharacteristics
       value: 
       objectReference: {fileID: 11400000, guid: 2805000f2a0b0c042bcf2b620207dee4,
         type: 2}
+    - target: {fileID: 4605499354886411587, guid: 9cbd583a913602d4598ba80c764a16ef,
+        type: 3}
+      propertyPath: defaultTimeBeforeDeath
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 864091436831390050, guid: 9cbd583a913602d4598ba80c764a16ef,
         type: 3}
       propertyPath: m_LocalPosition.x
