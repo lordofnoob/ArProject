@@ -37,15 +37,21 @@ public class Mb_Tower : MonoBehaviour
 
     public void Init(int spawnTile)
     {
-        towerTileID = spawnTile;
-        TileManager.instance.SetUnitPosition(gameObject, towerTileID);
-
-        
-        foreach(List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
+        if(PhaseManager.instance.GetCurrentPhase() == Phase.DEFENCE)        // Ajouter le check de spawn?
         {
-            tileInRange.AddRange(list);
+            towerTileID = spawnTile;
+            TileManager.instance.SetUnitPosition(gameObject, towerTileID);
+
+            foreach (List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
+            {
+                tileInRange.AddRange(list);
+            }
+            tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
         }
-        tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     //public void SetUnitPosition(int spawnTileID)

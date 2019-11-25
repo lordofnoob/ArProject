@@ -59,17 +59,18 @@ public class ScanManager : MonoBehaviour
         initValidate = false;
         BoardScanCanvas.GetComponentInChildren<Button>().interactable = false;
 
-        allEnnemiesScanned.Clear();
-        allTowersScanned.Clear();
+        //allEnnemiesScanned.Clear();
+        //allTowersScanned.Clear();
     }
 
     public void Scan()
     {
         switch (PhaseManager.instance.GetCurrentPhase())
         {
-            case Phase.INIT:
+            case Phase.INIT:                                        //Ajouter le level design (Nexus + spawn + ...) Refactorer avec le PhaseManager
                 TileManager.instance.InstanciateGrid();
                 TileManager.instance.SetTileGridTransform(MiddleBoardToken.transform);
+                TileManager.instance.SetPathFinding(0);
                 initValidate = true;
                 break;
             case Phase.ATTACK:
@@ -101,18 +102,8 @@ public class ScanManager : MonoBehaviour
         foreach (ImageTargetBehaviour imageTarget in imageList)
         {
             if (imageTarget.CurrentStatus == TrackableBehaviour.Status.TRACKED)
-            //if(imageTarget.transform.childCount > 0 && imageTarget.transform.GetChild(0).gameObject.activeInHierarchy)
             {
-                GameObject clone = SnapOnTile(imageTarget);
-
-                if (currentPhase == Phase.ATTACK && clone.GetComponentInChildren<Mb_Enemy>())
-                {
-                    allEnnemiesScanned.Add(clone.GetComponentInChildren<Mb_Enemy>());
-                }
-                else if (currentPhase == Phase.DEFENCE && clone.GetComponentInChildren<Mb_Tower>())
-                {
-                    allTowersScanned.Add(clone.GetComponentInChildren<Mb_Tower>());
-                }
+                SnapOnTile(imageTarget);
             }
         }
     }
@@ -161,13 +152,13 @@ public class ScanManager : MonoBehaviour
                 break;
 
             case Phase.ATTACK:
-                PhaseManager.instance.attackers = allEnnemiesScanned;
+                //PhaseManager.instance.attackers = allEnnemiesScanned;
                 attackersValidate = true;
                 Init();
                 break;
 
             case Phase.DEFENCE:
-                PhaseManager.instance.defenders = allTowersScanned;
+                //PhaseManager.instance.defenders = allTowersScanned;
                 defendersValidate = true;
                 break;
 
@@ -197,7 +188,7 @@ public class ScanManager : MonoBehaviour
         }
     }
 
-    public GameObject SnapOnTile(ImageTargetBehaviour imageTarget)
+    public void SnapOnTile(ImageTargetBehaviour imageTarget)
     {
         string itemName = "";
 
@@ -211,9 +202,17 @@ public class ScanManager : MonoBehaviour
         }
 
         GameObject clone = UniversalPool.GetItem(itemName);
-        TileManager.instance.SetUnitPosition(clone, GetCorrespondingTile(imageTarget.transform.position));
 
-        return clone;
+        Mb_Enemy enemy;
+        Mb_Tower tower;
+        if (enemy = clone.GetComponentInChildren<Mb_Enemy>())
+        {
+            enemy.Init(GetCorrespondingTile(imageTarget.transform.position));
+        }
+        else if (tower = clone.GetComponentInChildren<Mb_Tower>())
+        {
+           tower.Init(GetCorrespondingTile(imageTarget.transform.position));
+        }
     }
 
     public int GetCorrespondingTile(Vector3 currentElementPosition)
