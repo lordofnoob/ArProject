@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 2282789458781228764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.7, y: 0, z: 59.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 910675891140855190}
   m_Father: {fileID: 0}
@@ -88,7 +88,6 @@ MonoBehaviour:
   projectileModifierList: 0
   shootProjectilePoint: {fileID: 5563405584210775465}
   ProjectilePrefab: {fileID: 0}
-  projectileLifeTime: 2
   towerTileID: 0
   itemName: 
 --- !u!1 &4099089875729920035

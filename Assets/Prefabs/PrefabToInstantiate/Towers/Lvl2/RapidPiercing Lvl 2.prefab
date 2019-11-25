@@ -76,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 3396076710996261135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 1324545552084912518}
   m_Father: {fileID: 0}
@@ -109,7 +109,6 @@ MonoBehaviour:
   shootProjectilePoint: {fileID: 5681086141352165165}
   ProjectilePrefab: {fileID: 6790330038427272897, guid: fead69d18f51443408824e7bb7bc3845,
     type: 3}
-  projectileLifeTime: 2
   towerTileID: 0
   itemName: 
 --- !u!1 &4050163878737383206
@@ -569,16 +568,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45
       objectReference: {fileID: 0}
-    - target: {fileID: -2047757009815551040, guid: f0d14ab1a511ee140b7e50c8178baa1e,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1641558554076950820, guid: f0d14ab1a511ee140b7e50c8178baa1e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 142c4d8ff66a4f34198267c0c72dd7cd, type: 2}
+    - target: {fileID: -2047757009815551040, guid: f0d14ab1a511ee140b7e50c8178baa1e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0d14ab1a511ee140b7e50c8178baa1e, type: 3}
 --- !u!4 &1289338376854234293 stripped
