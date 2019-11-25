@@ -61,6 +61,7 @@ public class PhaseManager : MonoBehaviour
             yield return 0;
         }
 
+        Debug.Log("Defence Phase");
         currentPhaseCoroutine = StartCoroutine(DefencePhase());
     }
 
@@ -80,8 +81,8 @@ public class PhaseManager : MonoBehaviour
             yield return 0;
         }
 
+        Debug.Log("Attack Phase");
         currentPhaseCoroutine = StartCoroutine(AttackPhase());
-        //StartCoroutine(AttackPhase());
     }
 
     private IEnumerator AttackPhase()
@@ -100,6 +101,7 @@ public class PhaseManager : MonoBehaviour
             yield return 0;
         }
 
+        Debug.Log("Check Compatibilité");
         currentPhaseCoroutine = StartCoroutine(CompatibilityPhase());
     }
 
@@ -116,10 +118,12 @@ public class PhaseManager : MonoBehaviour
         {
             // Verifier si le bouton/ecran a été click
             yield return 0;
+
+            isClicked = true; //Pour Debug
         }
 
         // Desafficher l'UI
-
+        Debug.Log("Debut resolution");
         currentPhaseCoroutine = StartCoroutine(ResolutionPhase());
     }
 
@@ -139,15 +143,15 @@ public class PhaseManager : MonoBehaviour
 
         // Afficher le résultat
 
-        bool isClicked = false;
-        while(!isClicked)
-        {
-            // Attendre que le joueur veuille start le prochain round (click bouton/ecran)
-            yield return 0;
-        }
+        //bool isClicked = false;
+        //while(!isClicked)
+        //{
+        //    // Attendre que le joueur veuille start le prochain round (click bouton/ecran)
+        //    yield return 0;
+        //}
 
         // Desafficher l'UI
-
+        Debug.Log("Fin du Round");
         currentPhaseCoroutine = StartCoroutine(DefencePhase());
     }
 
@@ -160,7 +164,7 @@ public class PhaseManager : MonoBehaviour
 
         foreach(Mb_Tower defender in defenders)
         {
-            //defender.Action();
+            defender.Action();
         }
     }
 
@@ -168,12 +172,13 @@ public class PhaseManager : MonoBehaviour
     {
         foreach(Mb_Enemy enemy in attackers)
         {
-            if(enemy.GetUnitState() != UnitState.DEAD)
+            Debug.LogWarning(enemy);
+            if (enemy)
             {
                 return false;
             }
         }
-
+        Debug.Log("Ils sont tous mort!");
         return true;
     }
 
