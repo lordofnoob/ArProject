@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1293649267379353695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 1250341040556143936}
   m_Father: {fileID: 0}
@@ -154,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 1875557328126677506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 153346018519693315}
   m_RootOrder: 0
@@ -2762,7 +2762,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.005
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4916,7 +4916,7 @@ Transform:
   m_GameObject: {fileID: 1979251425142746842}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 6797944779621434888}
   m_Father: {fileID: 1250341040556143936}
@@ -7588,7 +7588,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 1
+    enabled: 0
     strength:
       serializedVersion: 2
       minMaxState: 0
@@ -9746,7 +9746,7 @@ Transform:
   m_GameObject: {fileID: 2188464756748987550}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 6162864871521392148}
   m_Father: {fileID: 1250341040556143936}
@@ -19266,7 +19266,7 @@ Transform:
   m_GameObject: {fileID: 5884284271768134159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 6270754506917025910}
   m_RootOrder: 0
@@ -24029,7 +24029,7 @@ Transform:
   m_GameObject: {fileID: 6270754506917025803}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.42000008, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 5884284271768134158}
   m_Father: {fileID: 1250341040556143936}
@@ -28793,7 +28793,7 @@ Transform:
   m_GameObject: {fileID: 6797944779621434887}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 2603996304731008863}
   m_RootOrder: 0
@@ -29426,7 +29426,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 15
+    angle: 12
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 0.13
@@ -29741,7 +29741,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 5
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -31464,7 +31464,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 1
+    enabled: 0
     strength:
       serializedVersion: 2
       minMaxState: 0
@@ -33622,7 +33622,7 @@ Transform:
   m_GameObject: {fileID: 7050776203861513878}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 1250341040556143936}
   m_RootOrder: 0
@@ -36230,7 +36230,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.005
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -36387,7 +36387,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.5
+    frequency: 0.005
     damping: 1
     octaves: 1
     octaveMultiplier: 0.5
