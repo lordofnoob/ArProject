@@ -25,6 +25,8 @@ public class TileManager : MonoBehaviour
     public GameObject tilePrefab;
     public Transform tileSetterTransform;
 
+    public float unitScaleRatio = 1f;
+
     //public bool isRawBased;
     //public bool isStartingBig;
 
@@ -42,8 +44,6 @@ public class TileManager : MonoBehaviour
 
         
     }
-
-   
 
     public void InstanciateGrid()
     {
@@ -103,6 +103,14 @@ public class TileManager : MonoBehaviour
                 tileToExploreFrom.Enqueue(closeTileID);
             }
         }
+    }
+
+    public void SetUnitPosition(GameObject unit, int spawnTileID)
+    {
+        unit.transform.parent = transform;
+        unit.transform.localPosition = GetTilePosition(spawnTileID);
+        unit.transform.localRotation = Quaternion.Euler(0, -180, 0);
+        unit.transform.localScale *= unitScaleRatio;
     }
 
     public GameObject GetTile(int tileID)

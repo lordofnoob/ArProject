@@ -98,14 +98,14 @@ public class ScanManager : MonoBehaviour
         {
             foreach (Mb_Enemy ennemy in allEnnemiesScanned)
             {
-                ennemy.Init();
+                ennemy.InitDebug();
             }
         }
         else if(currentPhase == Phase.DEFENCE)
         {
             foreach (Mb_Tower tower in allTowersScanned)
             {
-                tower.Init();
+                tower.InitDebug();
             }
         }
     }
