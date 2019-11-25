@@ -18,6 +18,42 @@ public class Mb_Tower : MonoBehaviour
     private float timer = 0f;
     private List<Mb_Enemy> targets = new List<Mb_Enemy>();
 
+
+    private void Awake()
+    {
+        towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
+    }
+
+    public void InitDebug()
+    {
+        TileManager.instance.SetUnitPosition(gameObject, towerTileID);
+
+        foreach (List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
+        {
+            tileInRange.AddRange(list);
+        }
+        tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
+    }
+
+    public void Init(int spawnTile)
+    {
+        towerTileID = spawnTile;
+        TileManager.instance.SetUnitPosition(gameObject, towerTileID);
+
+        
+        foreach(List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
+        {
+            tileInRange.AddRange(list);
+        }
+        tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
+    }
+
+    //public void SetUnitPosition(int spawnTileID)
+    //{
+    //    gameObject.transform.parent = TileManager.instance.transform;
+    //    gameObject.transform.localPosition = TileManager.instance.GetTilePosition(spawnTileID);
+    //}
+
     public void Action()
     {
         timer = towerCharacteristics.delayBetweenAttack + 1;
@@ -34,7 +70,7 @@ public class Mb_Tower : MonoBehaviour
             for (int i = 0; i < targets.Count; i++)
             {
                 Mb_Enemy target = targets[i];
-                if(isInRange(target))
+                if (isInRange(target))
                 {
                     ShootProjectileOnTarget(target);
                 }
@@ -48,51 +84,6 @@ public class Mb_Tower : MonoBehaviour
         }
         timer += Time.fixedDeltaTime;
     }
-
-    public void Init(int spawnTile)
-    {
-        towerTileID = spawnTile;
-        SetUnitPosition(towerTileID);
-
-        
-        foreach(List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
-        {
-            tileInRange.AddRange(list);
-        }
-        tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
-    }
-
-    public void SetUnitPosition(int spawnTileID)
-    {
-        gameObject.transform.parent = TileManager.instance.transform;
-        gameObject.transform.localPosition = TileManager.instance.GetTilePosition(spawnTileID);
-    }
-
-    private void Awake()
-    {
-        towerCharacteristics = towerBaseCharacteristics.towerCharacteristics;
-    }
-
-    public void Init()
-    {
-        SetUnitPosition(towerTileID);
-
-       
-
-        //TileManager.instance.GetTileInfo(towerTileID).tileType = TileType.DEFENCESPAWN;
-
-        foreach (List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
-        {
-            tileInRange.AddRange(list);
-        }
-        tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
-    }
-
-    //private void SetPosition(int tileID)
-    //{
-    //    gameObject.transform.parent = TileManager.instance.transform;
-    //    transform.localPosition = TileManager.instance.GetTilePosition(tileID);
-    //}
 
     private void SetNewTargets()
     {

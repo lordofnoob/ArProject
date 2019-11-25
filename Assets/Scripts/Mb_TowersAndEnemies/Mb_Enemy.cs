@@ -14,8 +14,8 @@ public enum UnitState
 public class Mb_Enemy : MonoBehaviour
 {
     [Header("DebugInitialisation")]
-    public int spawnRow;
-    public int spawnLine;
+    //public int spawnRow;
+    //public int spawnLine;
     public int spawnTileID;
 
     //[Header("DebugInitialisation")]
@@ -40,16 +40,16 @@ public class Mb_Enemy : MonoBehaviour
 
     private void Awake()
     {
-     
+        //unitDestinationTile = -1;
     }
 
     private void OnEnable()
     {
         monsterUpdatedCharacteristics = monsterCharacteristics.monsterBaseCharacteristics;
-        unitDestinationTile = -1;
-        unitState = UnitState.STANDBY;
 
-        remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
+        timeBeforeDeath = 5;
+        //unitState = UnitState.STANDBY;
+        //remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
     }
 
     //////////////////////////////////////////////////////////      Initialisation      /////////////////////////////////////////////////////////
@@ -58,10 +58,11 @@ public class Mb_Enemy : MonoBehaviour
     {
         gameObject.transform.parent = TileManager.instance.transform;
         gameObject.transform.localPosition = TileManager.instance.GetTilePosition(tileID);
+        unitState = UnitState.STANDBY;
         remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
     }
 
-    public void Init()
+    public void InitDebug()
     {
         if(spawnTileID >= 0)
         {
@@ -71,11 +72,11 @@ public class Mb_Enemy : MonoBehaviour
         }
     }
 
-    public void SetUnitPosition(int spawnTileID)
-    {
-        gameObject.transform.parent = TileManager.instance.transform;
-        gameObject.transform.localPosition = TileManager.instance.GetTilePosition(spawnTileID);
-    }
+    //public void SetUnitPosition(int spawnTileID)
+    //{
+    //    gameObject.transform.parent = TileManager.instance.transform;
+    //    gameObject.transform.localPosition = TileManager.instance.GetTilePosition(spawnTileID);
+    //}
 
     public void UpdateCharacteristic()
     {
@@ -113,6 +114,7 @@ public class Mb_Enemy : MonoBehaviour
         if(unitState == UnitState.DEAD)
         {
             //Debug.Log("Pay some respect dude!");
+            return;
         }
         else
         {
@@ -125,11 +127,11 @@ public class Mb_Enemy : MonoBehaviour
 
             if(remainingHitPoints <= 0)
             {
-                unitState = UnitState.DEAD;
-                // Animation Mort
+                //Debug.Log("MORT!");
+                anim.SetTrigger("Died");
+                unitState = UnitState.WAITINGFORDEATH;
             }
         }
-        
     }
 
     public void Action()
@@ -138,6 +140,17 @@ public class Mb_Enemy : MonoBehaviour
         {
             UniversalPool.ReturnItem(gameObject, itemName);
             return;
+        }
+
+        if (unitState == UnitState.WAITINGFORDEATH)     // A Modifier
+        {
+            timeBeforeDeath = -Time.fixedDeltaTime;
+            if (timeBeforeDeath < 0)
+            {
+                unitState = UnitState.DEAD;
+                ResetTimeBeforeDeath();
+            }
+
         }
 
         if (unitState == UnitState.STANDBY)
@@ -169,7 +182,7 @@ public class Mb_Enemy : MonoBehaviour
         }
     }
 
-    //Slow a ajouter!
+    
     private void Move()
     {
         if(slowRemainingDuration > 0)
@@ -206,6 +219,11 @@ public class Mb_Enemy : MonoBehaviour
     {
         return speed * 4f / 5f;
 
+    }
+
+    private void ResetTimeBeforeDeath()         //Beurk!
+    {
+        timeBeforeDeath = defaultTimeBeforeDeath;
     }
 }
 

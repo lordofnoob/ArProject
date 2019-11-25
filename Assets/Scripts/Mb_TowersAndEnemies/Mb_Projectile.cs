@@ -61,7 +61,7 @@ public class Mb_Projectile : MonoBehaviour
         }
     }
 
-    public void SetModifier(ProjectileModifier projectileModifier)
+    public void SetModifier(ProjectileModifier projectileModifier)      //A Implementer
     {
         //Fire.gameObject.SetActive(fire);
         //Ice.gameObject.SetActive(ice);
