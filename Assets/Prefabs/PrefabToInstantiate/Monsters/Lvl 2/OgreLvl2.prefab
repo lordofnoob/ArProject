@@ -24,6 +24,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 7689660155419594452}
   defaultTimeBeforeDeath: 5
+--- !u!65 &5214668110577246095
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389980539074519423}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4, y: 0.5, z: 0.4}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &7112945065452211250
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +93,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 2417758889738876986}
   defaultTimeBeforeDeath: 5
+--- !u!65 &4652737256539414048
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7219572138526185361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4, y: 0.5, z: 0.4}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1001 &1359321915493800894
 PrefabInstance:
   m_ObjectHideFlags: 0

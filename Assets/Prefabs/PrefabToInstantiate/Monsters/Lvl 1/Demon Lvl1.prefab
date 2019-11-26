@@ -55,6 +55,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 1422614851039477570}
   defaultTimeBeforeDeath: 5
+--- !u!65 &7227846640149564967
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440803670883628903}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 1.4, z: 1}
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!95 &1422614851039477570
 Animator:
   serializedVersion: 3

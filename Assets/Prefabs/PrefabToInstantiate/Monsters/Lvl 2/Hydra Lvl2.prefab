@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &5987814909720266999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2975663513398534769}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.6, z: 1.4}
+  m_Center: {x: 0, y: 0.4, z: 0.25}
 --- !u!1 &2562283169827433763
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,17 +111,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6180165190346401703, guid: 06a92fbc185c3d3449c543ed1c30acc9,
-        type: 3}
-      propertyPath: monsterCharacteristics
-      value: 
-      objectReference: {fileID: 11400000, guid: a5acc4e3c1c7c024c8fdef466270904c,
-        type: 2}
-    - target: {fileID: 6180165190346401703, guid: 06a92fbc185c3d3449c543ed1c30acc9,
-        type: 3}
-      propertyPath: defaultTimeBeforeDeath
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 994226188786571243, guid: 06a92fbc185c3d3449c543ed1c30acc9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -124,6 +126,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6180165190346401703, guid: 06a92fbc185c3d3449c543ed1c30acc9,
+        type: 3}
+      propertyPath: monsterCharacteristics
+      value: 
+      objectReference: {fileID: 11400000, guid: a5acc4e3c1c7c024c8fdef466270904c,
+        type: 2}
+    - target: {fileID: 6180165190346401703, guid: 06a92fbc185c3d3449c543ed1c30acc9,
+        type: 3}
+      propertyPath: defaultTimeBeforeDeath
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 994226188800250543, guid: 06a92fbc185c3d3449c543ed1c30acc9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -131,6 +144,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d6bb5a6fcff27624b94ee72d3e60d94a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06a92fbc185c3d3449c543ed1c30acc9, type: 3}
+--- !u!1 &2975663513398534769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4602821817500740278, guid: 06a92fbc185c3d3449c543ed1c30acc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1633447932432304327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5962027065902204518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4906192657264725665, guid: 06a92fbc185c3d3449c543ed1c30acc9,
