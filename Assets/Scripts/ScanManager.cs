@@ -205,13 +205,22 @@ public class ScanManager : MonoBehaviour
 
         Mb_Enemy enemy;
         Mb_Tower tower;
-        if (enemy = clone.GetComponentInChildren<Mb_Enemy>())
+        int tileID = GetCorrespondingTile(imageTarget.transform.position);
+
+        if (tileID < 0)
         {
-            enemy.Init(GetCorrespondingTile(imageTarget.transform.position));
+            if (enemy = clone.GetComponentInChildren<Mb_Enemy>())
+            {
+                enemy.Init(tileID);
+            }
+            else if (tower = clone.GetComponentInChildren<Mb_Tower>())
+            {
+                tower.Init(tileID);
+            }
         }
-        else if (tower = clone.GetComponentInChildren<Mb_Tower>())
+        else
         {
-           tower.Init(GetCorrespondingTile(imageTarget.transform.position));
+            Destroy(clone);
         }
     }
 

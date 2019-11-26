@@ -208,7 +208,7 @@ public class Mb_Enemy : MonoBehaviour
             movementProgress += (float)monsterUpdatedCharacteristics.speed / 100f * Time.fixedDeltaTime;
         }
 
-        Debug.Log(movementProgress);
+        //Debug.Log(movementProgress);
 
         if(movementProgress >= 1)
         {
