@@ -24,6 +24,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 833087837313981281}
   defaultTimeBeforeDeath: 5
+--- !u!65 &6420772056791098207
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572808911317804287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.1, z: 0.3}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!114 &5201415413149306484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,6 +61,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 2989593016873264057}
   defaultTimeBeforeDeath: 5
+--- !u!65 &5591578500505082052
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2666576627411115047}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.1, z: 0.3}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!114 &587008630427981919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +98,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 3975051292909611783}
   defaultTimeBeforeDeath: 5
+--- !u!65 &5200414877203082723
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4275752531295949977}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.1, z: 0.3}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1 &4994948604584686384
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +169,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 6152794935610456343}
   defaultTimeBeforeDeath: 5
+--- !u!65 &6878644323484306417
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6422027754998908553}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.1, z: 0.3}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1001 &914677268268950639
 PrefabInstance:
   m_ObjectHideFlags: 0

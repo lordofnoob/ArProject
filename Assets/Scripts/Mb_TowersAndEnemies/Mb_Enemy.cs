@@ -61,10 +61,18 @@ public class Mb_Enemy : MonoBehaviour
 
     public void Init(int tileID)
     {
-        gameObject.transform.parent = TileManager.instance.transform;
-        gameObject.transform.localPosition = TileManager.instance.GetTilePosition(tileID);
-        unitState = UnitState.STANDBY;
-        remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
+        if(PhaseManager.instance.GetCurrentPhase() == Phase.ATTACK)         // Ajouter le check de spawn?
+        {
+            TileManager.instance.SetUnitPosition(gameObject, tileID);
+            unitState = UnitState.STANDBY;
+            unitStartingMovementTile = tileID;
+            remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
+            PhaseManager.instance.attackers.Add(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void InitDebug()
@@ -73,6 +81,7 @@ public class Mb_Enemy : MonoBehaviour
         {
             gameObject.transform.parent = TileManager.instance.transform;
             gameObject.transform.localPosition = TileManager.instance.GetTilePosition(spawnTileID);
+            unitState = UnitState.STANDBY;
             remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
         }
     }
@@ -198,7 +207,8 @@ public class Mb_Enemy : MonoBehaviour
         {
             movementProgress += (float)monsterUpdatedCharacteristics.speed / 100f * Time.fixedDeltaTime;
         }
-        
+
+        Debug.Log(movementProgress);
 
         if(movementProgress >= 1)
         {
@@ -215,8 +225,8 @@ public class Mb_Enemy : MonoBehaviour
     {
         // Animation
         // Attendre pour une certaine durée
-        //LifeManager.instance.DamagePlayer(monsterUpdatedCharacteristics.damageToNexus);
-        //unitState = UnitState.DEAD;
+        LifeManager.instance.DamagePlayer(monsterUpdatedCharacteristics.damageToNexus);
+        unitState = UnitState.WAITINGFORDEATH;
         // Animation de mort
     }
 

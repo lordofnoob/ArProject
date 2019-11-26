@@ -98,47 +98,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5442196209058485546, guid: ae6e58ab68fa5514c8f535df29770ab6,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5442196209058485546, guid: ae6e58ab68fa5514c8f535df29770ab6,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5442196209058485546, guid: ae6e58ab68fa5514c8f535df29770ab6,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5442196209058485546, guid: ae6e58ab68fa5514c8f535df29770ab6,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7678948593534189416, guid: ae6e58ab68fa5514c8f535df29770ab6,
-        type: 3}
-      propertyPath: monsterCharacteristics
-      value: 
-      objectReference: {fileID: 11400000, guid: 9e945895e2a86d74886bd84ae77824b5,
-        type: 2}
-    - target: {fileID: 7678948593534189416, guid: ae6e58ab68fa5514c8f535df29770ab6,
-        type: 3}
-      propertyPath: defaultTimeBeforeDeath
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5442196209047412700, guid: ae6e58ab68fa5514c8f535df29770ab6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d614294c8ce00cd4ab2ab7a1aaf230e1, type: 2}
-    - target: {fileID: 5442196209047412700, guid: ae6e58ab68fa5514c8f535df29770ab6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: d614294c8ce00cd4ab2ab7a1aaf230e1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae6e58ab68fa5514c8f535df29770ab6, type: 3}
 --- !u!4 &2649213904426469458 stripped

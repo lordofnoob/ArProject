@@ -172,7 +172,6 @@ public class PhaseManager : MonoBehaviour
     {
         foreach(Mb_Enemy enemy in attackers)
         {
-            Debug.LogWarning(enemy);
             if (enemy)
             {
                 return false;

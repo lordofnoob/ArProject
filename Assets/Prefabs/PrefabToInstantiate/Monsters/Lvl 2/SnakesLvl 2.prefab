@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2264795105379440273}
   - component: {fileID: 217177305399016663}
+  - component: {fileID: 1855198342679052594}
   m_Layer: 0
   m_Name: Viper (2)
   m_TagString: Untagged
@@ -56,6 +57,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 7421745685747136456}
   defaultTimeBeforeDeath: 5
+--- !u!65 &1855198342679052594
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3234109971699514713}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 1}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!1 &6201765254975157628
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,6 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2543278236615332146}
   - component: {fileID: 3792366071302122340}
+  - component: {fileID: 5605613027569969236}
   m_Layer: 0
   m_Name: Viper (1)
   m_TagString: Untagged
@@ -112,6 +127,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 6774353687224827442}
   defaultTimeBeforeDeath: 5
+--- !u!65 &5605613027569969236
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6201765254975157628}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 1}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!1 &8888715932641886555
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2343791930337855349}
   - component: {fileID: 2347523748997430969}
+  - component: {fileID: 1623810965512191201}
   m_Layer: 0
   m_Name: Viper
   m_TagString: Untagged
@@ -168,6 +197,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 1310723107641975843}
   defaultTimeBeforeDeath: 5
+--- !u!65 &1623810965512191201
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888715932641886555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 1}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!1 &8932106926465353301
 GameObject:
   m_ObjectHideFlags: 0

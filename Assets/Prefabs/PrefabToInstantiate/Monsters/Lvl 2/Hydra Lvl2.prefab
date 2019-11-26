@@ -98,37 +98,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6180165190346401703, guid: 06a92fbc185c3d3449c543ed1c30acc9,
-        type: 3}
-      propertyPath: monsterCharacteristics
-      value: 
-      objectReference: {fileID: 11400000, guid: a5acc4e3c1c7c024c8fdef466270904c,
-        type: 2}
-    - target: {fileID: 6180165190346401703, guid: 06a92fbc185c3d3449c543ed1c30acc9,
-        type: 3}
-      propertyPath: defaultTimeBeforeDeath
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 994226188786571243, guid: 06a92fbc185c3d3449c543ed1c30acc9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 994226188786571243, guid: 06a92fbc185c3d3449c543ed1c30acc9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.338
-      objectReference: {fileID: 0}
-    - target: {fileID: 994226188786571243, guid: 06a92fbc185c3d3449c543ed1c30acc9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 994226188800250543, guid: 06a92fbc185c3d3449c543ed1c30acc9,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d6bb5a6fcff27624b94ee72d3e60d94a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06a92fbc185c3d3449c543ed1c30acc9, type: 3}
 --- !u!4 &5962027065902204518 stripped

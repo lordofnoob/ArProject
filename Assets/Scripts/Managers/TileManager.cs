@@ -107,7 +107,6 @@ public class TileManager : MonoBehaviour
         unit.transform.localPosition = GetTilePosition(spawnTileID);
         unit.transform.localRotation = Quaternion.Euler(0, -180, 0);
         unit.transform.localScale *= unitScaleRatio;
-
     }
 
     public GameObject GetTile(int tileID)

@@ -98,37 +98,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 864091436831390050, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 864091436831390050, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.212
-      objectReference: {fileID: 0}
-    - target: {fileID: 864091436831390050, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4605499354886411587, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: monsterCharacteristics
-      value: 
-      objectReference: {fileID: 11400000, guid: 299b283907478734190d4dd32f43d44a,
-        type: 2}
-    - target: {fileID: 4605499354886411587, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: defaultTimeBeforeDeath
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 864091436820016226, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6d7e41b85b4073a48ad8a6ec0f87fc21, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cbd583a913602d4598ba80c764a16ef, type: 3}
 --- !u!4 &1097273443963561156 stripped

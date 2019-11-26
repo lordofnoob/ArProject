@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3828577096776240384}
   - component: {fileID: 2507216743593670486}
+  - component: {fileID: 7761455824763889016}
   m_Layer: 0
   m_Name: Viper (1)
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4646382368177547598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5217712948705278178}
@@ -56,6 +57,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 5217712948698391040}
   defaultTimeBeforeDeath: 5
+--- !u!65 &7761455824763889016
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4646382368177547598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 1}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!1 &7868154182543514985
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,6 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3957695225845783367}
   - component: {fileID: 3962684883707617931}
+  - component: {fileID: 4025671331726444587}
   m_Layer: 0
   m_Name: Viper
   m_TagString: Untagged
@@ -81,7 +96,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7868154182543514985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 313777776447021811}
@@ -112,6 +127,19 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 313777776440014865}
   defaultTimeBeforeDeath: 5
+--- !u!65 &4025671331726444587
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868154182543514985}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 1}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!1 &7899150390367427175
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 433228, guid: ed8e116645caba043b21c7a7497046c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433228, guid: ed8e116645caba043b21c7a7497046c9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -566,7 +594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 433228, guid: ed8e116645caba043b21c7a7497046c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433228, guid: ed8e116645caba043b21c7a7497046c9, type: 3}
       propertyPath: m_LocalPosition.y
