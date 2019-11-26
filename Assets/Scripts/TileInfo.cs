@@ -68,7 +68,7 @@ public class TileInfo : MonoBehaviour
 
         closestEnemies.AddRange(leavingEnemies);
         closestEnemies.AddRange(enteringEnemies);
-
+        Debug.LogError("Closest Enemies Count: " + closestEnemies.Count);
         return closestEnemies;
     }
 

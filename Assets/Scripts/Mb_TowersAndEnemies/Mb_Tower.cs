@@ -44,9 +44,11 @@ public class Mb_Tower : MonoBehaviour
 
             foreach (List<TileInfo> list in TileManager.instance.GetTileInfoInRange(towerTileID, towerCharacteristics.range))
             {
+              //  Debug.Log("TileCount" + tileInRange.Count);
                 tileInRange.AddRange(list);
             }
             tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
+            PhaseManager.instance.defenders.Add(this);
         }
         else
         {
@@ -62,7 +64,6 @@ public class Mb_Tower : MonoBehaviour
 
     public void Action()
     {
-        timer = towerCharacteristics.delayBetweenAttack + 1;
 
         if (timer > towerCharacteristics.delayBetweenAttack)
         {
@@ -125,11 +126,9 @@ public class Mb_Tower : MonoBehaviour
     {
         Debug.Log("PewPierPew!");
         float projectileLifeTime = 1;   // LifeTime Hardwrite pas terrible...
-        Mb_Projectile newProjectile = UniversalPool.GetItem("Projectiles").GetComponent<Mb_Projectile>();
+        Mb_Projectile newProjectile = UniversalPool.GetItem("Projectile").GetComponent<Mb_Projectile>();
         newProjectile.SetModifier(projectileModifierList);
-        newProjectile.Initialize(shootProjectilePoint.position, projectileLifeTime, target, towerCharacteristics.damages, towerCharacteristics.piercingAmount, towerCharacteristics.fireDamages, towerCharacteristics.slowDuration); 
-
-        //Instantiate(ProjectilePrefab, shootProjectilePoint.position, Quaternion.identity);
+        newProjectile.Initialize(shootProjectilePoint.position, projectileLifeTime, target, towerCharacteristics.damages, towerCharacteristics.piercingAmount, towerCharacteristics.fireDamages, towerCharacteristics.slowDuration);
     }
 }
 

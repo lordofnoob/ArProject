@@ -257,7 +257,7 @@ public class TileManager : MonoBehaviour
                 tilesInRangeI.AddRange(currentTileNeighbours);
                 discoveredTilesID.AddRange(currentTileNeighbours);
             }
-
+            
             tilesInRange.Add(tilesInRangeI);
         }
 

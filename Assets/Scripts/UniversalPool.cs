@@ -117,7 +117,6 @@ public class UniversalPool : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Unknown Item returned to Pool (" + itemName + ")" + " desactivating item...");
             backItem.SetActive(false);
         }
     }

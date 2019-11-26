@@ -207,7 +207,7 @@ public class ScanManager : MonoBehaviour
         Mb_Tower tower;
         int tileID = GetCorrespondingTile(imageTarget.transform.position);
 
-        if (tileID < 0)
+        if (tileID >= 0)
         {
             if (enemy = clone.GetComponentInChildren<Mb_Enemy>())
             {
