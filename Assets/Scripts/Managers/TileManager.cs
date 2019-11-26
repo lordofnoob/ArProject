@@ -147,16 +147,16 @@ public class TileManager : MonoBehaviour
         if (rowCount % 2 == 0)
         {
             if (lineCount % 2 == 0)
-                return new Vector3((tileRow - rowCount / 2 + 1f/2f) * Mathf.Sqrt(3) * tileSize, transform.position.y, (lineCount / 2 - tileLine - 1f/2f) * tileSize);
+                return new Vector3((tileRow - rowCount / 2 + 1f/2f) * Mathf.Sqrt(3) * tileSize, 0, (lineCount / 2 - tileLine - 1f/2f) * tileSize);
             else
-                return new Vector3((tileRow - rowCount / 2 + 1f/2f) * Mathf.Sqrt(3) * tileSize, transform.position.y, (lineCount / 2 - tileLine) * tileSize);
+                return new Vector3((tileRow - rowCount / 2 + 1f/2f) * Mathf.Sqrt(3) * tileSize, 0, (lineCount / 2 - tileLine) * tileSize);
         }
         else
         {
             if (lineCount % 2 == 0)
-                return new Vector3((tileRow - rowCount/2) * Mathf.Sqrt(3) * tileSize, transform.position.y, (lineCount / 2 - tileLine - 1f/2f) * tileSize);
+                return new Vector3((tileRow - rowCount/2) * Mathf.Sqrt(3) * tileSize, 0, (lineCount / 2 - tileLine - 1f/2f) * tileSize);
             else
-                return new Vector3((tileRow - rowCount/2) * Mathf.Sqrt(3) * tileSize, transform.position.y, (lineCount / 2 - tileLine) * tileSize);
+                return new Vector3((tileRow - rowCount/2) * Mathf.Sqrt(3) * tileSize, 0, (lineCount / 2 - tileLine) * tileSize);
         }
     }
 

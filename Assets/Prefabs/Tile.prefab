@@ -211,7 +211,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8546604947860380900}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.02
   m_Height: 0.1
@@ -261,6 +261,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8546604947860380901}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 03dc240113902f04095cf628cfeeb460,
+        type: 3}
+      propertyPath: m_Name
+      value: Hextile
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 03dc240113902f04095cf628cfeeb460,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 03dc240113902f04095cf628cfeeb460,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -330,16 +340,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 03dc240113902f04095cf628cfeeb460,
-        type: 3}
-      propertyPath: m_Name
-      value: Hextile
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 03dc240113902f04095cf628cfeeb460,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 03dc240113902f04095cf628cfeeb460,
         type: 3}
