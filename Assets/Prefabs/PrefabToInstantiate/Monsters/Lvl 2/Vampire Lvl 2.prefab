@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &7626327440839324213
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8947060787965644889}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.2}
-  m_Center: {x: 0, y: 0.2, z: 0.05}
 --- !u!1 &5918577068437104666
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,45 +98,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 864091436831390050, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 864091436831390050, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.212
-      objectReference: {fileID: 0}
-    - target: {fileID: 864091436831390050, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4605499354886411587, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: monsterCharacteristics
-      value: 
-      objectReference: {fileID: 11400000, guid: 299b283907478734190d4dd32f43d44a,
-        type: 2}
-    - target: {fileID: 4605499354886411587, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: defaultTimeBeforeDeath
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 864091436820016226, guid: 9cbd583a913602d4598ba80c764a16ef,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6d7e41b85b4073a48ad8a6ec0f87fc21, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cbd583a913602d4598ba80c764a16ef, type: 3}
---- !u!1 &8947060787965644889 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6920751229827342355, guid: 9cbd583a913602d4598ba80c764a16ef,
-    type: 3}
-  m_PrefabInstance: {fileID: 2026948523918897226}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1097273443963561156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1376806893759681678, guid: 9cbd583a913602d4598ba80c764a16ef,

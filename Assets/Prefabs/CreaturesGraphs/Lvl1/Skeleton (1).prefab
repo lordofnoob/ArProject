@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7484547688394246027
+--- !u!1 &3323040562263313144
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6387375775507525}
-  - component: {fileID: 4123197457210960662}
-  - component: {fileID: 6703308639793910316}
+  - component: {fileID: 5320170593213737270}
+  - component: {fileID: 8141155188485711461}
+  - component: {fileID: 1496694872263335775}
   m_Layer: 0
-  m_Name: Skeleton
+  m_Name: Skeleton (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6387375775507525
+--- !u!4 &5320170593213737270
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7484547688394246027}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0492609, y: 0.1193389, z: 0.035883382}
+  m_GameObject: {fileID: 3323040562263313144}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2936252019964975463}
+  - {fileID: 7024509417338410004}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4123197457210960662
+--- !u!114 &8141155188485711461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7484547688394246027}
+  m_GameObject: {fileID: 3323040562263313144}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnTileID: 0
   itemName: 
-  monsterCharacteristics: {fileID: 11400000, guid: 3602525e02611ed4aad3acfcf1aa4854,
+  monsterCharacteristics: {fileID: 11400000, guid: f05e96f73ac029d40bdea03422278dcb,
     type: 2}
   monsterUpdatedCharacteristics:
     speed: 0
@@ -55,27 +55,27 @@ MonoBehaviour:
     defense: 0
     damageToNexus: 0
     allEnemyFamilies: 
-  anim: {fileID: 3021094866838924793}
+  anim: {fileID: 6930668711861690506}
   defaultTimeBeforeDeath: 5
---- !u!65 &6703308639793910316
+--- !u!65 &1496694872263335775
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7484547688394246027}
+  m_GameObject: {fileID: 3323040562263313144}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.3, z: 0.2}
   m_Center: {x: 0, y: 0.2, z: 0}
---- !u!1001 &2936252019965421239
+--- !u!1001 &7024509417338006468
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6387375775507525}
+    m_TransformParent: {fileID: 5320170593213737270}
     m_Modifications:
     - target: {fileID: 187406, guid: 251db56815a28b546921077c3f22ed04, type: 3}
       propertyPath: m_Name
@@ -87,7 +87,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 458704, guid: 251db56815a28b546921077c3f22ed04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.133
+      value: 0.127
       objectReference: {fileID: 0}
     - target: {fileID: 458704, guid: 251db56815a28b546921077c3f22ed04, type: 3}
       propertyPath: m_LocalPosition.z
@@ -200,7 +200,7 @@ PrefabInstance:
     - target: {fileID: 13792346, guid: 251db56815a28b546921077c3f22ed04, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7ba71bcba3518474285a020502b41182, type: 2}
+      objectReference: {fileID: 2100000, guid: cbf795e6acc874545ab24c715678f85a, type: 2}
     - target: {fileID: 498148, guid: 251db56815a28b546921077c3f22ed04, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0.00000018473088
@@ -795,15 +795,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 251db56815a28b546921077c3f22ed04, type: 3}
---- !u!4 &2936252019964975463 stripped
+--- !u!4 &7024509417338410004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 458704, guid: 251db56815a28b546921077c3f22ed04,
     type: 3}
-  m_PrefabInstance: {fileID: 2936252019965421239}
+  m_PrefabInstance: {fileID: 7024509417338006468}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &3021094866838924793 stripped
+--- !u!95 &6930668711861690506 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95345670679907150, guid: 251db56815a28b546921077c3f22ed04,
     type: 3}
-  m_PrefabInstance: {fileID: 2936252019965421239}
+  m_PrefabInstance: {fileID: 7024509417338006468}
   m_PrefabAsset: {fileID: 0}

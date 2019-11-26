@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4602821817500740278
+--- !u!1 &5286277064309528839
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4906192657264725665}
-  - component: {fileID: 6180165190346401703}
-  - component: {fileID: 5987814909720266999}
+  - component: {fileID: 3650852284501245200}
+  - component: {fileID: 2555926422836122646}
+  - component: {fileID: 2712538180700109638}
   m_Layer: 0
   m_Name: Hydra
   m_TagString: Untagged
@@ -18,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4906192657264725665
+--- !u!4 &3650852284501245200
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4602821817500740278}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1117855, y: 0.09202102, z: 0.16380346}
+  m_GameObject: {fileID: 5286277064309528839}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 994226188786571243}
+  - {fileID: 8894628533292885082}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6180165190346401703
+--- !u!114 &2555926422836122646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4602821817500740278}
+  m_GameObject: {fileID: 5286277064309528839}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnTileID: 0
   itemName: 
-  monsterCharacteristics: {fileID: 11400000, guid: a5acc4e3c1c7c024c8fdef466270904c,
+  monsterCharacteristics: {fileID: 11400000, guid: 8981d6b07db20d64db5c113c123a313c,
     type: 2}
   monsterUpdatedCharacteristics:
     speed: 0
@@ -55,27 +55,27 @@ MonoBehaviour:
     defense: 0
     damageToNexus: 0
     allEnemyFamilies: 
-  anim: {fileID: 909096317587875283}
+  anim: {fileID: 8800562252610180706}
   defaultTimeBeforeDeath: 5
---- !u!65 &5987814909720266999
+--- !u!65 &2712538180700109638
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4602821817500740278}
+  m_GameObject: {fileID: 5286277064309528839}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.6, z: 1.4}
   m_Center: {x: 0, y: 0.4, z: 0.25}
---- !u!1001 &994226188786709523
+--- !u!1001 &8894628533293270946
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4906192657264725665}
+    m_TransformParent: {fileID: 3650852284501245200}
     m_Modifications:
     - target: {fileID: 107674, guid: 718e6ac3a948e2b4285941269792ccb9, type: 3}
       propertyPath: m_Name
@@ -91,7 +91,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 402424, guid: 718e6ac3a948e2b4285941269792ccb9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.338
+      value: 0.343
       objectReference: {fileID: 0}
     - target: {fileID: 402424, guid: 718e6ac3a948e2b4285941269792ccb9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -212,7 +212,7 @@ PrefabInstance:
     - target: {fileID: 13756092, guid: 718e6ac3a948e2b4285941269792ccb9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6bb5a6fcff27624b94ee72d3e60d94a, type: 2}
+      objectReference: {fileID: 2100000, guid: 30da39c5c688ea44cbe7d9560a4d7231, type: 2}
     - target: {fileID: 435604, guid: 718e6ac3a948e2b4285941269792ccb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 5.1622787
@@ -827,15 +827,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 718e6ac3a948e2b4285941269792ccb9, type: 3}
---- !u!4 &994226188786571243 stripped
+--- !u!4 &8894628533292885082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 402424, guid: 718e6ac3a948e2b4285941269792ccb9,
     type: 3}
-  m_PrefabInstance: {fileID: 994226188786709523}
+  m_PrefabInstance: {fileID: 8894628533293270946}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &909096317587875283 stripped
+--- !u!95 &8800562252610180706 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95122306035438016, guid: 718e6ac3a948e2b4285941269792ccb9,
     type: 3}
-  m_PrefabInstance: {fileID: 994226188786709523}
+  m_PrefabInstance: {fileID: 8894628533293270946}
   m_PrefabAsset: {fileID: 0}
