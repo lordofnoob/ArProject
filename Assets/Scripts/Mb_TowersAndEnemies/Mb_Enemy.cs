@@ -47,6 +47,8 @@ public class Mb_Enemy : MonoBehaviour
 
     private void Awake()
     {
+        defaultTimeBeforeDeath = 5f;
+        timeBeforeDeath = defaultTimeBeforeDeath;
         //unitDestinationTile = -1;
     }
 
@@ -200,7 +202,6 @@ public class Mb_Enemy : MonoBehaviour
                 unitState = UnitState.DEAD;
                 ResetTimeBeforeDeath();
             }
-
         }
 
         if (unitState == UnitState.STANDBY)

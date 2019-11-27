@@ -227,7 +227,14 @@ public class ScanManager : MonoBehaviour
             }
             else
             {
-                Destroy(clone);
+                if (enemy = clone.GetComponentInChildren<Mb_Enemy>())
+                {
+                    UniversalPool.ReturnItem(clone, enemy.itemName);
+                }
+                else if (tower = clone.GetComponentInChildren<Mb_Tower>())
+                {
+                    UniversalPool.ReturnItem(clone, tower.itemName);
+                }
             }
         }
 
