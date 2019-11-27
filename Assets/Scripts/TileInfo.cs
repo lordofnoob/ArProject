@@ -88,7 +88,6 @@ public class TileInfo : MonoBehaviour
 
         closestEnemies.AddRange(leavingEnemies);
         closestEnemies.AddRange(enteringEnemies);
-        Debug.LogError("Closest Enemies Count: " + closestEnemies.Count);
         return closestEnemies;
     }
 
@@ -99,7 +98,6 @@ public class TileInfo : MonoBehaviour
        {
             if (enteringEnemy.spawnTileID < 0)
                 enteringEnemy.spawnTileID = tileID;
-            Debug.Log("Entering " + tileID);
             onTileElements.Add(enteringEnemy);
        }
        else 
@@ -118,7 +116,6 @@ public class TileInfo : MonoBehaviour
         Mb_Enemy leavingEnemy = other.gameObject.GetComponent<Mb_Enemy>();
         if (leavingEnemy)    // A modifier?
         {
-            Debug.Log("Leaving " + tileID);
             onTileElements.Remove(leavingEnemy);
         }
     }

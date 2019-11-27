@@ -60,11 +60,6 @@ public class Mb_Tower : MonoBehaviour
         }
     }
 
-    public void RetrunToPool()          // Rename en ReturntoPoolParty please
-    {
-        UniversalPool.ReturnItem(gameObject, itemName);
-    }
-
     //public void SetUnitPosition(int spawnTileID)
     //{
     //    gameObject.transform.parent = TileManager.instance.transform;
@@ -91,9 +86,7 @@ public class Mb_Tower : MonoBehaviour
                     ShootProjectileOnTarget(target);
                 }
                 else
-                {
-                    Debug.Log("Target out of range! " + target);
-                    targets.RemoveAt(i--);
+                {  targets.RemoveAt(i--);
                     SetNewTargets();
                 }
             }
@@ -118,7 +111,7 @@ public class Mb_Tower : MonoBehaviour
                 if (ennemy.GetUnitState() != UnitState.DEAD && ennemy.GetUnitState() != UnitState.WAITINGFORDEATH)
                 {
                     targets.Add(ennemy);
-                    Debug.Log("Target acquired! " + ennemy);
+                   
                 }
             }
         }
@@ -137,10 +130,23 @@ public class Mb_Tower : MonoBehaviour
         return false;
     }
 
+    public void SetupParticleTrail()
+    {
+        if (towerCharacteristics.fireDamages > 0)
+            projectileModifierList |= ProjectileModifier.Fire;
+        if (towerCharacteristics.slowDuration > 0)
+            projectileModifierList |= ProjectileModifier.Ice;
+        if (towerCharacteristics.piercingAmount > 0)
+            projectileModifierList |= ProjectileModifier.Piercing;
+        if (towerCharacteristics.damages > 20)
+            projectileModifierList |= ProjectileModifier.HeavyCaliber;
+    }
+
     private void ShootProjectileOnTarget(Mb_Enemy target)
     {
         Debug.Log("PewPierPew!");
         Mb_Projectile newProjectile = UniversalPool.GetItem("Projectile").GetComponent<Mb_Projectile>();
+
         newProjectile.SetModifier(projectileModifierList);
         newProjectile.Initialize(shootProjectilePoint.position, projectileLifeTime, target, towerCharacteristics.damages, towerCharacteristics.piercingAmount, towerCharacteristics.fireDamages, towerCharacteristics.slowDuration);
     }
