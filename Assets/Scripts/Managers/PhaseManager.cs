@@ -223,11 +223,11 @@ public class PhaseManager : MonoBehaviour
     {
         foreach(Mb_Enemy attacker in attackers)
         {
-            if(attacker)
-            {
+            //if(attacker)
+            //{
                 Debug.Log(attacker);
                 attacker.ReturnToPool();
-            } 
+            //} 
         }
         attackers.Clear();
     }
