@@ -59,11 +59,16 @@ public class Mb_Enemy : MonoBehaviour
 
     //////////////////////////////////////////////////////////      Initialisation      /////////////////////////////////////////////////////////
 
-    public void Init(int tileID)
+    public void Init(int tileID)    //Ajouter int Position pour le multiSpawn
     {
-        if(PhaseManager.instance.GetCurrentPhase() == Phase.ATTACK)         // Ajouter le check de spawn?
+        if(PhaseManager.instance.GetCurrentPhase() == Phase.ATTACK)
         {
+            TileType tileType = TileManager.instance.GetTileInfo(tileID).tileType;
+            if (tileType == TileType.DEFENCESPAWN || tileType == TileType.DEFENCESPAWN)
+                return;
+
             TileManager.instance.SetUnitPosition(gameObject, tileID);
+            //TileManager.instance.GetTileInfo(tileID).tileType = TileType.ATTACKSPAWN;
             unitState = UnitState.STANDBY;
             unitStartingMovementTile = tileID;
             remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
