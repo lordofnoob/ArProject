@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Sc_Lvl2TowerPiercingFire
   m_EditorClassIdentifier: 
   towerCharacteristics:
-    range: 1
-    damages: 28
+    damages: 20
+    fireDamages: 0
     numberOfShots: 3
     delayBetweenAttack: 2
     piercingAmount: 0.5
+    slowDuration: 0
+    range: 1
     allTowerFamily: 0300000000000000

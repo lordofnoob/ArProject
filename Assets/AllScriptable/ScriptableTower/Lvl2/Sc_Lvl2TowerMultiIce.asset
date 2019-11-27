@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Sc_Lvl2TowerMultiIce
   m_EditorClassIdentifier: 
   towerCharacteristics:
-    range: 2
-    damages: 16
+    damages: 12
+    fireDamages: 0
     numberOfShots: 4
     delayBetweenAttack: 2
     piercingAmount: 0
+    slowDuration: 0
+    range: 2
     allTowerFamily: 0500000001000000
