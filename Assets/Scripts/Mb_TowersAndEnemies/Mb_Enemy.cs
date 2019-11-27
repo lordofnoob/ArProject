@@ -215,7 +215,7 @@ public class Mb_Enemy : MonoBehaviour
             {
                 unitState = UnitState.MOVING;
                 movementProgress = 0;
-                transform.localRotation = Quaternion.LookRotation(TileManager.instance.GetTilePosition(unitDestinationTile) - TileManager.instance.GetTilePosition(unitStartingMovementTile), TileManager.instance.transform.up);
+                transform.localRotation = Quaternion.LookRotation(TileManager.instance.GetTilePosition(unitDestinationTile) - TileManager.instance.GetTilePosition(unitStartingMovementTile));
             }
         }
 
