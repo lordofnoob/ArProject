@@ -59,8 +59,9 @@ MonoBehaviour:
   shootProjectilePoint: {fileID: 6828840686628203028}
   ProjectilePrefab: {fileID: 1293649267379353695, guid: 8ed6474a9f5e6da408642c9decb96c93,
     type: 3}
+  projectileLifeTime: 2
   towerTileID: 0
-  itemName: 
+  itemName: Tower_Lvl1_MultiIce
 --- !u!95 &5445250839504797393
 Animator:
   serializedVersion: 3

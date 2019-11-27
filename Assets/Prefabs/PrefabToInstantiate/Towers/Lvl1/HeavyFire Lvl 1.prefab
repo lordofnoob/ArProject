@@ -110,8 +110,9 @@ MonoBehaviour:
   shootProjectilePoint: {fileID: 4012280745942625905}
   ProjectilePrefab: {fileID: 1293649267379353695, guid: 8ed6474a9f5e6da408642c9decb96c93,
     type: 3}
+  projectileLifeTime: 2
   towerTileID: 0
-  itemName: 
+  itemName: Tower_Lvl1_HeavyFire
 --- !u!1 &6904103258635067655
 GameObject:
   m_ObjectHideFlags: 0

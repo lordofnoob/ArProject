@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTileID: 0
-  itemName: 
+  itemName: Minion_Lvl2_Skeleton
   monsterCharacteristics: {fileID: 11400000, guid: 3602525e02611ed4aad3acfcf1aa4854,
     type: 2}
   monsterUpdatedCharacteristics:

@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &6420772056791098207
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572808911317804287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.1, z: 0.3}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!114 &3283158253087732840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,13 +37,13 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 833087837313981281}
   defaultTimeBeforeDeath: 5
---- !u!65 &6420772056791098207
+--- !u!65 &5591578500505082052
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 572808911317804287}
+  m_GameObject: {fileID: 2666576627411115047}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -61,56 +74,6 @@ MonoBehaviour:
     allEnemyFamilies: 
   anim: {fileID: 2989593016873264057}
   defaultTimeBeforeDeath: 5
---- !u!65 &5591578500505082052
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2666576627411115047}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.1, z: 0.3}
-  m_Center: {x: 0, y: 0.1, z: 0}
---- !u!114 &587008630427981919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4275752531295949977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnTileID: 0
-  itemName: 
-  monsterCharacteristics: {fileID: 11400000, guid: 2218482db37901544b378dde8b779746,
-    type: 2}
-  monsterUpdatedCharacteristics:
-    speed: 0
-    hitPoint: 0
-    defense: 0
-    damageToNexus: 0
-    allEnemyFamilies: 
-  anim: {fileID: 3975051292909611783}
-  defaultTimeBeforeDeath: 5
---- !u!65 &5200414877203082723
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4275752531295949977}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.1, z: 0.3}
-  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1 &4994948604584686384
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,43 +108,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
---- !u!114 &1070761219859336465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6422027754998908553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnTileID: 0
-  itemName: 
-  monsterCharacteristics: {fileID: 11400000, guid: 2218482db37901544b378dde8b779746,
-    type: 2}
-  monsterUpdatedCharacteristics:
-    speed: 0
-    hitPoint: 0
-    defense: 0
-    damageToNexus: 0
-    allEnemyFamilies: 
-  anim: {fileID: 6152794935610456343}
-  defaultTimeBeforeDeath: 5
---- !u!65 &6878644323484306417
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6422027754998908553}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.1, z: 0.3}
-  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1001 &914677268268950639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,28 +267,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2638661559764382744, guid: e52654e0f015b8a4d933d5e19d11b29e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ac8a93ff0ca2e584fb0ee3c8b658c53c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e52654e0f015b8a4d933d5e19d11b29e, type: 3}
---- !u!1 &4275752531295949977 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3003904737880406088, guid: e52654e0f015b8a4d933d5e19d11b29e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1361922397575720145}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &866265728796139241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2225654678536532536, guid: e52654e0f015b8a4d933d5e19d11b29e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1361922397575720145}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &3975051292909611783 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2723759834736592854, guid: e52654e0f015b8a4d933d5e19d11b29e,
     type: 3}
   m_PrefabInstance: {fileID: 1361922397575720145}
   m_PrefabAsset: {fileID: 0}
@@ -532,21 +441,9 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ac8a93ff0ca2e584fb0ee3c8b658c53c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e52654e0f015b8a4d933d5e19d11b29e, type: 3}
---- !u!1 &6422027754998908553 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3003904737880406088, guid: e52654e0f015b8a4d933d5e19d11b29e,
-    type: 3}
-  m_PrefabInstance: {fileID: 8119888175726444225}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7947936783416331513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2225654678536532536, guid: e52654e0f015b8a4d933d5e19d11b29e,
-    type: 3}
-  m_PrefabInstance: {fileID: 8119888175726444225}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &6152794935610456343 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2723759834736592854, guid: e52654e0f015b8a4d933d5e19d11b29e,
     type: 3}
   m_PrefabInstance: {fileID: 8119888175726444225}
   m_PrefabAsset: {fileID: 0}

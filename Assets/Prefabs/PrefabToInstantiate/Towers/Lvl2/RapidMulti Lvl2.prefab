@@ -207,8 +207,9 @@ MonoBehaviour:
   shootProjectilePoint: {fileID: 4850492131191618849}
   ProjectilePrefab: {fileID: 1293649267379353695, guid: 8ed6474a9f5e6da408642c9decb96c93,
     type: 3}
+  projectileLifeTime: 2
   towerTileID: 0
-  itemName: 
+  itemName: Tower_Lvl2_RapidMulti
 --- !u!1001 &1024846099297815046
 PrefabInstance:
   m_ObjectHideFlags: 0

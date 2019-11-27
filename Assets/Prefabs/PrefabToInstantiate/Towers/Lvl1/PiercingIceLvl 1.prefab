@@ -89,8 +89,9 @@ MonoBehaviour:
   shootProjectilePoint: {fileID: 5029377587225189260}
   ProjectilePrefab: {fileID: 1293649267379353695, guid: 8ed6474a9f5e6da408642c9decb96c93,
     type: 3}
+  projectileLifeTime: 2
   towerTileID: 0
-  itemName: 
+  itemName: Tower_Lvl1_PiercingIce
 --- !u!1 &6068541740273341913
 GameObject:
   m_ObjectHideFlags: 0

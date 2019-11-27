@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTileID: 0
-  itemName: 
+  itemName: Minion_Lvl2_Snakes
   monsterCharacteristics: {fileID: 11400000, guid: 6315a7d5b76a3a94c82a7eb1820116a4,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTileID: 0
-  itemName: 
+  itemName: Minion_Lvl2_Snakes
   monsterCharacteristics: {fileID: 11400000, guid: 6315a7d5b76a3a94c82a7eb1820116a4,
     type: 2}
   monsterUpdatedCharacteristics:
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTileID: 0
-  itemName: 
+  itemName: Minion_Lvl2_Snakes
   monsterCharacteristics: {fileID: 11400000, guid: 6315a7d5b76a3a94c82a7eb1820116a4,
     type: 2}
   monsterUpdatedCharacteristics:
