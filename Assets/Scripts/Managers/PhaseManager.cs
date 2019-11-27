@@ -26,6 +26,9 @@ public class PhaseManager : MonoBehaviour
         instance = this;
     }
 
+    public float farness = 1;
+    public Transform tileGridTransform;
+
     private Phase currentPhase;
     private Coroutine currentPhaseCoroutine;
 
@@ -52,9 +55,13 @@ public class PhaseManager : MonoBehaviour
     public IEnumerator InitPhase()
     {
         SetCurrentPhase(Phase.INIT);
-
+        
         TileManager.instance.InstanciateGrid();
-        TileManager.instance.gameObject.SetActive(false);
+        //TileManager.instance.gameObject.SetActive(false);
+        tileGridTransform.position = Vector3.forward * farness;
+        tileGridTransform.rotation = Quaternion.Euler(0, 0, 0);
+        TileManager.instance.SetTileGridTransform(tileGridTransform);
+
         //Placer le nexus!
         bool isClicked = false;
         while(!isClicked)
@@ -72,7 +79,7 @@ public class PhaseManager : MonoBehaviour
     {
         SetCurrentPhase(Phase.DEFENCE);
 
-        defenders.Clear();
+        
 
         bool isValidate = false;
         while(!isValidate)
@@ -158,7 +165,7 @@ public class PhaseManager : MonoBehaviour
         // Desafficher l'UI
 
         Debug.Log("Fin du Round");
-        ResetTileGrid();
+        ResetBoard();
         ScanManager.instance.ResetScan();
         currentPhaseCoroutine = StartCoroutine(DefencePhase());
     }
@@ -187,6 +194,33 @@ public class PhaseManager : MonoBehaviour
         }
         Debug.Log("Ils sont tous mort!");
         return true;
+    }
+
+    private void ResetBoard()
+    {
+        ResetTileGrid();
+        ResetTileGrid();
+        ClearDefeneders();
+        ClearAttackers();
+    }
+
+    private void ClearDefeneders()
+    {
+        foreach(Mb_Tower defender in defenders)
+        {
+            defender.RetrunToPool();
+        }
+        defenders.Clear();
+    }
+
+    private void ClearAttackers()
+    {
+        foreach(Mb_Enemy attacker in attackers)
+        {
+            if(attacker)
+                attacker.RetrunToPool();
+        }
+        attackers.Clear();
     }
 
     private void ResetTileGrid()
