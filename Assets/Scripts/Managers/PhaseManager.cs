@@ -157,7 +157,7 @@ public class PhaseManager : MonoBehaviour
 
         // Desafficher l'UI
 
-        Debug.Log("Fin du Round");
+
         ResetTileGrid();
         ScanManager.instance.ResetScan();
         currentPhaseCoroutine = StartCoroutine(DefencePhase());
@@ -185,7 +185,7 @@ public class PhaseManager : MonoBehaviour
                 return false;
             }
         }
-        Debug.Log("Ils sont tous mort!");
+ 
         return true;
     }
 

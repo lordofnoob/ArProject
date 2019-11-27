@@ -66,8 +66,11 @@ public class Mb_Projectile : MonoBehaviour
 
     public void SetModifier(ProjectileModifier projectileModifier)
     {
-        if ((projectileModifier & ProjectileModifier.Fire)== ProjectileModifier.Fire)
+        if ((projectileModifier & ProjectileModifier.Fire) == ProjectileModifier.Fire)
+        {
+            Debug.Log(projectileModifier);
             Fire.gameObject.SetActive(true);
+        }
         else
             Fire.gameObject.SetActive(false);
 
