@@ -39,7 +39,7 @@ public class Mb_Tower : MonoBehaviour
 
     public void Init(int spawnTile)
     {
-        if(PhaseManager.instance.GetCurrentPhase() == Phase.DEFENCE)        // Ajouter le check de spawn?
+        if(PhaseManager.instance.GetCurrentPhase() == Phase.DEFENCE && !TileManager.instance.GetTileInfo(spawnTile).IsSpawnOccupied())        // Ajouter le check de spawn?
         {
             towerTileID = spawnTile;
             TileManager.instance.SetUnitPosition(gameObject, towerTileID);
