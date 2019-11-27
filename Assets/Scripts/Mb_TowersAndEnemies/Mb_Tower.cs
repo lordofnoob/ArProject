@@ -64,7 +64,7 @@ public class Mb_Tower : MonoBehaviour
     public void ReturnToPool()          // Rename en ReturntoPoolParty please
     {
         Debug.Log(itemName);
-        UniversalPool.ReturnItem(gameObject.transform.parent.gameObject, itemName);
+        UniversalPool.ReturnItem(gameObject, itemName);
     }
 
     //public void SetUnitPosition(int spawnTileID)
