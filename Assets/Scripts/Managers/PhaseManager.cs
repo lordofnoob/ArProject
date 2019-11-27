@@ -194,6 +194,15 @@ public class PhaseManager : MonoBehaviour
         return true;
     }
 
+    public void ResetRound()
+    {
+        ResetBoard();
+        ScanManager.instance.ResetScan();
+        StopCoroutine(currentPhaseCoroutine);
+
+        currentPhaseCoroutine = StartCoroutine(DefencePhase());
+    }
+
     public void ResetBoard()
     {
         ResetTileGrid();
