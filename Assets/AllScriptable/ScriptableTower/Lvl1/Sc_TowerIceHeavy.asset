@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Sc_TowerIceHeavy
   m_EditorClassIdentifier: 
   towerCharacteristics:
-    damages: 16
+    damages: 10
     fireDamages: 0
     numberOfShots: 1
-    delayBetweenAttack: 2
+    delayBetweenAttack: 1.5
     piercingAmount: 0
     slowDuration: 0
     range: 1

@@ -16,5 +16,5 @@ MonoBehaviour:
     speed: 15
     hitPoint: 150
     defense: 0.2
-    damageToNexus: 6
+    damageToNexus: 11
     allEnemyFamilies: 0400000001000000

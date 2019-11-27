@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Sc_TowerUltra
   m_EditorClassIdentifier: 
   towerCharacteristics:
-    damages: 12
+    damages: 8
     fireDamages: 0
     numberOfShots: 3
-    delayBetweenAttack: 2
+    delayBetweenAttack: 1.5
     piercingAmount: 0
     slowDuration: 0
     range: 1

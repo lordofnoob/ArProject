@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Sc_Lvl2TowerFireIce
   m_EditorClassIdentifier: 
   towerCharacteristics:
-    damages: 20
+    damages: 16
     fireDamages: 0
     numberOfShots: 1
-    delayBetweenAttack: 2
+    delayBetweenAttack: 1.5
     piercingAmount: 0
     slowDuration: 0
     range: 2

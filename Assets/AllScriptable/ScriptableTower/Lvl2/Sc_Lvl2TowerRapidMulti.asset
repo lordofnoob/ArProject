@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Sc_Lvl2TowerRapidMulti
   m_EditorClassIdentifier: 
   towerCharacteristics:
-    damages: 12
+    damages: 8
     fireDamages: 0
     numberOfShots: 4
-    delayBetweenAttack: 1.2
+    delayBetweenAttack: 1
     piercingAmount: 0
     slowDuration: 0
     range: 1
