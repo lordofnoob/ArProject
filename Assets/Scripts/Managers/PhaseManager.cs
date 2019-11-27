@@ -62,7 +62,8 @@ public class PhaseManager : MonoBehaviour
         tileGridTransform.rotation = Quaternion.Euler(-90, 0, 0);
         TileManager.instance.SetTileGridTransform(tileGridTransform);
 
-        //Placer le nexus!
+        LifeManager.instance.NexusInit(LifeManager.instance.nexusTileID);
+
         bool isClicked = false;
         while(!isClicked)
         {

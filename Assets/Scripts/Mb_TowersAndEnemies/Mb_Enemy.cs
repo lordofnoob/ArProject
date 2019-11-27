@@ -207,7 +207,7 @@ public class Mb_Enemy : MonoBehaviour
         {
             unitDestinationTile = TileManager.instance.GetTileInfo(unitStartingMovementTile).FindNextTile();
             
-            if (TileManager.instance.GetTileInfo(unitDestinationTile).distanceFromGoal == 0)
+            if (unitStartingMovementTile == LifeManager.instance.nexusTileID)
             {
                 unitState = UnitState.ATTACKING;
             }
