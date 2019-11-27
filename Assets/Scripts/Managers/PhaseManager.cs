@@ -162,7 +162,7 @@ public class PhaseManager : MonoBehaviour
         // Desafficher l'UI
 
 
-        ResetTileGrid();
+        ResetBoard();
         ScanManager.instance.ResetScan();
         currentPhaseCoroutine = StartCoroutine(DefencePhase());
     }
