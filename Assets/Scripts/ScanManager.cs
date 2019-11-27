@@ -205,13 +205,14 @@ public class ScanManager : MonoBehaviour
         if (imageTarget.transform.GetChild(0).childCount > 4)
             return;
 
+        int tileID = GetCorrespondingTile(imageTarget.transform.position);
+
         for (int i = 0; i < imageTarget.transform.GetChild(0).childCount; i++)
         {
             GameObject clone = UniversalPool.GetItem(itemName);
 
             Mb_Enemy enemy;
             Mb_Tower tower;
-            int tileID = GetCorrespondingTile(imageTarget.transform.position);
 
             if (tileID >= 0)
             {
@@ -229,6 +230,9 @@ public class ScanManager : MonoBehaviour
                 Destroy(clone);
             }
         }
+
+        if(TileManager.instance.GetTileInfo(tileID).IsThereAtLeastOnSpawn())
+            TileManager.instance.GetTileInfo(tileID).SetSpawnOccupied();
     }
 
     public int GetCorrespondingTile(Vector3 currentElementPosition)

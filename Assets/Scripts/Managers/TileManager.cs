@@ -262,13 +262,13 @@ public class TileManager : MonoBehaviour
                 List<int> currentTileNeighbours = GetTileNeighbours(tileID);
 
                 //Remove duplicate
-                for (i = currentTileNeighbours.Count - 1; i >= 0; i--)
+                for (int j = currentTileNeighbours.Count - 1; j >= 0; j--)
                 {
                     foreach (int discoveredTile in discoveredTilesID)
                     {
-                        if (discoveredTile == currentTileNeighbours[i])
+                        if (discoveredTile == currentTileNeighbours[j])
                         {
-                            currentTileNeighbours.RemoveAt(i);
+                            currentTileNeighbours.RemoveAt(j);
                             break;
                         }
                     }

@@ -22,6 +22,8 @@ public class TileInfo : MonoBehaviour
     public List<Mb_Enemy> onTileElements;
     public Transform[] allSpawnPoint;
 
+    private bool spawnIsOccupied;
+    private bool atLeastOneUnitSpawn;
     private List<int> closestToGoalNeighbourTiles;
     private System.Random random;
     private bool[] positionIsOccupied;
@@ -30,9 +32,31 @@ public class TileInfo : MonoBehaviour
     {
         distanceFromGoal = -1;
         random = GameManager.instance.random;
-     
+
+        spawnIsOccupied = false;
+        atLeastOneUnitSpawn = false;
         onTileElements = new List<Mb_Enemy>();
         closestToGoalNeighbourTiles = new List<int>();
+    }
+
+    public void SetSpawnOccupied()
+    {
+        spawnIsOccupied = true;
+    }
+
+    public void SetAtleastOneSpawn()
+    {
+        atLeastOneUnitSpawn = true;
+    }
+    
+    public bool IsSpawnOccupied()
+    {
+        return spawnIsOccupied;
+    }
+
+    public bool IsThereAtLeastOnSpawn()
+    {
+        return atLeastOneUnitSpawn;
     }
 
     public Vector3 GetOffset(int localPosition)
@@ -46,8 +70,11 @@ public class TileInfo : MonoBehaviour
     public void ResetTile()
     {
         distanceFromGoal = -1;
-        if (tileType != TileType.NEXUS);
-        tileType = TileType.GROUND;
+        if (tileType != TileType.NEXUS)
+            tileType = TileType.GROUND;
+
+        spawnIsOccupied = false;
+        atLeastOneUnitSpawn = false;
 
         onTileElements.Clear();
         closestToGoalNeighbourTiles.Clear();
