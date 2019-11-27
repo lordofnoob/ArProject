@@ -117,6 +117,7 @@ public class PhaseManager : MonoBehaviour
     {
         SetCurrentPhase(Phase.COMPATIBILITY);
         GetAllFamilies();
+        SetupTowerModifier();
         // Afficher UI
         // Check Compatibility
         // Afficher UI (Bonus) 
@@ -537,6 +538,11 @@ public class PhaseManager : MonoBehaviour
         #endregion
     }
 
+    void SetupTowerModifier()
+    {
+        foreach (Mb_Tower tower in defenders)
+            tower.SetupParticleTrail();
+    }
     [System.Serializable]
     private struct FamilyMonsterCount
         {
