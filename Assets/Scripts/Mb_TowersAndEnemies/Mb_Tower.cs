@@ -60,6 +60,11 @@ public class Mb_Tower : MonoBehaviour
         }
     }
 
+    public void ReturnToPool()          // Rename en ReturntoPoolParty please
+    {
+        UniversalPool.ReturnItem(gameObject, itemName);
+    }
+
     //public void SetUnitPosition(int spawnTileID)
     //{
     //    gameObject.transform.parent = TileManager.instance.transform;

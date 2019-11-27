@@ -104,7 +104,7 @@ public class Mb_Enemy : MonoBehaviour
         }
     }
 
-    public void RetrunToPool()
+    public void ReturnToPool()
     {
         UniversalPool.ReturnItem(gameObject, itemName);
     }
