@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Sc_Lvl2TowerPiercingIce
   m_EditorClassIdentifier: 
   towerCharacteristics:
-    damages: 20
+    damages: 15
     fireDamages: 0
     numberOfShots: 1
-    delayBetweenAttack: 2
+    delayBetweenAttack: 1.5
     piercingAmount: 0.5
     slowDuration: 0
     range: 1
