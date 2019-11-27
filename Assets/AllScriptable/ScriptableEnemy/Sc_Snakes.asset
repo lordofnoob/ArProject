@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterBaseCharacteristics:
     speed: 20
-    hitPoint: 20
+    hitPoint: 25
     defense: 0.2
     damageToNexus: 1
     allEnemyFamilies: 0500000000000000
