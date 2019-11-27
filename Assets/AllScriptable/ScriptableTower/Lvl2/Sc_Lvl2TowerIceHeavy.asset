@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Sc_Lvl2TowerIceHeavy
   m_EditorClassIdentifier: 
   towerCharacteristics:
-    range: 1
-    damages: 40
+    damages: 20
+    fireDamages: 0
     numberOfShots: 1
     delayBetweenAttack: 1.5
     piercingAmount: 0
+    slowDuration: 0
+    range: 1
     allTowerFamily: 0100000004000000

@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Sc_TowerPiercingHeavy
   m_EditorClassIdentifier: 
   towerCharacteristics:
-    range: 1
-    damages: 28
+    damages: 16
+    fireDamages: 0
     numberOfShots: 1
     delayBetweenAttack: 2
     piercingAmount: 0.3
+    slowDuration: 0
+    range: 1
     allTowerFamily: 0300000004000000
