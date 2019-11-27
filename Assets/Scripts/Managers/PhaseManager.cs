@@ -159,6 +159,7 @@ public class PhaseManager : MonoBehaviour
 
         Debug.Log("Fin du Round");
         ResetTileGrid();
+        ScanManager.instance.ResetScan();
         currentPhaseCoroutine = StartCoroutine(DefencePhase());
     }
 

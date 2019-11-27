@@ -111,6 +111,7 @@ public class ScanManager : MonoBehaviour
     {
         Debug.Log("Change phase");
         ResetDisplay();
+        ResetScan();
 
         switch (phase)
         {
