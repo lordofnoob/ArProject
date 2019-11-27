@@ -75,6 +75,7 @@ public class Mb_Enemy : MonoBehaviour
             unitStartingMovementTile = tileID;
             remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
             PhaseManager.instance.attackers.Add(this);
+            TileManager.instance.GetTileInfo(tileID).SetAtleastOneSpawn();
         }
         else
         {
@@ -97,6 +98,7 @@ public class Mb_Enemy : MonoBehaviour
             unitStartingMovementTile = tileID;
             remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
             PhaseManager.instance.attackers.Add(this);
+            TileManager.instance.GetTileInfo(tileID).SetAtleastOneSpawn();
         }
         else
         {
