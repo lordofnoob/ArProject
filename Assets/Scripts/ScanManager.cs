@@ -238,7 +238,7 @@ public class ScanManager : MonoBehaviour
             }
         }
 
-        if(TileManager.instance.GetTileInfo(tileID).IsThereAtLeastOnSpawn())
+        if(tileID >= 0 && TileManager.instance.GetTileInfo(tileID).IsThereAtLeastOnSpawn())
             TileManager.instance.GetTileInfo(tileID).SetSpawnOccupied();
     }
 
