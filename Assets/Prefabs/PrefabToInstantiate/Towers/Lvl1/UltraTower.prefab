@@ -92,8 +92,9 @@ MonoBehaviour:
   shootProjectilePoint: {fileID: 2352883981102244720}
   ProjectilePrefab: {fileID: 1293649267379353695, guid: 8ed6474a9f5e6da408642c9decb96c93,
     type: 3}
+  projectileLifeTime: 2
   towerTileID: 0
-  itemName: 
+  itemName: Tower_Lvl1_UltraTower
 --- !u!1 &4823211291736097784
 GameObject:
   m_ObjectHideFlags: 0

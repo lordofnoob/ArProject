@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2225654678536532536}
+  - component: {fileID: 5200414877203082723}
+  - component: {fileID: 587008630427981919}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Untagged
@@ -31,6 +33,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5200414877203082723
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003904737880406088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.1, z: 0.3}
+  m_Center: {x: 0, y: 0.1, z: 0}
+--- !u!114 &587008630427981919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003904737880406088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84af8a7270634b045a0acab3ced1d6bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTileID: 0
+  itemName: Minion_Lvl2_Spider
+  monsterCharacteristics: {fileID: 11400000, guid: 2218482db37901544b378dde8b779746,
+    type: 2}
+  monsterUpdatedCharacteristics:
+    speed: 0
+    hitPoint: 0
+    defense: 0
+    damageToNexus: 0
+    allEnemyFamilies: 
+  anim: {fileID: 2723759834736592854}
+  defaultTimeBeforeDeath: 5
 --- !u!1001 &2638661559775842662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98,11 +137,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 13706622, guid: 57cff6f5c34e5b340b0cb8c045bbf81c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac8a93ff0ca2e584fb0ee3c8b658c53c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57cff6f5c34e5b340b0cb8c045bbf81c, type: 3}
 --- !u!4 &2638661559776006652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 491674, guid: 57cff6f5c34e5b340b0cb8c045bbf81c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2638661559775842662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2723759834736592854 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95373382922098352, guid: 57cff6f5c34e5b340b0cb8c045bbf81c,
     type: 3}
   m_PrefabInstance: {fileID: 2638661559775842662}
   m_PrefabAsset: {fileID: 0}

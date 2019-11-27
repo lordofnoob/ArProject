@@ -99,6 +99,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8141155188485711461, guid: a1c1e280af8c63945a6b029e3539d6d8,
+        type: 3}
+      propertyPath: itemName
+      value: Minion_Lvl1_Skeleton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1c1e280af8c63945a6b029e3539d6d8, type: 3}
 --- !u!4 &6923144440309207866 stripped
@@ -173,6 +178,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141155188485711461, guid: a1c1e280af8c63945a6b029e3539d6d8,
+        type: 3}
+      propertyPath: itemName
+      value: Minion_Lvl1_Skeleton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1c1e280af8c63945a6b029e3539d6d8, type: 3}

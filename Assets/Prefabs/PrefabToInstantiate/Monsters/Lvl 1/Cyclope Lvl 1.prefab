@@ -98,6 +98,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6306470156660825881, guid: 0e7f1867936c63e45a6cb11e13a7f1c0,
+        type: 3}
+      propertyPath: itemName
+      value: Minion_Lvl1_Cyclope
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e7f1867936c63e45a6cb11e13a7f1c0, type: 3}
 --- !u!4 &7914847061793096886 stripped

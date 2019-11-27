@@ -140,8 +140,9 @@ MonoBehaviour:
   shootProjectilePoint: {fileID: 988486529192061705}
   ProjectilePrefab: {fileID: 1293649267379353695, guid: 8ed6474a9f5e6da408642c9decb96c93,
     type: 3}
+  projectileLifeTime: 2
   towerTileID: 0
-  itemName: 
+  itemName: Tower_Lvl1_PiercingFire
 --- !u!1001 &3639556900207325033
 PrefabInstance:
   m_ObjectHideFlags: 0
