@@ -194,7 +194,7 @@ public class PhaseManager : MonoBehaviour
         return true;
     }
 
-    private void ResetBoard()
+    public void ResetBoard()
     {
         ResetTileGrid();
         ClearDefeneders();
