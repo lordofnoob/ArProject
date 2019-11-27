@@ -46,10 +46,10 @@ public class ScanManager : MonoBehaviour
     private void Update()
     {
         //debuggerDebugText.text = Camera.main.transform.position.ToString();
-        if (MiddleBoardToken.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+        //if (MiddleBoardToken.CurrentStatus == TrackableBehaviour.Status.TRACKED)
             BoardScanCanvas.GetComponentInChildren<Button>().interactable = true;
-        else
-            BoardScanCanvas.GetComponentInChildren<Button>().interactable = false;
+        //else
+        //    BoardScanCanvas.GetComponentInChildren<Button>().interactable = false;
     }
 
     public void ResetScan() // A modifier?

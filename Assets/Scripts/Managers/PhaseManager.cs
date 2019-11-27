@@ -214,6 +214,7 @@ public class PhaseManager : MonoBehaviour
     {
         foreach(Mb_Tower defender in defenders)
         {
+            defender.gameObject.SetActive(true);
             defender.ReturnToPool();
         }
         defenders.Clear();
@@ -225,7 +226,8 @@ public class PhaseManager : MonoBehaviour
         {
             //if(attacker)
             //{
-                Debug.Log(attacker);
+            attacker.gameObject.SetActive(true);
+            Debug.Log(attacker);
                 attacker.ReturnToPool();
             //} 
         }

@@ -113,6 +113,7 @@ public class Mb_Enemy : MonoBehaviour
 
     public void ReturnToPool()
     {
+        Debug.Log(itemName);
         UniversalPool.ReturnItem(gameObject, itemName);
     }
 
