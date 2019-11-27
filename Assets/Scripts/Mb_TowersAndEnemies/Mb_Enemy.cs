@@ -91,7 +91,10 @@ public class Mb_Enemy : MonoBehaviour
         {
             TileType tileType = TileManager.instance.GetTileInfo(tileID).tileType;
             if (tileType == TileType.DEFENCESPAWN || tileType == TileType.NEXUS)
+            {
+                UniversalPool.ReturnItem(gameObject, itemName);
                 return;
+            }
 
             TileManager.instance.SetUnitPosition(gameObject, tileID, tileLocation);
             offset = transform.localPosition - TileManager.instance.GetTileInfo(tileID).transform.localPosition;
