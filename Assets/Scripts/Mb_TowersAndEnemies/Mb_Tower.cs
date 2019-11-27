@@ -53,6 +53,7 @@ public class Mb_Tower : MonoBehaviour
 
             TileManager.instance.GetTileInfo(spawnTile).tileType = TileType.DEFENCESPAWN;
             PhaseManager.instance.defenders.Add(this);
+            TileManager.instance.GetTileInfo(spawnTile).SetAtleastOneSpawn();
         }
         else
         {
