@@ -200,26 +200,33 @@ public class ScanManager : MonoBehaviour
             itemName = imageTarget.GetComponentInChildren<Mb_Tower>().itemName;
         }
 
-        GameObject clone = UniversalPool.GetItem(itemName);
+        
+        if (imageTarget.transform.GetChild(0).childCount > 4)
+            return;
 
-        Mb_Enemy enemy;
-        Mb_Tower tower;
-        int tileID = GetCorrespondingTile(imageTarget.transform.position);
+        for (int i = 0; i < imageTarget.transform.GetChild(0).childCount; i++)
+        {
+            GameObject clone = UniversalPool.GetItem(itemName);
 
-        if (tileID >= 0)
-        {
-            if (enemy = clone.GetComponentInChildren<Mb_Enemy>())
+            Mb_Enemy enemy;
+            Mb_Tower tower;
+            int tileID = GetCorrespondingTile(imageTarget.transform.position);
+
+            if (tileID >= 0)
             {
-                enemy.Init(tileID);
+                if (enemy = clone.GetComponentInChildren<Mb_Enemy>())
+                {
+                    enemy.Init(tileID, i);
+                }
+                else if (tower = clone.GetComponentInChildren<Mb_Tower>())
+                {
+                    tower.Init(tileID);
+                }
             }
-            else if (tower = clone.GetComponentInChildren<Mb_Tower>())
+            else
             {
-                tower.Init(tileID);
+                Destroy(clone);
             }
-        }
-        else
-        {
-            Destroy(clone);
         }
     }
 

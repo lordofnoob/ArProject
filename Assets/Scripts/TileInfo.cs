@@ -24,6 +24,7 @@ public class TileInfo : MonoBehaviour
 
     private List<int> closestToGoalNeighbourTiles;
     private System.Random random;
+    private bool[] positionIsOccupied;
 
     private void Awake()
     {
@@ -32,6 +33,14 @@ public class TileInfo : MonoBehaviour
      
         onTileElements = new List<Mb_Enemy>();
         closestToGoalNeighbourTiles = new List<int>();
+    }
+
+    public Vector3 GetOffset(int localPosition)
+    {
+        if(localPosition < allSpawnPoint.Length && localPosition >= 0)
+            return allSpawnPoint[localPosition].transform.localPosition;
+        else
+            return Vector3.zero;
     }
 
     public void ResetTile()

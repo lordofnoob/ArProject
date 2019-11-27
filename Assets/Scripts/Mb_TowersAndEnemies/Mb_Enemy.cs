@@ -39,6 +39,8 @@ public class Mb_Enemy : MonoBehaviour
     private UnitState unitState;
     private int unitStartingMovementTile;
     private int unitDestinationTile;
+
+    private Vector3 offset = Vector3.zero;
     private float movementProgress;
 
     private float timeBeforeDeath;
@@ -52,14 +54,14 @@ public class Mb_Enemy : MonoBehaviour
     {
         monsterUpdatedCharacteristics = monsterCharacteristics.monsterBaseCharacteristics;
         timeBeforeDeath = defaultTimeBeforeDeath;
-        
-        //unitState = UnitState.STANDBY;
-        //remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
+
+        offset = Vector3.zero;
+        unitState = UnitState.STANDBY;
     }
 
     //////////////////////////////////////////////////////////      Initialisation      /////////////////////////////////////////////////////////
 
-    public void Init(int tileID)    //Ajouter int Position pour le multiSpawn
+    public void Init(int tileID)
     {
         if(PhaseManager.instance.GetCurrentPhase() == Phase.ATTACK)
         {
@@ -68,6 +70,28 @@ public class Mb_Enemy : MonoBehaviour
                 return;
 
             TileManager.instance.SetUnitPosition(gameObject, tileID);
+            //TileManager.instance.GetTileInfo(tileID).tileType = TileType.ATTACKSPAWN;
+            unitState = UnitState.STANDBY;
+            unitStartingMovementTile = tileID;
+            remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
+            PhaseManager.instance.attackers.Add(this);
+        }
+        else
+        {
+            UniversalPool.ReturnItem(gameObject, itemName);
+        }
+    }
+
+    public void Init(int tileID, int tileLocation)
+    {
+        if (PhaseManager.instance.GetCurrentPhase() == Phase.ATTACK)        // Check les tileType.ATTACKSPAWN?
+        {
+            TileType tileType = TileManager.instance.GetTileInfo(tileID).tileType;
+            if (tileType == TileType.DEFENCESPAWN || tileType == TileType.NEXUS)
+                return;
+
+            TileManager.instance.SetUnitPosition(gameObject, tileID, tileLocation);
+            offset = transform.localPosition - TileManager.instance.GetTileInfo(tileID).transform.localPosition;
             //TileManager.instance.GetTileInfo(tileID).tileType = TileType.ATTACKSPAWN;
             unitState = UnitState.STANDBY;
             unitStartingMovementTile = tileID;
@@ -175,8 +199,8 @@ public class Mb_Enemy : MonoBehaviour
         if (unitState == UnitState.STANDBY)
         {
             unitDestinationTile = TileManager.instance.GetTileInfo(unitStartingMovementTile).FindNextTile();
-
-            if(TileManager.instance.GetTileInfo(unitDestinationTile).distanceFromGoal == 0)
+            
+            if (TileManager.instance.GetTileInfo(unitDestinationTile).distanceFromGoal == 0)
             {
                 unitState = UnitState.ATTACKING;
             }
@@ -191,7 +215,8 @@ public class Mb_Enemy : MonoBehaviour
         if(unitState == UnitState.MOVING)
         {
             anim.SetTrigger("StartRunning");
-            Move();
+            MoveWithLocation();
+            
         }
 
         if(unitState == UnitState.ATTACKING)
@@ -224,6 +249,30 @@ public class Mb_Enemy : MonoBehaviour
         }
 
         transform.localPosition = TileManager.instance.GetTilePosition(unitStartingMovementTile) + ( TileManager.instance.GetTilePosition(unitDestinationTile) - TileManager.instance.GetTilePosition(unitStartingMovementTile) ) * movementProgress;
+    }
+
+    private void MoveWithLocation()
+    {
+        if (slowRemainingDuration > 0)
+        {
+            movementProgress += GetSlowedSpeed((float)monsterUpdatedCharacteristics.speed) / 100f * Time.fixedDeltaTime;
+        }
+        else
+        {
+            movementProgress += (float)monsterUpdatedCharacteristics.speed / 100f * Time.fixedDeltaTime;
+        }
+
+        //Debug.Log(movementProgress);
+
+        if (movementProgress >= 1)
+        {
+            transform.localPosition = TileManager.instance.GetTilePosition(unitDestinationTile);
+            unitStartingMovementTile = unitDestinationTile;
+            unitState = UnitState.STANDBY;
+            return;
+        }
+
+        transform.localPosition = TileManager.instance.GetTilePosition(unitStartingMovementTile) + (TileManager.instance.GetTilePosition(unitDestinationTile) - TileManager.instance.GetTilePosition(unitStartingMovementTile)) * movementProgress + offset;
     }
 
     private void Attack()

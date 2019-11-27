@@ -109,6 +109,14 @@ public class TileManager : MonoBehaviour
         unit.transform.localScale *= unitScaleRatio;
     }
 
+    public void SetUnitPosition(GameObject unit, int spawnTileID, int tileLocation)
+    {
+        unit.transform.parent = transform;
+        unit.transform.localPosition = GetTilePosition(spawnTileID, tileLocation);
+        unit.transform.localRotation = Quaternion.Euler(0, -180, 0);
+        unit.transform.localScale *= unitScaleRatio;
+    }
+
     public void ResetTiles()
     {
         foreach (TileInfo tile in tileGrid)
@@ -168,6 +176,10 @@ public class TileManager : MonoBehaviour
         }
     }
 
+    public Vector3 GetTilePosition(int tileID, int tileLocation)
+    {
+        return GetTilePosition(tileID) + GetTileInfo(tileID).GetOffset(tileLocation);
+    }
 
     private int GetLine(int tileID)
     {
