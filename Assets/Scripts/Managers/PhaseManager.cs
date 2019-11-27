@@ -228,8 +228,8 @@ public class PhaseManager : MonoBehaviour
             //{
             attacker.gameObject.SetActive(true);
             Debug.Log(attacker);
-                attacker.ReturnToPool();
-            //} 
+            attacker.ReturnToPool();
+            //}
         }
         attackers.Clear();
     }
