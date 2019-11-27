@@ -66,26 +66,24 @@ public class Mb_Projectile : MonoBehaviour
 
     public void SetModifier(ProjectileModifier projectileModifier)
     {
-        Debug.Log("projectileTrail" + projectileModifier);
-        if ((projectileModifier ^ ProjectileModifier.Fire) == ProjectileModifier.Fire)
+        if ((projectileModifier & ProjectileModifier.Fire) != 0)
         {
-          
             Fire.gameObject.SetActive(true);
         }
         else
             Fire.gameObject.SetActive(false);
 
-        if ((projectileModifier ^ ProjectileModifier.Ice) == ProjectileModifier.Ice )
+        if ((projectileModifier & ProjectileModifier.Ice) != 0) 
             Ice.gameObject.SetActive(true);
         else
             Ice.gameObject.SetActive(false);
 
-        if ((projectileModifier ^ ProjectileModifier.HeavyCaliber) == ProjectileModifier.HeavyCaliber)
+        if ((projectileModifier & ProjectileModifier.HeavyCaliber) != 0)
             Heavy.gameObject.SetActive(true);
         else
             Heavy.gameObject.SetActive(false);
 
-        if ((projectileModifier ^ ProjectileModifier.Piercing) == ProjectileModifier.Piercing)
+        if ((projectileModifier & ProjectileModifier.Piercing) !=0)
             Piercing.gameObject.SetActive(true);
         else
             Piercing.gameObject.SetActive(false);

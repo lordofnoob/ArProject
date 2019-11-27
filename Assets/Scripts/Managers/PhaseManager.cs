@@ -553,4 +553,5 @@ public class PhaseManager : MonoBehaviour
     {
         public int fireCount, iceCount, rapidFireCount, piercingCount, heavyCaliberCount, multitowerCount;
     }
+    
 }
