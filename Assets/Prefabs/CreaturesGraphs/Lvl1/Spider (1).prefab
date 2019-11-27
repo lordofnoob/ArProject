@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTileID: 0
-  itemName: 
+  itemName: Minion_Lvl1_Spider
   monsterCharacteristics: {fileID: 11400000, guid: 2218482db37901544b378dde8b779746,
     type: 2}
   monsterUpdatedCharacteristics:

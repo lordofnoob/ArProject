@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTileID: 0
-  itemName: 
+  itemName: Minion_Lvl2_EarthDemon
   monsterCharacteristics: {fileID: 11400000, guid: ac92739d32149ba468e0971996356656,
     type: 2}
   monsterUpdatedCharacteristics:

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTileID: 0
-  itemName: 
+  itemName: Minion_Lvl2_Chimera
   monsterCharacteristics: {fileID: 11400000, guid: 9e945895e2a86d74886bd84ae77824b5,
     type: 2}
   monsterUpdatedCharacteristics:

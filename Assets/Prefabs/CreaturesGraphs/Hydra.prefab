@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTileID: 0
-  itemName: 
+  itemName: Minion_Lvl2_Hydra
   monsterCharacteristics: {fileID: 11400000, guid: a5acc4e3c1c7c024c8fdef466270904c,
     type: 2}
   monsterUpdatedCharacteristics:

@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTileID: 0
-  itemName: 
+  itemName: Minion_Lvl2_Cyclope
   monsterCharacteristics: {fileID: 11400000, guid: 448533041420e054a933d15dd5eb73c6,
     type: 2}
   monsterUpdatedCharacteristics:
