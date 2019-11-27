@@ -13,6 +13,8 @@ public class LifeManager : MonoBehaviour
     private bool playerIsDead = false;
     private float playerRemainingLife;
 
+    private GameObject nexus;
+
     private void Awake()
     {
         if (instance)
@@ -47,6 +49,7 @@ public class LifeManager : MonoBehaviour
     {
         nexusTileID = spawnTile;
         TileManager.instance.GetTileInfo(spawnTile).tileType = TileType.NEXUS;
-        TileManager.instance.SetUnitPosition(UniversalPool.GetItem(nexusItemName), spawnTile);
+        nexus = UniversalPool.GetItem(nexusItemName);
+        TileManager.instance.SetUnitPosition(nexus, spawnTile);
     }
 }
