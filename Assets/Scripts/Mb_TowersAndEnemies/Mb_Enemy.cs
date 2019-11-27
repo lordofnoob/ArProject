@@ -64,7 +64,7 @@ public class Mb_Enemy : MonoBehaviour
         if(PhaseManager.instance.GetCurrentPhase() == Phase.ATTACK)
         {
             TileType tileType = TileManager.instance.GetTileInfo(tileID).tileType;
-            if (tileType == TileType.DEFENCESPAWN || tileType == TileType.DEFENCESPAWN)
+            if (tileType == TileType.DEFENCESPAWN || tileType == TileType.NEXUS)
                 return;
 
             TileManager.instance.SetUnitPosition(gameObject, tileID);
