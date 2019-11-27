@@ -68,9 +68,8 @@ public class ScanManager : MonoBehaviour
         switch (PhaseManager.instance.GetCurrentPhase())
         {
             case Phase.INIT:                                        //Ajouter le level design (Nexus + spawn + ...) Refactorer avec le PhaseManager
-                TileManager.instance.InstanciateGrid();
+                TileManager.instance.gameObject.SetActive(true);
                 TileManager.instance.SetTileGridTransform(MiddleBoardToken.transform);
-                TileManager.instance.SetPathFinding(0);
                 initValidate = true;
                 break;
             case Phase.ATTACK:

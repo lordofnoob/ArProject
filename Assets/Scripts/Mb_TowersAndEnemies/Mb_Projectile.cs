@@ -35,14 +35,13 @@ public class Mb_Projectile : MonoBehaviour
     private float armorPiercing;
     private float fireDamage;
     private float slowDuration;
-    private float lifeTime = 5;
+    private float lifeTime;
 
     private void FixedUpdate()
     {
         if(target && target.GetUnitState() != UnitState.DEAD)
         {
-            lifeTime -= Time.fixedDeltaTime;
-            Debug.LogError(target);
+            //Debug.LogError(target);
 
             if (lifeTime <= 0)
             {
@@ -52,9 +51,12 @@ public class Mb_Projectile : MonoBehaviour
             }
             else
             {
+                Debug.Log((target.transform.position - transform.position) * Time.fixedDeltaTime / lifeTime);
                 transform.position += (target.transform.position - transform.position) * Time.fixedDeltaTime / lifeTime;
                 transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position, TileManager.instance.transform.up);
             }
+
+            lifeTime -= Time.fixedDeltaTime;
         }
         else
         {
@@ -88,18 +90,15 @@ public class Mb_Projectile : MonoBehaviour
     public void Initialize(Vector3 startPosition, float newLifeTime, Mb_Enemy newTarget, float newDamage,  float newArmorPiercing, float newFireDamage, float newSlowDuration)
     {
         target = newTarget;
-        transform.position = startPosition;
 
+        transform.position = startPosition;
         transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position, TileManager.instance.transform.up);
 
         lifeTime = newLifeTime;
 
-      
-        
         damage = newDamage;
         armorPiercing = newArmorPiercing;
         fireDamage = newFireDamage;
         slowDuration = newSlowDuration;
-        
     }
 }

@@ -109,6 +109,14 @@ public class TileManager : MonoBehaviour
         unit.transform.localScale *= unitScaleRatio;
     }
 
+    public void ResetTiles()
+    {
+        foreach (TileInfo tile in tileGrid)
+        {
+            tile.ResetTile();
+        }
+    }
+
     public GameObject GetTile(int tileID)
     {
         return tileGrid[tileID].gameObject;
@@ -335,4 +343,5 @@ public class TileManager : MonoBehaviour
                 return false;
         }
     }
+
 }

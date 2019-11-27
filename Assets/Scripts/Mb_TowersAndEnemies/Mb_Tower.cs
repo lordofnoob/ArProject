@@ -10,7 +10,9 @@ public class Mb_Tower : MonoBehaviour
     public ProjectileModifier projectileModifierList;
     public Transform shootProjectilePoint;
     public GameObject ProjectilePrefab;
-         
+
+    public float projectileLifeTime = 2;   // LifeTime Hardwrite pas terrible...
+
     private List<TileInfo> tileInRange = new List<TileInfo>();
     public int towerTileID = -1;
     public string itemName;
@@ -48,11 +50,13 @@ public class Mb_Tower : MonoBehaviour
                 tileInRange.AddRange(list);
             }
             tileInRange = tileInRange.OrderBy(tile => tile.distanceFromGoal).ToList();
+
+            TileManager.instance.GetTileInfo(spawnTile).tileType = TileType.DEFENCESPAWN;
             PhaseManager.instance.defenders.Add(this);
         }
         else
         {
-            Destroy(gameObject);
+            UniversalPool.ReturnItem(gameObject, itemName);
         }
     }
 
@@ -77,7 +81,7 @@ public class Mb_Tower : MonoBehaviour
             for (int i = 0; i < targets.Count; i++)
             {
                 Mb_Enemy target = targets[i];
-                if (isInRange(target))
+                if (IsInRange(target))
                 {
                     ShootProjectileOnTarget(target);
                 }
@@ -106,18 +110,24 @@ public class Mb_Tower : MonoBehaviour
                 if (targets.Contains(ennemy))
                     continue;
                 
-                targets.Add(ennemy);
-                Debug.Log("Target acquired! " + ennemy);
+                if (ennemy.GetUnitState() != UnitState.DEAD && ennemy.GetUnitState() != UnitState.WAITINGFORDEATH)
+                {
+                    targets.Add(ennemy);
+                    Debug.Log("Target acquired! " + ennemy);
+                }
             }
         }
     }
 
-    public bool isInRange(Mb_Enemy ennemy)
+    public bool IsInRange(Mb_Enemy ennemy)
     {
         foreach (TileInfo tile in tileInRange)
         {
             if (tile.GetClosestEnemies().Contains(ennemy))
-                return true;
+            {
+                if (ennemy.GetUnitState() != UnitState.DEAD && ennemy.GetUnitState() != UnitState.WAITINGFORDEATH)
+                    return true;
+            }
         }
         return false;
     }
@@ -125,7 +135,6 @@ public class Mb_Tower : MonoBehaviour
     private void ShootProjectileOnTarget(Mb_Enemy target)
     {
         Debug.Log("PewPierPew!");
-        float projectileLifeTime = 1;   // LifeTime Hardwrite pas terrible...
         Mb_Projectile newProjectile = UniversalPool.GetItem("Projectile").GetComponent<Mb_Projectile>();
         newProjectile.SetModifier(projectileModifierList);
         newProjectile.Initialize(shootProjectilePoint.position, projectileLifeTime, target, towerCharacteristics.damages, towerCharacteristics.piercingAmount, towerCharacteristics.fireDamages, towerCharacteristics.slowDuration);

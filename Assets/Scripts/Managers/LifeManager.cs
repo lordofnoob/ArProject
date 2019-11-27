@@ -5,7 +5,8 @@ using UnityEngine;
 public class LifeManager : MonoBehaviour
 {
     public static LifeManager instance;
-
+    public string nexusItemName;
+    public int nexusTileID = 0;
     
     public float playerStartingLife = 100;
     
@@ -19,7 +20,7 @@ public class LifeManager : MonoBehaviour
             Destroy(this);
             return;
         }
-
+        instance = this;
         playerRemainingLife = playerStartingLife;
     }
 
@@ -40,5 +41,12 @@ public class LifeManager : MonoBehaviour
         {
             GameManager.instance.GameOver();
         }
+    }
+
+    public void NexusInit(int spawnTile)
+    {
+        nexusTileID = spawnTile;
+        TileManager.instance.GetTileInfo(spawnTile).tileType = TileType.NEXUS;
+        TileManager.instance.SetUnitPosition(UniversalPool.GetItem(nexusItemName), spawnTile);
     }
 }

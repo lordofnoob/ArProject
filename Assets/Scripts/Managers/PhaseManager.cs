@@ -53,6 +53,9 @@ public class PhaseManager : MonoBehaviour
     {
         SetCurrentPhase(Phase.INIT);
 
+        TileManager.instance.InstanciateGrid();
+        TileManager.instance.gameObject.SetActive(false);
+        //Placer le nexus!
         bool isClicked = false;
         while(!isClicked)
         {
@@ -81,6 +84,8 @@ public class PhaseManager : MonoBehaviour
             yield return 0;
         }
 
+        TileManager.instance.SetPathFinding(LifeManager.instance.nexusTileID); // A Deplacer Peut etre...
+        
         Debug.Log("Attack Phase");
         currentPhaseCoroutine = StartCoroutine(AttackPhase());
     }
@@ -152,6 +157,7 @@ public class PhaseManager : MonoBehaviour
 
         // Desafficher l'UI
         Debug.Log("Fin du Round");
+        ResetTileGrid();
         currentPhaseCoroutine = StartCoroutine(DefencePhase());
     }
 
@@ -172,13 +178,18 @@ public class PhaseManager : MonoBehaviour
     {
         foreach(Mb_Enemy enemy in attackers)
         {
-            if (enemy)
+            if (enemy && enemy.gameObject.activeSelf)
             {
                 return false;
             }
         }
         Debug.Log("Ils sont tous mort!");
         return true;
+    }
+
+    private void ResetTileGrid()
+    {
+        TileManager.instance.ResetTiles();
     }
 
     void GetAllFamilies()

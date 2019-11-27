@@ -31,7 +31,7 @@ public class Mb_Enemy : MonoBehaviour
 
     //Slow a ajouter!
 
-    public float defaultTimeBeforeDeath;
+    public float defaultTimeBeforeDeath = 5f;
 
     private float remainingHitPoints;
     private float slowRemainingDuration;
@@ -41,7 +41,7 @@ public class Mb_Enemy : MonoBehaviour
     private int unitDestinationTile;
     private float movementProgress;
 
-    private float timeBeforeDeath = 5f;
+    private float timeBeforeDeath;
 
     private void Awake()
     {
@@ -51,7 +51,7 @@ public class Mb_Enemy : MonoBehaviour
     private void OnEnable()
     {
         monsterUpdatedCharacteristics = monsterCharacteristics.monsterBaseCharacteristics;
-
+        timeBeforeDeath = defaultTimeBeforeDeath;
         
         //unitState = UnitState.STANDBY;
         //remainingHitPoints = monsterUpdatedCharacteristics.hitPoint;
@@ -71,7 +71,7 @@ public class Mb_Enemy : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            UniversalPool.ReturnItem(gameObject, itemName);
         }
     }
 
@@ -150,13 +150,13 @@ public class Mb_Enemy : MonoBehaviour
 
     public void Action()
     {
-        if(unitState == UnitState.DEAD)
+        if(unitState == UnitState.DEAD)     // Return ou setactive(false)?
         {
             UniversalPool.ReturnItem(gameObject, itemName);
             return;
         }
 
-        if (unitState == UnitState.WAITINGFORDEATH)     // A Modifier
+        if (unitState == UnitState.WAITINGFORDEATH)
         {
             timeBeforeDeath = -Time.fixedDeltaTime;
             if (timeBeforeDeath < 0)
@@ -223,11 +223,9 @@ public class Mb_Enemy : MonoBehaviour
 
     private void Attack()
     {
-        // Animation
-        // Attendre pour une certaine durée
+        anim.SetTrigger("ReachedNexus");
         LifeManager.instance.DamagePlayer(monsterUpdatedCharacteristics.damageToNexus);
         unitState = UnitState.WAITINGFORDEATH;
-        // Animation de mort
     }
 
     private float GetSlowedSpeed(float speed)

@@ -10,7 +10,8 @@ public enum TileType
     OBSTACLE,
     GROUND,
     ATTACKSPAWN,
-    DEFENCESPAWN
+    DEFENCESPAWN,
+    NEXUS
 }
 
 public class TileInfo : MonoBehaviour
@@ -31,6 +32,16 @@ public class TileInfo : MonoBehaviour
      
         onTileElements = new List<Mb_Enemy>();
         closestToGoalNeighbourTiles = new List<int>();
+    }
+
+    public void ResetTile()
+    {
+        distanceFromGoal = -1;
+        if (tileType != TileType.NEXUS);
+        tileType = TileType.GROUND;
+
+        onTileElements.Clear();
+        closestToGoalNeighbourTiles.Clear();
     }
 
     public void AddPath(int tileID)
@@ -102,4 +113,5 @@ public class TileInfo : MonoBehaviour
             onTileElements.Remove(leavingEnemy);
         }
     }
+
 }
