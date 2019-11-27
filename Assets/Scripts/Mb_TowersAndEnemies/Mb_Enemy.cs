@@ -193,7 +193,8 @@ public class Mb_Enemy : MonoBehaviour
     {
         if(unitState == UnitState.DEAD)     // Return ou setactive(false)?
         {
-            UniversalPool.ReturnItem(gameObject, itemName);
+            gameObject.SetActive(false);
+            //UniversalPool.ReturnItem(gameObject, itemName);
             return;
         }
 
