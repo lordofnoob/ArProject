@@ -79,8 +79,6 @@ public class PhaseManager : MonoBehaviour
     {
         SetCurrentPhase(Phase.DEFENCE);
 
-        
-
         bool isValidate = false;
         while(!isValidate)
         {
@@ -100,8 +98,6 @@ public class PhaseManager : MonoBehaviour
     private IEnumerator AttackPhase()
     {
         SetCurrentPhase(Phase.ATTACK);
-
-        attackers.Clear();
 
         bool isValidate = false;
         while (!isValidate)
@@ -199,7 +195,6 @@ public class PhaseManager : MonoBehaviour
     private void ResetBoard()
     {
         ResetTileGrid();
-        ResetTileGrid();
         ClearDefeneders();
         ClearAttackers();
     }
@@ -208,7 +203,7 @@ public class PhaseManager : MonoBehaviour
     {
         foreach(Mb_Tower defender in defenders)
         {
-            defender.RetrunToPool();
+            defender.ReturnToPool();
         }
         defenders.Clear();
     }
@@ -218,7 +213,10 @@ public class PhaseManager : MonoBehaviour
         foreach(Mb_Enemy attacker in attackers)
         {
             if(attacker)
-                attacker.RetrunToPool();
+            {
+                Debug.Log(attacker);
+                attacker.ReturnToPool();
+            } 
         }
         attackers.Clear();
     }
