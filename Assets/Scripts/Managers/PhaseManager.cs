@@ -59,7 +59,7 @@ public class PhaseManager : MonoBehaviour
         TileManager.instance.InstanciateGrid();
         //TileManager.instance.gameObject.SetActive(false);
         tileGridTransform.position = Vector3.forward * farness;
-        tileGridTransform.rotation = Quaternion.Euler(0, 0, 0);
+        tileGridTransform.rotation = Quaternion.Euler(-90, 0, 0);
         TileManager.instance.SetTileGridTransform(tileGridTransform);
 
         //Placer le nexus!

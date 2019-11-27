@@ -105,7 +105,7 @@ public class TileManager : MonoBehaviour
     {
         unit.transform.parent = transform;
         unit.transform.localPosition = GetTilePosition(spawnTileID);
-        unit.transform.localRotation = Quaternion.Euler(0, -180, 0);
+        unit.transform.localRotation = Quaternion.Euler(0, 0, 0);
         unit.transform.localScale *= unitScaleRatio;
     }
 
@@ -113,7 +113,7 @@ public class TileManager : MonoBehaviour
     {
         unit.transform.parent = transform;
         unit.transform.localPosition = GetTilePosition(spawnTileID, tileLocation);
-        unit.transform.localRotation = Quaternion.Euler(0, -180, 0);
+        unit.transform.localRotation = Quaternion.Euler(0, 0, 0);
         unit.transform.localScale *= unitScaleRatio;
     }
 
