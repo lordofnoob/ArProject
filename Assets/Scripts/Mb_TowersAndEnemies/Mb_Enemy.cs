@@ -104,6 +104,11 @@ public class Mb_Enemy : MonoBehaviour
         }
     }
 
+    public void RetrunToPool()
+    {
+        UniversalPool.ReturnItem(gameObject, itemName);
+    }
+
     public void InitDebug()
     {
         if(spawnTileID >= 0)
