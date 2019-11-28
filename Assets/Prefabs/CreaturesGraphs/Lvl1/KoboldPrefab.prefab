@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnTileID: 0
   itemName: 
-  monsterCharacteristics: {fileID: 0}
+  monsterCharacteristics: {fileID: 11400000, guid: f7fa1d2797c4afc4b8b7041be918e90f,
+    type: 2}
   monsterUpdatedCharacteristics:
     speed: 0
     hitPoint: 0
