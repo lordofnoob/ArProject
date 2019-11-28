@@ -216,7 +216,7 @@ public class ScanManager : MonoBehaviour
 
             if (tileID >= 0)
             {
-                if (enemy = clone.GetComponentInChildren<Mb_Enemy>())
+                if (enemy = clone.GetComponent<Mb_Enemy>())
                 {
                     enemy.Init(tileID, i);
                 }
